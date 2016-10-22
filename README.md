@@ -6,3 +6,11 @@ git commit -m "Contents..."
 git remote add origin https://github.com/syscl/Ubuntu-M3800.git
 git push -u origin master
 ```
+
+or use
+```sh
+git add .
+git commit -m "Contents..."
+git remote add origin https://github.com/syscl/Ubuntu-M3800.git
+git push -u origin master
+```
