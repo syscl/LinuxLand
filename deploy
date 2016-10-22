@@ -5,20 +5,21 @@ function _inst_llvm()
     #
     # Add the archive signature
     #
-    wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+    // wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
     #
     # Add the PPA
     #
-    sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main"
-    sudo apt-get update 
+    // sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main"
+    sudo apt-get update
     #
     # Allow the Repository to reload and then run the following command
     #
-    sudo apt-get install clang-3.9 lldb-3.9
+    // sudo apt-get install clang-3.9 lldb-3.9
+    sudo apt-get install clang
     #
     # Test your installation as follows, as shown on my own Xenial system
     #
-    clang-3.9 --version
+    clang --version
 }
 
 function main()
