@@ -1,5 +1,7 @@
 # Ubuntu-M3800
 
+This is project is targeting for Ubuntu on M3800. Make it easy to use and more Apple-like.
+
 ```sh
 git add file
 git commit -m "Contents..."
