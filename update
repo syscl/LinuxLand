@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#
+# Update/refresh system buffer/cache
+#
+# refresh font cache
+sudo fc-cache -f -v
