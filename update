@@ -5,3 +5,7 @@
 #
 # refresh font cache
 sudo fc-cache -f -v
+#
+# update applications list
+#
+sudo apt-get update
