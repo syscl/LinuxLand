@@ -1,6 +1,6 @@
 # Ubuntu-M3800
 
-This is project is targeting for Ubuntu on M3800. Make it easy to use and more Apple-like.
+Hola, this project is targeting for making Ubuntu on M3800 easy to use. And also, the deploy will make the Ubuntu more Apple-like. I will place optimizations for Ubuntu on both M3800 and XPS15 9530, wish you all enjoy it. 
 
 ```sh
 git add file
