@@ -15,3 +15,8 @@ git add .
 git commit -m "Contents..."
 git push -u origin master
 ```
+Pay attention to "Clone or download" --> "Use SSH", for exmpale "git@github.com:syscl/Ubuntu-M3800.git"
+then, typing:
+```sh
+git remote set-url origin git@github.com:syscl/Ubuntu-M3800.git
+```
