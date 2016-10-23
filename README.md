@@ -22,21 +22,8 @@ Now we can simple execute deploy by typing:
 ```
 
 ---
-```sh
-git add file
-git commit -m "Contents..."
-git remote add origin https://github.com/syscl/Ubuntu-M3800.git
-git push -u origin master
-```
+Change log
 
-or use
-```sh
-git add .
-git commit -m "Contents..."
-git push -u origin master
-```
-Pay attention to "Clone or download" --> "Use SSH", for exmpale "git@github.com:syscl/Ubuntu-M3800.git"
-then, typing:
-```sh
-git remote set-url origin git@github.com:syscl/Ubuntu-M3800.git
-```
+2016-10-22
+
+- Init commit 
