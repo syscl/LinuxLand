@@ -9,3 +9,7 @@ sudo fc-cache -f -v
 # update applications list
 #
 sudo apt-get update
+#
+# update boot config
+#
+sudo update-grub
