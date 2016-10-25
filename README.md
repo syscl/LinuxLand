@@ -12,6 +12,7 @@ Sublime text 3
 clang
 Chrome
 Cherrytree
+netbeans for Java and C++
 git
 ```
 
