@@ -1,5 +1,15 @@
 # git usage
 
+install git
+```sh
+sudo apt-get purge runit
+sudo apt-get purge git-all
+sudo apt-get purge git
+sudo apt-get autoremove
+sudo apt update
+sudo apt install git
+```
+
 Setup email address and username by:
 ```sh
 git config --global user.email "you@example.com"
