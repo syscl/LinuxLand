@@ -4,7 +4,17 @@ Hola, this project is targeting for making Ubuntu on M3800 easy to use. And also
 
 Don't hesitate to suggest if you have any good ideas.
 
----
+Softwares & links
+```sh
+VS Code: https://code.visualstudio.com/
+Atom 
+Sublime text 3
+clang
+Chrome
+Cherrytree
+git
+```
+
 How to use?
 
 Dowload this project by typing:
@@ -21,7 +31,6 @@ Now we can simple execute deploy by typing:
 ./deploy
 ```
 
----
 Change log
 
 2016-10-22
