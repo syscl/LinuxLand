@@ -22,9 +22,19 @@ function _inst_llvm()
     clang --version
 }
 
+function _inst_qemu(parameter)
+{
+    sudo apt-get install qemu
+    #
+    # for xv6
+    #
+    sudo apt-get install libc6-dev:i386
+}
+
 function main()
 {
     _inst_llvm
+    _inst_qemu
 
     exit 0
 }
