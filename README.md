@@ -7,13 +7,16 @@ Don't hesitate to suggest if you have any good ideas.
 Softwares & links
 ```sh
 VS Code: https://code.visualstudio.com/
-Atom 
+Atom
 Sublime text 3
 clang
 Chrome
 Cherrytree
 netbeans for Java and C++
 git
+Unity Tweak Tool for fonts modification
+Youdao dict
+Netease music
 ```
 
 How to use?
@@ -36,4 +39,4 @@ Change log
 
 2016-10-22
 
-- Init commit 
+- Init commit
