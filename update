@@ -13,3 +13,7 @@ sudo apt-get update
 # update boot config
 #
 sudo update-grub
+#
+# remove useless depedencies
+#
+sudo apt-get autoremove
