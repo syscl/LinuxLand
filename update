@@ -9,6 +9,7 @@ sudo fc-cache -f -v
 # update applications list
 #
 sudo apt-get update
+sudo apt-get uprade
 #
 # update boot config
 #

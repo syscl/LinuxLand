@@ -4,7 +4,7 @@ Hola, this project is targeting for making Ubuntu on M3800 easy to use. And also
 
 Don't hesitate to suggest if you have any good ideas.
 
-# Softwares & optimizations
+# Softwares & Optimizations
 
 - [VisualStudio Code](https://code.visualstudio.com/)
 
