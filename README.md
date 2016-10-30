@@ -24,13 +24,11 @@ Don't hesitate to suggest if you have any good ideas.
 
 - [Clang](http://llvm.org/)
 
-- git
-```sh
-sudo apt-get install git
-```
+- git ```sh sudo apt-get install git```
+
 - Unity Tweak Tool in ```Ubuntu Softwares```
 
-# Optimize libreoffice
+# Optimize ```libreoffice```
 
 - Close the startup logo in /etc/libreoffice/sofficerc : ```Logo=1``` --> ```Logo=0```
 
@@ -50,7 +48,7 @@ or(my case)
 netbeans_jdkhome="/usr/lib/jvm/default-java"
 ```
 
-# Optimize foxitreader
+# Optimize ```foxitreader```
 - Install program by
 ```sh
 sudo ./FoxitReader.run
@@ -68,13 +66,13 @@ sudo mv /opt/foxitreader/fxplugins /opt/foxitreader/fxplugins.bad
 
 # How to use?
 
-- Dowload this project by typing:
+- Dowload this project by
 ```sh
 git clone https://github.com/syscl/Ubuntu-M3800
 ```
 - This will download the whole directory, the next step is to change the deploy permission so that it can be executed:
 ```sh
-cd Ubuntu-M3800/
+cd Ubuntu-M3800
 chmod +x *
 ```
 - Execute deploy by typing:
