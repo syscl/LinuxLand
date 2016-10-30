@@ -6,14 +6,17 @@ Don't hesitate to suggest if you have any good ideas.
 
 # Softwares & links
 
-```[VS Code]```(https://code.visualstudio.com/)
+[VisualStudio Code](https://code.visualstudio.com/)
+[Atom](https://atom.io/)
+[Sublime text](https://www.sublimetext.com/)
+[Chrome](https://www.google.com/chrome/)
+[Cherrytree](http://www.giuspen.com/cherrytree/)
+[netbeans](https://netbeans.org/)
+[Netease music](http://music.163.com/)
+[Youdao dict](http://cidian.youdao.com/)
 
 ```sh
-Atom
-Sublime text 3
 clang
-Chrome
-Cherrytree
 
 netbeans for Java and C++:
     the netbeans root folder/etc and open netbeans.conf,
@@ -24,8 +27,7 @@ netbeans for Java and C++:
 
 git
 Unity Tweak Tool for fonts modification
-Youdao dict
-Netease music
+
 libreoffice: close the startup logo: /etc/libreoffice/sofficerc : Logo=1 --> Logo=0
 Foxit reader: remove redundant plug ins:  ~/opt/foxitsoftware/foxitreader/fxplugins --> fxplugins.bad
 ```
