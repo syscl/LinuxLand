@@ -16,4 +16,5 @@ sudo update-grub
 #
 # remove useless depedencies
 #
+sudo apt-get clean
 sudo apt-get autoremove
