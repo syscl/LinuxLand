@@ -12,7 +12,14 @@ Sublime text 3
 clang
 Chrome
 Cherrytree
-netbeans for Java and C++
+
+netbeans for Java and C++:
+    the netbeans root folder/etc and open netbeans.conf,
+    make sure the variable netbeans_jdkhome has the correct value, something like:
+        netbeans_jdkhome="/usr/lib/jvm/java-8-oracle"
+    or
+        netbeans_jdkhome="/usr/lib/jvm/default-java"
+
 git
 Unity Tweak Tool for fonts modification
 Youdao dict
