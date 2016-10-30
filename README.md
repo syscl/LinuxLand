@@ -24,7 +24,7 @@ Don't hesitate to suggest if you have any good ideas.
 
 - [Clang](http://llvm.org/)
 
-- git ```sh sudo apt-get install git```
+- git ```sudo apt-get install git```
 
 - Unity Tweak Tool in ```Ubuntu Softwares```
 
