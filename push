@@ -141,7 +141,7 @@ function _add_commit()
 {
     printf "Enter commit"
     read -p ": " gCommit_Contents
-    _tidy_exec "git commit -m "${gCommit_Contents}"" "Add comment"
+    git commit -m "${gCommit_Contents}" >2&1 >/dev/null
 }
 
 #
@@ -150,7 +150,7 @@ function _add_commit()
 
 function _push()
 {
-    _tidy_exec "git push -u origin master" "$gCommit_Contents"
+    _tidy_exec "git push -u origin ${gGitHubBranch}" "$gCommit_Contents"
 }
 
 #
