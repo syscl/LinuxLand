@@ -34,8 +34,8 @@ unset GREP_COLOR
 # Display style setting.
 #
 BOLD="\033[1m"
-RED="\033[0;31m"
-GREEN="\033[0;32m"
+RED="\033[1;31m"
+GREEN="\033[1;32m"
 BLUE="\033[1;34m"
 OFF="\033[0m"
 
@@ -76,19 +76,19 @@ function _PRINT_MSG()
 
     case "$message" in
       OK*    ) local message=$(echo $message | sed -e 's/.*OK://')
-               echo "[  ${GREEN}OK${OFF}  ] ${message}."
+               echo -e "[  ${GREEN}OK${OFF}  ] ${message}."
                ;;
 
       FAILED*) local message=$(echo $message | sed -e 's/.*://')
-               echo "[${RED}FAILED${OFF}] ${message}."
+               echo -e "[${RED}FAILED${OFF}] ${message}."
                ;;
 
       ---*   ) local message=$(echo $message | sed -e 's/.*--->://')
-               echo "[ ${GREEN}--->${OFF} ] ${message}"
+               echo -e "[ ${GREEN}--->${OFF} ] ${message}"
                ;;
 
       NOTE*  ) local message=$(echo $message | sed -e 's/.*NOTE://')
-               echo "[ ${RED}Note${OFF} ] ${message}."
+               echo -e "[ ${RED}Note${OFF} ] ${message}."
                ;;
     esac
 }
