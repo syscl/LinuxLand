@@ -24,7 +24,27 @@ git
 Unity Tweak Tool for fonts modification
 Youdao dict
 Netease music
-libreoffice: close the startup logo: /etc/libreoffice/sofficerc : Logo=1 --> Logo=0 
+libreoffice: close the startup logo: /etc/libreoffice/sofficerc : Logo=1 --> Logo=0
+Foxit reader: remove redundant plug ins:  ~/opt/foxitsoftware/foxitreader/fxplugins --> fxplugins.bad
+```
+
+Correct foxitreader installation folder issue:
+- Move ```FoxitReader``` to /opt :
+```sh
+sudo mv ~/opt/foxitsoftware/foxitreader /opt
+```
+- Create a symbolic link for foxitreader
+```sh
+sudo ln -s /opt/foxitreader/FoxitReader /usr/bin/FoxitReader
+```
+- Optimized/removed FoxitReader cloud plug ins(previous casue the system drain 100% cpu resources)
+```sh
+sudo mv /opt/foxitreader/fxplugins /opt/foxitreader/fxplugins.bad
+```
+- Clean up
+```sh
+rm -r ~/opt
+rm ~/bin
 ```
 
 How to use?
