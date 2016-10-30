@@ -24,7 +24,7 @@ git
 Unity Tweak Tool for fonts modification
 Youdao dict
 Netease music
-libreoffice: close the startup logo: /etc/libreoffice/sofficerc : ```Logo=1``` t--> ```Logo=0``` 
+libreoffice: close the startup logo: /etc/libreoffice/sofficerc : ```Logo=1``` --> ```Logo=0``` 
 ```
 
 How to use?
