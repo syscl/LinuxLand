@@ -1,9 +1,178 @@
 #!/bin/bash
 
-git add .
-printf "Enter commit"
-read -p ": " gCommit_Contents
-git commit -m "$gCommit_Contents"
-git push -u origin master
+#================================= GLOBAL VARS ==================================
 
-exit 0
+#
+# The script expects '0.5' but non-US localizations use '0,5' so we export
+# LC_NUMERIC here (for the duration of the deploy.sh) to prevent errors.
+#
+export LC_NUMERIC="en_US.UTF-8"
+
+#
+# Script version info.
+#
+gScriptVersion=1.0
+
+#
+# GitHub branch to pull data from (master or Beta).
+#
+gGitHubBranch="master"
+
+#
+# Get user id
+#
+let gID=$(id -u)
+
+#
+# Prevent non-printable/control characters.
+#
+unset GREP_OPTIONS
+unset GREP_COLORS
+unset GREP_COLOR
+
+#
+# Display style setting.
+#
+BOLD="\033[1m"
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+BLUE="\033[1;34m"
+OFF="\033[m"
+
+#
+# Define two status: 0 - Success, Turn on,
+#                    1 - Failure, Turn off
+#
+kBASHReturnSuccess=0
+kBASHReturnFailure=1
+
+#
+# Function return val
+#
+RETURN_VAL=0
+
+#
+# Locate repository.
+#
+REPO=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+#
+# Define update location
+#
+gUPD_REPO=${REPO}
+
+#
+# Define global variables
+#
+gCommit_Contents=""
+
+#
+#--------------------------------------------------------------------------------
+#
+
+function _PRINT_MSG()
+{
+    local message=$1
+
+    case "$message" in
+      OK*    ) local message=$(echo $message | sed -e 's/.*OK://')
+               echo "[  ${GREEN}OK${OFF}  ] ${message}."
+               ;;
+
+      FAILED*) local message=$(echo $message | sed -e 's/.*://')
+               echo "[${RED}FAILED${OFF}] ${message}."
+               ;;
+
+      ---*   ) local message=$(echo $message | sed -e 's/.*--->://')
+               echo "[ ${GREEN}--->${OFF} ] ${message}"
+               ;;
+
+      NOTE*  ) local message=$(echo $message | sed -e 's/.*NOTE://')
+               echo "[ ${RED}Note${OFF} ] ${message}."
+               ;;
+    esac
+}
+
+#
+#--------------------------------------------------------------------------------
+#
+
+function _tidy_exec()
+{
+    if [ $gDebug -eq 0 ];
+      then
+        #
+        # Using debug mode to output all the details.
+        #
+        _PRINT_MSG "DEBUG: $2"
+        $1
+      else
+        #
+        # Make the output clear.
+        #
+        $1 >/tmp/report 2>&1 && RETURN_VAL=${kBASHReturnSuccess} || RETURN_VAL=${kBASHReturnFailure}
+
+        if [ "${RETURN_VAL}" == ${kBASHReturnSuccess} ];
+          then
+            _PRINT_MSG "OK: $2"
+          else
+            _PRINT_MSG "FAILED: $2"
+            cat /tmp/report
+        fi
+
+        rm /tmp/report &> /dev/null
+    fi
+}
+
+#
+#--------------------------------------------------------------------------------
+#
+
+function _jmp2repo()
+{
+    cd ${gUPD_REPO}
+}
+
+#
+#--------------------------------------------------------------------------------
+#
+
+function _add_commit()
+{
+    printf "Enter commit"
+    read -p ": " gCommit_Contents
+    git commit -m "${gCommit_Contents}"
+}
+
+#
+#--------------------------------------------------------------------------------
+#
+
+function _push()
+{
+    _tidy_exec "git push -u origin ${gGitHubBranch}" "Publish new update: $gCommit_Contents"
+}
+
+#
+#--------------------------------------------------------------------------------
+#
+
+function main()
+{
+    # jump to repo
+    _jmp2repo
+    # add update
+    git add .
+    # gain commit contents
+    _add_commit
+    # push update to github
+    _push
+}
+
+#==================================== START =====================================
+
+main "$@"
+
+#================================================================================
+
+exit ${RETURN_VAL}
