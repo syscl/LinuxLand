@@ -4,7 +4,7 @@ Hola, this project is targeting for making Ubuntu on M3800 easy to use. And also
 
 Don't hesitate to suggest if you have any good ideas.
 
-Softwares & links
+# Softwares & links
 ```sh
 VS Code: https://code.visualstudio.com/
 Atom
