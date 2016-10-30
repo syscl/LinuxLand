@@ -28,7 +28,7 @@ libreoffice: close the startup logo: /etc/libreoffice/sofficerc : Logo=1 --> Log
 Foxit reader: remove redundant plug ins:  ~/opt/foxitsoftware/foxitreader/fxplugins --> fxplugins.bad
 ```
 
-Correct foxitreader installation folder issue:
+# Correct foxitreader installation folder issue:
 - Move ```FoxitReader``` to /opt :
 ```sh
 sudo mv ~/opt/foxitsoftware/foxitreader /opt
@@ -47,7 +47,7 @@ rm -r ~/opt
 rm ~/bin
 ```
 
-How to use?
+# How to use?
 
 Dowload this project by typing:
 ```sh
@@ -63,7 +63,7 @@ Now we can simple execute deploy by typing:
 ./deploy
 ```
 
-Change log
+# Change log
 
 2016-10-22
 
