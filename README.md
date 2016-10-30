@@ -6,21 +6,21 @@ Don't hesitate to suggest if you have any good ideas.
 
 # Softwares & links
 
-[VisualStudio Code](https://code.visualstudio.com/)
+- [VisualStudio Code](https://code.visualstudio.com/)
 
-[Atom](https://atom.io/)
+- [Atom](https://atom.io/)
 
-[Sublime text](https://www.sublimetext.com/)
+- [Sublime text](https://www.sublimetext.com/)
 
-[Chrome](https://www.google.com/chrome/)
+- [Chrome](https://www.google.com/chrome/)
 
-[Cherrytree](http://www.giuspen.com/cherrytree/)
+- [Cherrytree](http://www.giuspen.com/cherrytree/)
 
-[netbeans](https://netbeans.org/)
+- [netbeans](https://netbeans.org/)
 
-[Netease music](http://music.163.com/)
+- [Netease music](http://music.163.com/)
 
-[Youdao dict](http://cidian.youdao.com/)
+- [Youdao dict](http://cidian.youdao.com/)
 
 ```sh
 clang
