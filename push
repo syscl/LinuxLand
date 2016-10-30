@@ -34,10 +34,10 @@ unset GREP_COLOR
 # Display style setting.
 #
 BOLD="\033[1m"
-RED="\033[1;31m"
-GREEN="\033[1;32m"
+RED="\033[0;31m"
+GREEN="\033[0;32m"
 BLUE="\033[1;34m"
-OFF="\033[m"
+OFF="\033[0m"
 
 #
 # Define two status: 0 - Success, Turn on,
@@ -159,6 +159,24 @@ function _push()
 
 function main()
 {
+    #
+    # Get argument.
+    #
+    gArgv=$(echo "$@" | tr '[:lower:]' '[:upper:]')
+    if [[ $# -eq 1 && "$gArgv" == "-D" || "$gArgv" == "-DEBUG" ]];
+      then
+        #
+        # Yes, we do need debug mode.
+        #
+        _PRINT_MSG "NOTE: Use ${BLUE}DEBUG${OFF} mode"
+        gDebug=0
+      else
+        #
+        # No, we need a clean output style.
+        #
+        gDebug=1
+    fi
+    
     # jump to repo
     _jmp2repo
     # add update
