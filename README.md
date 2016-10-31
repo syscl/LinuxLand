@@ -28,6 +28,10 @@ Don't hesitate to suggest if you have any good ideas.
 ```sh
 sudo apt-get install git
 ```
+- deepin scrot/screenshot
+```sh
+sudo apt-get install pthon-xlib
+```
 
 - Unity Tweak Tool in ```Ubuntu Softwares```
 
