@@ -24,6 +24,8 @@ Don't hesitate to suggest if you have any good ideas.
 
 - [Clang](http://llvm.org/)
 
+- [Sougou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
+
 - git
 ```sh
 sudo apt-get install git
@@ -70,6 +72,12 @@ sudo chown syscl:syscl configtoolbar.xml
 ```sh
 sudo mv /opt/foxitreader/fxplugins /opt/foxitreader/fxplugins.bad
 ```
+
+# Optimize ```sougou pinying```
+- Disable shift switch key by ```Sougou```-->```Setting```-->```Button(K)```-->```Chinese2English```-->```None```
+- Change Font and Font size to meet the requirement of high resolution screen
+- ```System Settings```-->```Keyboard```-->```Shortcuts```-->```Typing```-->```Disable``` all by typing ```Backspace```
+- ```Fcitx```-->```Global Config```-->```Trigger input method```-->```Ctrl+Space```
 
 # How to use?
 
