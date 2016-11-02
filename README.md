@@ -26,6 +26,8 @@ Don't hesitate to suggest if you have any good ideas.
 
 - [Sougou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
 
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+
 - git
 ```sh
 sudo apt-get install git
