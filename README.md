@@ -39,14 +39,14 @@ sudo apt-get install git
 sudo apt-get install pthon-xlib
 ```
 
+- Unity Tweak Tool in ```Ubuntu Softwares```
+
 # Optimize Eclipse
 
 - Create app lnk for Unity
 ```sh
 sudo ln -s $HOME/java/eclipse/eclipse /usr/bin/eclipse
 ```
-
-- Unity Tweak Tool in ```Ubuntu Softwares```
 
 # Optimize ```libreoffice```
 
