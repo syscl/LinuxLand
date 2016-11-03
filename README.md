@@ -16,7 +16,7 @@ Don't hesitate to suggest if you have any good ideas.
 
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 
-- [netbeans](https://netbeans.org/)
+- [Eclipse](https://eclipse.org/downloads/)
 
 - [Netease music](http://music.163.com/)
 
@@ -28,6 +28,8 @@ Don't hesitate to suggest if you have any good ideas.
 
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
+- [netbeans](https://netbeans.org/)
+
 - git
 ```sh
 sudo apt-get install git
@@ -35,6 +37,13 @@ sudo apt-get install git
 - deepin scrot/screenshot
 ```sh
 sudo apt-get install pthon-xlib
+```
+
+# Optimize Eclipse
+
+- Create app lnk for Unity
+```sh
+sudo ln -s $HOME/java/eclipse/eclipse /usr/bin/eclipse
 ```
 
 - Unity Tweak Tool in ```Ubuntu Softwares```
