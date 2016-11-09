@@ -7,29 +7,18 @@ Don't hesitate to suggest if you have any good ideas.
 # Softwares & Optimizations
 
 - [VisualStudio Code](https://code.visualstudio.com/)
-
 - [Atom](https://atom.io/)
-
 - [Sublime text](https://www.sublimetext.com/)
-
 - [Chrome](https://www.google.com/chrome/)
-
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
-
 - [Eclipse](https://eclipse.org/downloads/)
-
 - [Netease music](http://music.163.com/)
-
 - [Youdao dict](http://cidian.youdao.com/)
-
 - [Clang](http://llvm.org/)
-
 - [Sougou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
-
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-
+- [Typora](http://www.typora.io/#)
 - [netbeans](https://netbeans.org/)
-
 - git
 ```sh
 sudo apt-get install git
