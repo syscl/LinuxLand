@@ -96,6 +96,10 @@ chmod +x *
 ```
 
 # Change log
+2017-02-17
+
+- Added drag lock(LockedDrag) and palm rejection(PalmDetect) for M3800 and x205ta
+
 2016-10-30
 
 - Update description for softwares
