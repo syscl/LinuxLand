@@ -30,15 +30,15 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 ```
 4. Adding a new SSH key to your GitHub account
-1)Copy the SSH key to your clipboard:
+   1)Copy the SSH key to your clipboard:
 ```sh
 sudo apt-get install xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 5. Go to ```Avatar profile```-->```settings```-->```SSH and GPG keys```-->```New SSH key or Add SSH key```-->```paste ssh key you copy```-->```Add SSH key```
-6. Go to ```repo```-->```Clone or download```-->```Use SSH```: ```git@github.com:syscl/Ubuntu-M3800.git```
+6. Go to ```repo```-->```Clone or download```-->```Use SSH```: ```git@github.com:syscl/Ubuntu4Laptops.git```
 ```sh
-git remote set-url origin git@github.com:syscl/Ubuntu-M3800.git
+git remote set-url origin git@github.com:syscl/Ubuntu4Laptops.git
 ```
 ----------------
 # Common push changes from local place
