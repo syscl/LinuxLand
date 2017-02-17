@@ -1,8 +1,15 @@
-# Ubuntu-M3800
+# Deploy for laptops with Ubuntu
 
-Hola, this project is targeting for making Ubuntu on M3800 easy to use. And also, the deploy will make the Ubuntu more Apple-like. I will place optimizations for Ubuntu on both M3800 and XPS15 9530, wish you all enjoy it.
+This project targets at making Ubuntu on some specific laptops easy to use. After executing deploy, the script will make Ubuntu have a good user experience. I will place optimizations for Ubuntu on both M3800, XPS15 9530 and Asus X205ta, wish you all enjoy it.
 
 Don't hesitate to suggest if you have any good ideas.
+
+# Support models
+
+- Dell Precision M3800
+- Dell XPS 15 9530
+- Dell XPS 13 9350/9360
+- Asus x205ta
 
 # Softwares & Optimizations
 
@@ -78,6 +85,45 @@ sudo mv /opt/foxitreader/fxplugins /opt/foxitreader/fxplugins.bad
 - Change Font and Font size to meet the requirement of high resolution screen
 - ```System Settings```-->```Keyboard```-->```Shortcuts```-->```Typing```-->```Disable``` all by typing ```Backspace```
 - ```Fcitx```-->```Global Config```-->```Trigger input method```-->```Ctrl+Space```
+
+
+
+# Sublime text as default editor
+
+- Please refer [here](http://superuser.com/questions/704046/change-default-text-editor-to-sublime-text-in-linux-mint)
+
+# Use ```black``` cursor instead of ```white``` cursor
+
+The problem of using Unity Tweak Tool(a very powerful tool) is that Unity Tweak Tool can not change the cursor entirely. In login mode, we still can see the origin system default cursor. And sometimes, the black cursor will be reversed due to some system bug. Thus the permanent solution will be replace the whole white mouse cursor to a black one, here's the solution
+
+```sh
+mv -r /usr/share/icons/DMZ-White /usr/share/icons/DMZ-White-bak
+cp -r /usr/share/icons/DMZ-Black /usr/share/icons/DMZ-White 
+```
+
+Reboot, now you can enjoy a nice black mouse cursor. 
+
+# ```Drag lock``` and ```Palm rejection```
+
+Once I've switched to ```Ubuntu```, I soon realized the function of the trackpad lose drag lock and palm rejection which make the trackpad almost unable to use.  Thus I do some research about how to tune with it, here's the [solution](https://github.com/syscl/Ubuntu4Laptops/commit/d739b107be787bc05413aa5237d9705971b65c67).
+
+After applying the patch, you will soon enjoy the trackpad on Ubuntu. 
+
+# Install latex 
+
+You know, I do not use ```M$ Office``` for quiet a long time, even when I finished my undergraduate paper. M$ Office is great(much better than Apple's ```iWork```), but I want to use Latex instead. Here's how to install Latex
+
+```sh
+apt-get install texlive texstudio 
+```
+
+# Install JDK
+
+```sh
+apt-get install default-jdk
+```
+
+
 
 # How to use?
 
