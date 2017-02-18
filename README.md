@@ -125,6 +125,41 @@ apt-get install default-jdk
 
 
 
+# Disable ```hibernation``` on Asus X205ta
+
+Note: x205ta hibernate behaves unstable, thus we simply disable it by the following:
+
+- Create a new file called `/etc/polkit-1/localauthority/50-local.d/com.ubuntu.disable-suspend.pkla` with the following contents:
+
+```
+[Disable suspend (upower)]
+Identity=unix-user:*
+Action=org.freedesktop.upower.suspend
+ResultActive=no
+ResultInactive=no
+ResultAny=no
+
+[Disable suspend (logind)]
+Identity=unix-user:*
+Action=org.freedesktop.login1.suspend
+ResultActive=no
+ResultInactive=no
+ResultAny=no
+
+[Disable suspend when others are logged in (logind)]
+Identity=unix-user:*
+Action=org.freedesktop.login1.suspend-multiple-sessions
+ResultActive=no
+ResultInactive=no
+ResultAny=no
+```
+
+- Reboot to see change
+
+This tells PolicyKit to automatically say "no" whenever anything asks if it's OK/possible to suspend. Logout menus will react to this by automatically removing the 'Suspend' menu choice.
+
+I don't quite understand why, but the `upower` setting is needed for KDE but does not affect Unity. The `login1` settings are needed for Unity but do not affect KDE.
+
 # How to use?
 
 - Dowload this project by
