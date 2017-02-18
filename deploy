@@ -37,21 +37,53 @@ function _DragLock_And_PalmDetect()
     # This enable the DragLock and PalmDetection function
     #
     local XorgConf="/usr/share/X11/xorg.conf.d/60-synaptics-options.conf"
-    sudo touch ${XorgConf}
-    echo 'Section "InputClass"' >${XorgConf}
-    echo '    Identifier "touchpad catchall"' >>${XorgConf}
-    echo '    Driver "synaptics"' >>${XorgConf}
-    echo '    MatchIsTouchpad "on"' >>${XorgConf}
+    echo 'Section "InputClass"'                                                  >${XorgConf}
+    echo '    Identifier "touchpad catchall"'                                   >>${XorgConf}
+    echo '    Driver "synaptics"'                                               >>${XorgConf}
+    echo '    MatchIsTouchpad "on"'                                             >>${XorgConf}
 #    echo 'MatchDevicePath "/dev/input/event*"' >>${XorgConf}
-    echo '    Option "LockedDrags" "1"' >>${XorgConf}
-    echo '    Option "PalmDetect" "1"' >>${XorgConf}
-    echo 'EndSection' >>${XorgConf}
+    echo '    Option "LockedDrags" "1"'                                         >>${XorgConf}
+    echo '    Option "PalmDetect" "1"'                                          >>${XorgConf}
+    echo 'EndSection'                                                           >>${XorgConf}
+}
+
+function _disSuspend()
+{
+    #
+    # Note: we'd better disable hibernate/suspend mode on x205ta because
+    # it will very likely panic the system. Sleep perform pretty well
+    # if you close the lid. We also need to disable the Suspend button
+    # in menu as well
+    #
+    local dSuspendConf="/etc/polkit-1/localauthority/50-local.d/com.ubuntu.disable-suspend.pkla"
+    echo '[Disable suspend (upower)]'                                            >${dSuspendConf}
+    echo 'Identity=unix-user:*'                                                 >>${dSuspendConf}
+    echo 'Action=org.freedesktop.upower.suspend'                                >>${dSuspendConf}
+    echo 'ResultActive=no'                                                      >>${dSuspendConf}
+    echo 'ResultInactive=no'                                                    >>${dSuspendConf}
+    echo 'ResultAny=no'                                                         >>${dSuspendConf}
+    echo ''                                                                     >>${dSuspendConf}
+    echo '[Disable suspend (logind)]'                                           >>${dSuspendConf}
+    echo 'Identity=unix-user:*'                                                 >>${dSuspendConf}
+    echo 'Action=org.freedesktop.login1.suspend'                                >>${dSuspendConf}
+    echo 'ResultActive=no'                                                      >>${dSuspendConf}
+    echo 'ResultInactive=no'                                                    >>${dSuspendConf}
+    echo 'ResultAny=no'                                                         >>${dSuspendConf}
+    echo ''                                                                     >>${dSuspendConf}
+    echo '[Disable suspend when others are logged in (logind)]'                 >>${dSuspendConf}
+    echo 'Identity=unix-user:*'                                                 >>${dSuspendConf}
+    echo 'Action=org.freedesktop.login1.suspend-multiple-sessions'              >>${dSuspendConf}
+    echo 'ResultActive=no'                                                      >>${dSuspendConf}
+    echo 'ResultInactive=no'                                                    >>${dSuspendConf}
+    printf 'ResultAny=no'                                                       >>${dSuspendConf}
 }
 
 function main()
 {
     _inst_llvm
     _inst_qemu
+    _DragLock_And_PalmDetect
+    _disSuspend
 
     exit 0
 }
