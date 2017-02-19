@@ -164,6 +164,18 @@ I don't quite understand why, but the `upower` setting is needed for KDE but d
 
 Google Chrome (evidently a problem specific to Google's engineers) will also hook all USB ports. Sometimes this causes a problem. Personally, I don't see why a web browser should be hooking USB ports at the kernel level, so I always disable this "feature". Visit``` chrome://flags/#enable-webusb```, and you can disable it.
 
+# Reduce ```startup``` and ```shutdown```  timeout
+- /etc/systemd/system.conf:
+```
+DefaultTimeoutStartSec=10s
+DefaultTimeoutStopSec=10s
+```
+Then reload systemd by
+```shell
+systemctl daemon-reload
+```
+
+
 # How to use?
 
 - Dowload this project by
