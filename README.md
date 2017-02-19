@@ -98,23 +98,23 @@ The problem of using Unity Tweak Tool(a very powerful tool) is that Unity Tweak 
 
 ```sh
 mv -r /usr/share/icons/DMZ-White /usr/share/icons/DMZ-White-bak
-cp -r /usr/share/icons/DMZ-Black /usr/share/icons/DMZ-White 
+cp -r /usr/share/icons/DMZ-Black /usr/share/icons/DMZ-White
 ```
 
-Reboot, now you can enjoy a nice black mouse cursor. 
+Reboot, now you can enjoy a nice black mouse cursor.
 
 # ```Drag lock``` and ```Palm rejection```
 
 Once I've switched to ```Ubuntu```, I soon realized the function of the trackpad lose drag lock and palm rejection which make the trackpad almost unable to use.  Thus I do some research about how to tune with it, here's the [solution](https://github.com/syscl/Ubuntu4Laptops/commit/d739b107be787bc05413aa5237d9705971b65c67).
 
-After applying the patch, you will soon enjoy the trackpad on Ubuntu. 
+After applying the patch, you will soon enjoy the trackpad on Ubuntu.
 
-# Install latex 
+# Install latex
 
 You know, I do not use ```M$ Office``` for quiet a long time, even when I finished my undergraduate paper. M$ Office is great(much better than Apple's ```iWork```), but I want to use Latex instead. Here's how to install Latex
 
 ```sh
-apt-get install texlive texstudio 
+apt-get install texlive texstudio
 ```
 
 # Install JDK
@@ -174,7 +174,11 @@ Then reload systemd by
 ```shell
 systemctl daemon-reload
 ```
-
+# Get rid of resources greedy ```evolution-calendar*``` services on ```x205ta```
+```shell
+mv /usr/lib/evolution /usr/lib/evolution_DISABLE
+for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolution | grep -v grep); do killall $procname; done
+```
 
 # How to use?
 
