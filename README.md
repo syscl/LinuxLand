@@ -160,6 +160,10 @@ This tells PolicyKit to automatically say "no" whenever anything asks if it's OK
 
 I don't quite understand why, but the `upower` setting is needed for KDE but does not affect Unity. The `login1` settings are needed for Unity but do not affect KDE.
 
+# Disable ```Chrome``` ```webusb```
+
+Google Chrome (evidently a problem specific to Google's engineers) will also hook all USB ports. Sometimes this causes a problem. Personally, I don't see why a web browser should be hooking USB ports at the kernel level, so I always disable this "feature". Visit``` chrome://flags/#enable-webusb```, and you can disable it.
+
 # How to use?
 
 - Dowload this project by
@@ -177,6 +181,10 @@ chmod +x *
 ```
 
 # Change log
+2017-02-19
+
+- Disable ```Chrome``` problematic and power consume webusb hook
+
 2017-02-17
 
 - Added drag lock(LockedDrag) and palm rejection(PalmDetect) for M3800 and x205ta
