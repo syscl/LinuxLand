@@ -103,6 +103,10 @@ cp -r /usr/share/icons/DMZ-Black /usr/share/icons/DMZ-White
 
 Reboot, now you can enjoy a nice black mouse cursor.
 
+For those who enjoy macOS cursor, here's a high quality macOS cursor under icons/cursor/macOS, you just place ```macOS/cursor``` under ```/usr/share/icons/DMZ-White``` . Reboot to enjoy the nice macOS(Sierra icons).
+
+
+
 # ```Drag lock``` and ```Palm rejection```
 
 Once I've switched to ```Ubuntu```, I soon realized the function of the trackpad lose drag lock and palm rejection which make the trackpad almost unable to use.  Thus I do some research about how to tune with it, here's the [solution](https://github.com/syscl/Ubuntu4Laptops/commit/d739b107be787bc05413aa5237d9705971b65c67).
@@ -197,6 +201,10 @@ chmod +x *
 ```
 
 # Change log
+2017-02-20
+
+- Add macOS(Sierra) cursor for Ubuntu
+
 2017-02-19
 
 - Disable ```Chrome``` problematic and power consume webusb hook
