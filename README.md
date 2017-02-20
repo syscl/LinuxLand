@@ -26,6 +26,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [Typora](http://www.typora.io/#)
 - [netbeans](https://netbeans.org/)
+- [WPS](https://www.wps.com/linux)
 - git
 ```sh
 sudo apt-get install git
