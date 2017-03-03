@@ -27,6 +27,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Typora](http://www.typora.io/#)
 - [netbeans](https://netbeans.org/)
 - [WPS](https://www.wps.com/linux)
+- FileZilla
 - git
 ```sh
 sudo apt-get install git
@@ -92,6 +93,28 @@ sudo mv /opt/foxitreader/fxplugins /opt/foxitreader/fxplugins.bad
 # Sublime text as default editor
 
 - Please refer [here](http://superuser.com/questions/704046/change-default-text-editor-to-sublime-text-in-linux-mint)
+
+# Install FileZilla
+
+- Open terminal(Crtl+Alt+T)
+
+```shell
+sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
+```
+
+- Install the GPG key so that apt package manager will trust the packages from that repository via command
+
+```shell
+wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+```
+
+- Now it's time to install 
+
+```shell
+sudo apt update && sudo apt install filezilla
+```
+
+
 
 # Use ```black``` cursor instead of ```white``` cursor
 
@@ -185,6 +208,20 @@ mv /usr/lib/evolution /usr/lib/evolution_DISABLE
 for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolution | grep -v grep); do killall $procname; done
 ```
 
+# Remove ```Parallel printer driver modules``` to improve performance and mute ```Failed to load kernel modules```
+
+```Failed to load kernel modules``` is actually not a kernel issue, but a bug in the default configuration of CUPS (the printing system), which tries to load the drivers for the ancient parallel port (which this computer obviously doesn't have). You can easily solve it by commenting out ```/etc/modules-load.d/cups-filters.conf```, like so:
+
+```sh
+# Parallel printer driver modules loading for cups
+# LOAD_LP_MODULE was 'yes' in /etc/default/cups
+#lp
+#ppdev
+#parport_pc
+```
+
+
+
 # How to use?
 
 - Dowload this project by
@@ -202,6 +239,10 @@ chmod +x *
 ```
 
 # Change log
+2017-03-03
+
+- Optimize performance by removing Parallel printer driver module
+
 2017-02-20
 
 - Add macOS(Sierra) cursor for Ubuntu
