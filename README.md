@@ -50,6 +50,14 @@ sudo ln -s $HOME/java/eclipse/eclipse /usr/bin/eclipse
 
 - Close the startup logo in /etc/libreoffice/sofficerc : ```Logo=1``` --> ```Logo=0```
 
+- Notice in ```Libreoffice``` 5.3.x, there's no more ```sofficerc``` in ```/etc/libreoffice``` thus we need to search where the ```Logo=``` argument located in, here's the procedure
+
+  ```sh
+  grep -l -r -i 'Logo=' /opt/libreoffice*
+  ```
+
+This will give you the correct path of the configuration location, change ```Logo=1``` to ```Logo=0```
+
 # Optimize ```netbeans```
 
 - Open netbeans' config
