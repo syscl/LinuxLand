@@ -27,6 +27,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Typora](http://www.typora.io/#)
 - [netbeans](https://netbeans.org/)
 - [WPS](https://www.wps.com/linux)
+- [DiffMerge](https://sourcegear.com/diffmerge/)
 - FileZilla
 - git
 ```sh
