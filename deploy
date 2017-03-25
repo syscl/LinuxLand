@@ -33,6 +33,14 @@ function _inst_qemu(parameter)
 
 function _DragLock_And_PalmDetect()
 {
+	#
+	# We need to disable system preference settings at first
+	#
+	dconf write /org/gnome/settings-daemon/plugins/mouse/active false
+	#
+	# I will refine this method(don't know why Ubuntu will overwrite some settings)
+	#
+
     #
     # This enable the DragLock and PalmDetection function
     #
@@ -44,6 +52,29 @@ function _DragLock_And_PalmDetect()
 #    echo 'MatchDevicePath "/dev/input/event*"' >>${XorgConf}
     echo '    Option "LockedDrags" "1"'                                         >>${XorgConf}
     echo '    Option "PalmDetect" "1"'                                          >>${XorgConf}
+    #
+    # Enable 3 finger tap function (c) syscl
+    #
+    # you can test value by type in 
+    # synclient "TapButton3"=XX
+    # Note: XX has the following setting:
+    # 1 - left button/click
+    # 2 - middle button/click - same as keyboard 'Enter'
+    # 3 - right button/click
+    # 4 - scroll up a bit
+    # 5 - scroll down a bit
+    # 8 - previous page
+    # 9 - next a page
+    #
+    echo '    Option "TapButton3" "8"'                                          >>${XorgConf}
+    echo 'Option "VertScrollDelta" "-71"'										>>${XorgConf}
+    #
+    # '-'(minus sign) is for scrolling in reverse direction(natural scrolling)
+    #
+    echo 'Option "HorizScrollDelta" "-71"'										>>${XorgConf}
+    echo 'Option "VertEdgeScroll" "0"'											>>${XorgConf}
+    echo 'Option "HorizTwoFingerScroll" "1"'									>>${XorgConf}
+    echo 'Option "TouchpadOff" "0"'												>>${XorgConf}
     echo 'EndSection'                                                           >>${XorgConf}
 }
 

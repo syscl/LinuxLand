@@ -141,9 +141,17 @@ For those who enjoy macOS cursor, here's a high quality macOS cursor under icons
 
 # ```Drag lock``` and ```Palm rejection```
 
-Once I've switched to ```Ubuntu```, I soon realized the function of the trackpad lose drag lock and palm rejection which make the trackpad almost unable to use.  Thus I do some research about how to tune with it, here's the [solution](https://github.com/syscl/Ubuntu4Laptops/commit/d739b107be787bc05413aa5237d9705971b65c67).
+Once I've switched to ```Ubuntu```, I soon realized the function of the trackpad loses drag lock and palm rejection which make the trackpad almost unable to use.  Thus I do some research about how to tune with it, here's the [solution](https://github.com/syscl/Ubuntu4Laptops/commit/d739b107be787bc05413aa5237d9705971b65c67).
 
 After applying the patch, you will soon enjoy the trackpad on Ubuntu.
+
+- For ```3``` finger gestures for example: back a page:
+
+```sh
+synclient "TapButton3" "8"
+```
+
+
 
 # Install latex
 
@@ -247,6 +255,10 @@ chmod +x *
 ```
 
 # Change log
+2017-03-24
+
+- Added ```3``` finger back a page function (c) ```syscl```
+
 2017-03-03
 
 - Optimize performance by removing Parallel printer driver module
