@@ -239,6 +239,18 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
 
 
 
+# Visual Studio Code Settings
+
+ ```
+{
+    "workbench.colorTheme": "Xcode_default"
+     "window.zoomLevel": 1,
+    "editor.fontFamily": "'Menlo', 'Consolas', 'DejaVu Sans Mono', 'monospace'",
+}
+ ```
+
+
+
 # How to use?
 
 - Dowload this project by
