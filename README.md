@@ -170,6 +170,22 @@ apt-get install default-jdk
 
 
 
+# Resolve ```RAR``` Parsing filters unsupported error 
+
+You can use
+
+```
+sudo apt-get install unrar
+sudo apt-get install unar
+
+```
+
+I recommend to install only one of these (unrar in my case). Then use archive manager:
+
+```
+sudo apt-get install file-roller
+```
+
 # Disable ```hibernation``` on Asus X205ta
 
 Note: x205ta hibernate behaves unstable, thus we simply disable it by the following:
