@@ -47,6 +47,19 @@ sudo apt-get install pthon-xlib
 sudo ln -s $HOME/java/eclipse/eclipse /usr/bin/eclipse
 ```
 
+- Launch ```Eclipse``` then lock it to the dock
+
+- Now, ```~/.local/share/applications/eclipse.desktop``` has been created. What we need to do is Change its name and icon by:
+```
+cp ~/eclipse/icon.xpm ~/.local/share/icons/hicolor/*/apps/eclipse.xpm
+```
+- Then 
+```
+subl ~/.local/share/applications/eclipse.desktop
+```
+- Change ```Icon=...``` to ```Icon=eclipse.xpm```
+- Change ```Name=...``` to ```Name=Eclipse```
+
 # Optimize ```libreoffice```
 
 - Close the startup logo in /etc/libreoffice/sofficerc : ```Logo=1``` --> ```Logo=0```
