@@ -1,0 +1,91 @@
+*{
+    font-family: "Hiragino Sans GB", "冬青黑体", "Hiragino Sans GB W3", "冬青黑体简体中文 W3", "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", Arial, sans-serif;
+}
+main /*詞典開始和結尾 */ {margin: 0; padding: 0;clear:both;}
+dl  /* 发音后，词条主要部分 */ {margin: 0; padding: 0;clear:both;}
+dt /* 词条释义 */ {margin: 0; padding-left: 8px;clear:both;}
+dd /* 词条例子 */ {display: list-item;list-style-type:square; color:#00304e;}
+dd span.chn /*chinese example*/ {color:SlateGray;}
+
+h-word {display:block;font-weight:bold;}
+span.hw  /* English */ {padding-right:10px; color:darkblue;font-size:large;} 
+x-hyph /* English */{display:inline;} /*head word with hyph*/
+span.pron {color:gray;font-weight:normal;padding-left:8px;} /* 发音*/
+x-variant {display:inline;}
+.s-squre, .s-dot {display:none;}
+x-gram
+{
+    display: table-cell; 
+    margin: 0px auto 0px auto; 
+	background-color: #8f0610;
+	color: white;
+	text-transform:uppercase;
+	font-size:smaller;
+	padding: 1px 3px 1px 3px;
+	border-radius: 5px;
+}
+
+/*
+x-phrase-g {
+    display: block;
+	margin-top:14px;
+    padding: 10px 10px;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+*/
+}
+x-phrase-g x-phrase {margin-top:-15px;}
+x-phrase-g span.title{
+    display: table-cell; /* keep the background color wrapped tight */
+    margin: 5px auto 0px auto; /* keep the block centered */
+	background-color: darkblue;
+	color: white;
+	font-weight: bold;
+	padding: 1px 3px;
+	border-radius: 5px;
+}
+x-phrase {display:block;color:darkblue;font-weight:bold;}
+
+x-note, span.gram/* as [书]*/ 
+{
+	font-size: 75%;
+	padding: 0px 2px 0px 2px;
+	border: 1px solid gray;
+	margin-right: 3pt;
+	margin-left: 3pt;
+	color:green;
+	font-size:smaller;
+}
+x-synonym::before {content: "≈ "; color:green;}
+span.num 
+{
+display:table-cell;float:left;margin-right:5px;width:16px;height:16px;border-radius:8px;font-size:smaller;font-weight:bold;color:white;text-align:center;background:darkred;}    
+}
+
+x-source {} /*English example*/
+x-field /*as【音】*/{color:green;font-size:smaller;} 
+x-usage /* usage */{
+	display:block;
+	margin-top:18px;
+	margin-left:18px;
+	margin-right:18px;
+	padding: 0px 18px;
+	border-radius: 10px;
+	border-color:darkblue;
+	border-style:ridge;
+	clear:both;
+}
+x-usage > p {margin-top:-5px;}
+div.usage-t {
+    display: table-cell; /* keep the background color wrapped tight */
+    margin: 0px auto 0px auto; /* keep the block centered */
+    position: relative;
+    bottom: 10px;
+	left:20px;
+	background-color: darkblue;
+	color: white;
+	font-weight: bold;
+	padding: 1px 3px;
+	border-radius: 5px;
+}
+

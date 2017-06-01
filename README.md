@@ -20,6 +20,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Eclipse](https://eclipse.org/downloads/)
 - [Netease music](http://music.163.com/)
+- [GoldenDick](https://github.com/goldendict/goldendict)
 - [Youdao dict](http://cidian.youdao.com/)
 - [Clang](http://llvm.org/)
 - [Sougou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
@@ -39,6 +40,27 @@ sudo apt-get install pthon-xlib
 ```
 
 - Unity Tweak Tool in ```Ubuntu Softwares```
+
+# Install GoldenDict
+
+- Installing External Deps on Ubuntu 
+```sh
+sudo apt-get install git pkg-config build-essential qt4-qmake \
+     libvorbis-dev zlib1g-dev libhunspell-dev x11proto-record-dev \
+     libqt4-dev libqtwebkit-dev libxtst-dev liblzo2-dev libbz2-dev \
+     libao-dev libavutil-dev libavformat-dev libtiff5-dev libeb16-dev
+```
+- Build the latest GoldenDict
+```sh
+git clone git://github.com/goldendict/goldendict.git
+cd goldendict && qmake-qt4 && make
+```
+- Install the binary to ```/usr/share/lcoal``` by
+```sh
+make install
+```
+
+- For extra dictionaries you can refer to ```software/GoldenDict/dictionary``` folder under this git repo
 
 # Optimize Eclipse
 
