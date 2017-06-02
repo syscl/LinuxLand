@@ -55,7 +55,7 @@ sudo apt-get install git pkg-config build-essential qt4-qmake \
 git clone git://github.com/goldendict/goldendict.git
 cd goldendict && qmake-qt4 && make
 ```
-- Install the binary to ```/usr/share/lcoal``` by
+- Install the binary to ```/usr/share/local``` by
 ```sh
 make install
 ```
