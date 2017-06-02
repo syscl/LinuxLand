@@ -62,6 +62,17 @@ make install
 
 - For extra dictionaries you can refer to ```software/GoldenDict/dictionary``` folder under this git repo
 
+- Changing the font and size for GoldenDict, use the following:
+```sh
+touch ~/.goldendict/article-style.css
+echo 'body'  							  >~/.goldendict/article-style.css
+echo '{'    							 >>~/.goldendict/article-style.css
+echo '    font-family: Microsoft YaHei;' >>~/.goldendict/article-style.css
+echo '    font-size: 12px;'              >>~/.goldendict/article-style.css
+echo '}'                                 >>~/.goldendict/article-style.css
+```
+More setting details please refer [here](http://goldendict.org/wiki/index.php/FAQ)
+
 # Optimize Eclipse
 
 - Create app lnk for Unity
