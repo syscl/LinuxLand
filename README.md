@@ -29,6 +29,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [netbeans](https://netbeans.org/)
 - [WPS](https://www.wps.com/linux)
 - [DiffMerge](https://sourcegear.com/diffmerge/)
+- [Pinta](https://pinta-project.com/pintaproject/pinta/)
 - FileZilla
 - git
 ```sh
@@ -230,6 +231,23 @@ I recommend to install only one of these (unrar in my case). Then use archive ma
 
 ```
 sudo apt-get install file-roller
+```
+
+# Install Pinta 
+
+- Open terminal with CTRL+ALT+T Add Pinta stable PPA repository:
+```sh
+sudo add-apt-repository ppa:pinta-maintainers/pinta-stable
+```
+
+- Update system package lists:
+```sh
+sudo apt update
+```
+
+- Install pinta
+```sh
+sudo apt install pinta
 ```
 
 # Disable ```hibernation``` on Asus X205ta
