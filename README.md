@@ -269,6 +269,13 @@ deepin-menu deepin-qml-widgets deepin-social-sharing
 ```sh
 sudo apt install deepin-screenshot
 ```
+# Add shortcut for ```Deepin Screenshot```
+- ```System Settings``` -> ```Keyboard``` -> ```Shortcuts``` -> ```Custom Shortcuts``` -> ```+ Command: deepin-screenshot```
+
+Note: 
+- ```deepin-screenshot``` can be applied to call ```deepin shortcut``` through terminal as well.
+- While apply for screenshot, right click to change preference for ```deepin screenshot```
+
 
 # Alternative screen capture using default shortcut
 - ```Shift``` + ```prt sc sysrq``` to capture select area
@@ -371,6 +378,10 @@ chmod +x *
 ```
 
 # Change log
+2017-06-07
+
+- Added latest ```Deepin Screenshot``` Guide for Ubuntu (c) syscl
+
 2017-03-24
 
 - Added ```3``` finger back a page function (c) ```syscl```
