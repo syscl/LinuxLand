@@ -31,6 +31,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [DiffMerge](https://sourcegear.com/diffmerge/)
 - [Pinta](https://pinta-project.com/pintaproject/pinta/)
 - [Deepin Desktop Environment for Deepin Screenshot](https://launchpad.net/~leaeasy/+archive/ubuntu/dde)
+- Apache
 - FileZilla
 - git
 ```sh
@@ -359,6 +360,19 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
 }
  ```
 
+# Apache 
+
+- Install ```Apache```
+```sh
+sudo apt install apache2
+```
+
+- Touch an website directory by
+```sh
+mkdir ~/apache_service_root
+```
+
+- Change ```/etc/apache2/sites-available/000-default.conf``` and ```/etc/apache2/apache2.conf``` from ```DocumentRoot /var/www/index``` to ```DocumentRoot /home/syscl/apache_server_root``` and from ```<Directory /var/www/>``` to ```<Directory /home/syscl/apache_server_root/>``` 
 
 
 # How to use?
