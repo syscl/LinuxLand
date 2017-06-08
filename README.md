@@ -374,6 +374,11 @@ mkdir ~/apache_service_root
 
 - Change ```/etc/apache2/sites-available/000-default.conf``` and ```/etc/apache2/apache2.conf``` from ```DocumentRoot /var/www/index``` to ```DocumentRoot /home/syscl/apache_server_root``` and from ```<Directory /var/www/>``` to ```<Directory /home/syscl/apache_server_root/>``` 
 
+# Update for website
+```sh
+/etc/init.d/apache2 restart
+```
+
 
 # How to use?
 
