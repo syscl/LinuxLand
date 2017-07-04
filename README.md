@@ -32,7 +32,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Pinta](https://pinta-project.com/pintaproject/pinta/)
 - [Deepin Desktop Environment for Deepin Screenshot](https://launchpad.net/~leaeasy/+archive/ubuntu/dde)
 - [Lantern](https://github.com/getlantern/lantern)
-- Gummi
+- [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
 - Apache
 - FileZilla
 - git
