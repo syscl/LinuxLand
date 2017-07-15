@@ -381,10 +381,15 @@ mkdir ~/apache_service_root
 /etc/init.d/apache2 restart
 ```
 
+# Update softwares through terminal
+
+```sh
+sudo apt upgrade
+```
 
 # How to use?
 
-- Dowload this project by
+- Download this project by
 ```sh
 git clone https://github.com/syscl/Ubuntu-M3800
 ```
