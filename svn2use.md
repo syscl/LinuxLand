@@ -1,5 +1,7 @@
 # svn usage
 
+Please refer also [here](http://svnbook.red-bean.com/en/1.4/svn.tour.importing.html)
+
 ```sh
 svn checkout --username=syscl svn+ssh://syscl@svn.code.sf.net/p/clove
 svn commit -m "Change information here"
