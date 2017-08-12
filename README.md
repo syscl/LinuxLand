@@ -64,6 +64,10 @@ cd goldendict && qmake-qt4 && make
 ```sh
 make install
 ```
+- svn
+```sh
+sudo apt install subversion
+```
 
 - For extra dictionaries you can refer to ```software/GoldenDict/dictionary``` folder under this git repo
 
