@@ -33,6 +33,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Deepin Desktop Environment for Deepin Screenshot](https://launchpad.net/~leaeasy/+archive/ubuntu/dde)
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
+- [Notes](http://www.get-notes.com)
 - Apache
 - FileZilla
 - git
