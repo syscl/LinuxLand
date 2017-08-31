@@ -373,6 +373,12 @@ chmod +x *
 ```
 
 # Change log
+2017-08-31
+
+- Tex usage and light support for some special tex packages
+
+- Removed unstable configuration
+
 2017-08-12
 
 - Removed unstable configuration
