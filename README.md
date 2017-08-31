@@ -210,12 +210,12 @@ synclient "TapButton3" "8"
 
 
 
-# Install latex
-
-You know, I do not use ```M$ Office``` for quiet a long time, even when I finished my undergraduate paper. M$ Office is great(much better than Apple's ```iWork```), but I want to use Latex instead. Here's how to install Latex
+# Install latest LaTex
 
 ```sh
-apt-get install texlive texstudio
+sudo add-apt-repository ppa:jonathonf/texlive
+sudo apt-get install texlive
+sudo apt-get install texlive-fonts-recommended texlive-fonts-extra
 ```
 
 # Install JDK
