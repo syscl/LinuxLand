@@ -212,6 +212,15 @@ synclient "TapButton3" "8"
 
 # Install latest LaTex
 
+Before you install the latest LaTex, you should remove older version to avoid conflict just in case
+
+```sh
+sudo dpkg --purge --force-all texlive-xetex
+sudo dpkg --purge --force-all texlive-math-extra
+```
+
+Then install LaTex now
+
 ```sh
 sudo add-apt-repository ppa:jonathonf/texlive
 sudo apt-get install texlive
