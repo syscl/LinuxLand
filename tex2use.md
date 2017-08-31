@@ -15,6 +15,6 @@ sudo apt install texlive-xetex
 
 - Install fontawesome.sty sourcesanspro.sty sourcesanspro-type1-autoinst.sty to ```/usr/share/texlive/texmf-dist/tex/latex/footmisc```
 
-- Place all fonts to ```/usr/share/fonts/custom```
+- Place all fonts(FontAwesome, SourceSanspro) to ```/usr/share/fonts/custom```
 
 - Rebuild font cache
