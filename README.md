@@ -45,6 +45,11 @@ sudo apt-get install git
 sudo apt-get install pthon-xlib
 ```
 
+- extfat support
+```sh
+sudo apt install exfat-fuse exfat-utils
+```
+
 - Unity Tweak Tool in ```Ubuntu Softwares```
 
 # Install GoldenDict
@@ -240,9 +245,8 @@ apt-get install default-jdk
 You can use
 
 ```
-sudo apt-get install unrar
-sudo apt-get install unar
-
+sudo apt-get install unrar # support RAR 3
+# sudo apt-get install unar #optional 
 ```
 
 I recommend to install only one of these (unrar in my case). Then use archive manager:
@@ -373,6 +377,10 @@ chmod +x *
 ```
 
 # Change log
+2017-09-14
+
+- Added extfat filesystem support
+
 2017-08-31
 
 - Tex usage and light support for some special tex packages
