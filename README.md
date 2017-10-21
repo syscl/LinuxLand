@@ -337,12 +337,7 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
 
 # Mac-like command: ```open``` for Ubuntu
 
-```open``` command in mac is really convenient and its alias is xdg-open. To make the command consistency on Ubuntu, open ```~/.bashrc``` then add the following:
-
-```sh
-# xdg-open alias
-alias open='xdg-open'
-```
+```open``` command in mac is really convenient and its alias is xdg-open. However the xdg-open is not as smart as open in mac. Due to the fact of this, I wrote a handy script(in bin/open) for you to deal with it. You can place it under ```/usr/local/bin``` manually or install it by executing deploy as well.
 
 # Apache 
 
@@ -388,7 +383,7 @@ chmod +x *
 # Change log
 2017-10-21
 
-- Add ```open``` alias for ```xdg-open```
+- Added mac-like open command for GNU/Linux (c) syscl
 - Fixed xterm icon for black background 
 
 2017-09-14

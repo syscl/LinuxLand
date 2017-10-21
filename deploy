@@ -109,12 +109,18 @@ function _disSuspend()
     printf 'ResultAny=no'                                                       >>${dSuspendConf}
 }
 
+function _inst_opencmd()
+{
+    sudo cp bin/open /usr/local/bin
+}
+
 function main()
 {
     _inst_llvm
     _inst_qemu
     _DragLock_And_PalmDetect
-    _disSuspend
+    #_disSuspend
+    _inst_opencmd
 
     exit 0
 }
