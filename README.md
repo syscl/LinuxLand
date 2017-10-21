@@ -335,6 +335,15 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
 }
  ```
 
+# Mac-like command: ```open``` for Ubuntu
+
+```open``` command in mac is really convenient and its alias is xdg-open. To make the command consistency on Ubuntu, open ```~/.bashrc``` then add the following:
+
+```sh
+# xdg-open alias
+alias open='xdg-open'
+```
+
 # Apache 
 
 - Install ```Apache```
@@ -377,6 +386,11 @@ chmod +x *
 ```
 
 # Change log
+2017-10-21
+
+- Add ```open``` alias for ```xdg-open```
+- Fixed xterm icon for black background 
+
 2017-09-14
 
 - Added extfat filesystem support
