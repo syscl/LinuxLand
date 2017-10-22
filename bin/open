@@ -17,7 +17,6 @@ main()
 		echo "      By default, opens each file using the default application for that file."
 		echo "      If the file is in the form of a URL, the file will be opened as a URL."
 		exit 0
-
 	fi
 
 	for path in "$@" 
