@@ -67,14 +67,14 @@ function _DragLock_And_PalmDetect()
     # 9 - next a page
     #
     echo '    Option "TapButton3" "8"'                                          >>${XorgConf}
-    echo 'Option "VertScrollDelta" "-71"'										>>${XorgConf}
+    echo '    Option "VertScrollDelta" "-71"'				    				>>${XorgConf}
     #
     # '-'(minus sign) is for scrolling in reverse direction(natural scrolling)
     #
-    echo 'Option "HorizScrollDelta" "-71"'										>>${XorgConf}
-    echo 'Option "VertEdgeScroll" "0"'											>>${XorgConf}
-    echo 'Option "HorizTwoFingerScroll" "1"'									>>${XorgConf}
-    echo 'Option "TouchpadOff" "0"'												>>${XorgConf}
+    echo '  Option "HorizScrollDelta" "-71"'									>>${XorgConf}
+    echo '  Option "VertEdgeScroll" "0"'										>>${XorgConf}
+    echo '  Option "HorizTwoFingerScroll" "1"'									>>${XorgConf}
+    echo '  Option "TouchpadOff" "0"'											>>${XorgConf}
     echo 'EndSection'                                                           >>${XorgConf}
 }
 

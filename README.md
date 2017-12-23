@@ -10,6 +10,7 @@ Don't hesitate to suggest if you have any good ideas.
 - Dell XPS 15 9530
 - Dell XPS 13 9350/9360
 - Asus x205ta
+- Asus VivoBook E12 E203NAS
 
 # Softwares & Optimizations
 
@@ -49,7 +50,17 @@ sudo apt-get install pthon-xlib
 ```sh
 sudo apt install exfat-fuse exfat-utils
 ```
+- Resolve VI/VIM arrow keys binding issue
+```sh
+sudo apt install vim
+```
 
+- Sogou fcitx install steps
+```sh
+sudo apt install fcitx
+sudo dpkg -i [package-of-sogou].deb
+sudo apt-get install -f
+```
 - Unity Tweak Tool in ```Ubuntu Softwares```
 
 # Install GoldenDict
@@ -69,6 +80,9 @@ cd goldendict && qmake-qt4 && make
 - Install the binary to ```/usr/share/local``` by
 ```sh
 make install
+
+sudo mv /usr/local/share/applications/goldendict.desktop ~/.local/share/applications # correct the *.desktop path
+
 ```
 - svn
 ```sh
@@ -149,7 +163,7 @@ sudo chown syscl:syscl configtoolbar.xml
 ```
 - Optimize/remove FoxitReader ```cloud plugin```(previous casue the system drain 100% cpu resources)
 ```sh
-sudo mv /opt/foxitreader/fxplugins /opt/foxitreader/fxplugins.bad
+sudo rm -r /opt/foxitreader/fxplugins  
 ```
 
 # Optimize ```sougou pinying```
@@ -246,13 +260,17 @@ You can use
 
 ```
 sudo apt-get install unrar # support RAR 3
-# sudo apt-get install unar #optional 
 ```
 
 I recommend to install only one of these (unrar in my case). Then use archive manager:
 
 ```
 sudo apt-get install file-roller
+```
+
+# Add 7z support
+```sh
+sudo apt-get install p7zip-full
 ```
 
 # Install Pinta 
