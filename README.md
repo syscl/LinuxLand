@@ -45,6 +45,12 @@ sudo apt-get install git
 ```sh
 sudo apt-get install pthon-xlib
 ```
+- Change tty font style
+Though Ubuntu gave me a beautiful UI, I still want my console font classic and clean, that's why I choose VGA font in this case. Change step will be the following:
+```sh 
+sudo dpkg-reconfigure console-setup
+```
+```Font for the console```->```VGA``` or ```Do not change the boot/kernel font```
 
 - extfat support
 ```sh
