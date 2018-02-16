@@ -67,7 +67,30 @@ sudo apt install fcitx
 sudo dpkg -i [package-of-sogou].deb
 sudo apt-get install -f
 ```
-- Unity Tweak Tool in ```Ubuntu Softwares```
+- Change system fonts
+```gconftool-2``` has been superseeded by ```gsettings``` on Ubuntu ```16.04+``` and in other GNOME based systems.
+
+Nowadays you can simply run the following in a terminal to change/reset all your desktop font settings:
+```sh
+# change windows title
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Microsoft YaHei 11'
+gsettings set org.gnome.desktop.interface document-font-name 'Microsoft YaHei 11'
+# default font
+gsettings set org.gnome.desktop.interface font-name 'Microsoft YaHei 11'
+# monospace-font 
+gsettings set org.gnome.desktop.interface monospace-font-name 'SF Mono Extra-Condensed 12'
+gsettings set org.gnome.nautilus.desktop font '' # default font '', leave blank
+```
+
+to reset above setting, just simply type in 
+```sh
+gsettings reset org.gnome.desktop.interface font-name
+gsettings reset org.gnome.desktop.interface document-font-name
+gsettings reset org.gnome.desktop.interface monospace-font-name
+gsettings reset org.gnome.desktop.wm.preferences titlebar-font
+gsettings reset org.gnome.nautilus.desktop font
+gsettings reset org.gnome.desktop.interface text-scaling-factor
+```
 
 # Install GoldenDict
 
