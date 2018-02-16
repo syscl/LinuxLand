@@ -34,7 +34,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Deepin Desktop Environment for Deepin Screenshot](https://launchpad.net/~leaeasy/+archive/ubuntu/dde)
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
-- [Notes](http://www.get-notes.com)
+- [Simplenotes](https://simplenote.com/)
 - Apache
 - FileZilla
 - git
@@ -101,17 +101,25 @@ sudo apt-get install git pkg-config build-essential qt4-qmake \
      libqt4-dev libqtwebkit-dev libxtst-dev liblzo2-dev libbz2-dev \
      libao-dev libavutil-dev libavformat-dev libtiff5-dev libeb16-dev
 ```
-- Build the latest GoldenDict
+- Download the latest GoldenDict
 ```sh
 git clone git://github.com/goldendict/goldendict.git
+```
+- Build it by the following
+```sh
 cd goldendict && qmake-qt4 && make
 ```
+
+Note: to compile with ```libhunspell``` older than 1.5, use the following command to build instead
+
+```sh
+cd goldendict && qmake-qt4 "CONFIG+=old_hunspell" && make 
+```
+
 - Install the binary to ```/usr/share/local``` by
 ```sh
 make install
-
-sudo mv /usr/local/share/applications/goldendict.desktop ~/.local/share/applications # correct the *.desktop path
-
+# sudo mv /usr/local/share/applications/goldendict.desktop ~/.local/share/applications # correct the *.desktop path
 ```
 - svn
 ```sh
@@ -122,7 +130,6 @@ sudo apt install subversion
 
 - Changing the font and size for GoldenDict, use the following:
 ```sh
-touch ~/.goldendict/article-style.css
 echo 'body'  							  >~/.goldendict/article-style.css
 echo '{'    							 >>~/.goldendict/article-style.css
 echo '    font-family: Microsoft YaHei;' >>~/.goldendict/article-style.css
@@ -192,7 +199,7 @@ sudo chown syscl:syscl configtoolbar.xml
 ```
 - Optimize/remove FoxitReader ```cloud plugin```(previous casue the system drain 100% cpu resources)
 ```sh
-sudo rm -r /opt/foxitreader/fxplugins  
+sudo rm -r /opt/foxitreader/fxplugins
 ```
 
 # Optimize ```sougou pinying```
@@ -243,6 +250,10 @@ Reboot, now you can enjoy a nice black mouse cursor.
 For those who enjoy macOS cursor, here's a high quality macOS cursor under icons/cursor/macOS, you just place ```macOS/cursor``` under ```/usr/share/icons/DMZ-White``` . Reboot to enjoy the nice macOS(Sierra icons).
 
 
+
+# Customize application's icon and name
+
+The icon and the name of the application is sometimes not as our expected, in other words, the icon is pretty ugly and the name is not straightforward... So to change the icon, the first step you need to do is copy the icon files to ```~/.local/share/icons/hicolor/<icon_pixelxicon_pixel>/apps```(```arugments``` decided by the icon pixel), then change the <application>.desktop file under ```/usr/share/applications```. For example, I want to change the ```Simplenotes``` icon and name to ```notes.png``` and ```Notes``` respectively, open simplenote.desktop and change the value to ```Icon=Icon=/home/<username>/.local/share/icons/hicolor/128x128/apps/notes.png``` and ```Name=Notes``` respectively.
 
 # ```Drag lock``` and ```Palm rejection```
 
@@ -428,6 +439,13 @@ chmod +x *
 ```
 
 # Change log
+2018-02-16
+
+- Replaced ```notes``` with ```Simplenotes```
+- Added tutorial for customizing application's name and icon
+- Upload some nice icons for applications in ```icons/apps```
+- Resolved ```GoldenDict``` build issue due to old ```hunspell``` (version $\le$ 1.5) 
+
 2017-10-21
 
 - Added mac-like open command for GNU/Linux (c) syscl
