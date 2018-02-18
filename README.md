@@ -192,13 +192,14 @@ netbeans_jdkhome="/usr/lib/jvm/default-java"
 ```sh
 sudo ./FoxitReader.run
 ```
-- Set installation folder as /opt/foxitreader instead of ~/opt/foxitreader
+- Set installation folder as ```/opt/foxitreader``` instead of ```~/opt/foxitreader```
 
 - Fixe files' permission
 ```sh
-sudo chown syscl:syscl configtoolbar.xml
+sudo chown -R $USER:$USER /opt/foxitreader
 ```
-- Optimize/remove FoxitReader ```cloud plugin```(previous casue the system drain 100% cpu resources)
+- Correct the ```~/.local/share/applications/FoxitReader.desktop```  ```Icon=<*>``` to ```/usr/share/icons/hicolor/64x64/apps/FoxitReader.png```
+- Optimize/remove FoxitReader ```cloud plugin``` (previous cause the system draining 100% of CPU resources)
 ```sh
 sudo rm -r /opt/foxitreader/fxplugins
 ```
@@ -427,12 +428,12 @@ sudo apt upgrade
 
 - Download this project by
 ```sh
-git clone https://github.com/syscl/Ubuntu-M3800
+git clone https://github.com/syscl/Ubuntu4Laptops
 ```
 - This will download the whole directory, the next step is to change the deploy permission so that it can be executed:
 ```sh
-cd Ubuntu-M3800
-chmod +x *
+cd Ubuntu4Laptops
+chmod +x deploy
 ```
 - Execute deploy by typing:
 ```sh
