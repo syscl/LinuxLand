@@ -35,7 +35,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
 - [Simplenotes](https://simplenote.com/)
-  - [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
+- [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
 - Apache
 - FileZilla
 - git
