@@ -441,12 +441,17 @@ chmod +x deploy
 ```
 
 # Change log
+2018-02-18
+
+- Fixed FoxitReader icon issue
+- More general command lines 
+
 2018-02-16
 
 - Replaced ```notes``` with ```Simplenotes```
 - Added tutorial for customizing application's name and icon
 - Upload some nice icons for applications in ```icons/apps```
-- Resolved ```GoldenDict``` build issue due to old ```hunspell``` (version $\le$ 1.5) 
+- Resolved ```GoldenDict``` build issue due to old ```hunspell``` (version older than 1.5) 
 
 2017-10-21
 
