@@ -444,6 +444,11 @@ chmod +x deploy
 ```
 
 # Change log
+
+2018-02-20
+
+- Enable HiDPI for Netease Music (temporary)
+
 2018-02-18
 
 - Fixed FoxitReader icon issue
