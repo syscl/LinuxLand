@@ -1,12 +1,12 @@
 #!/bin/bash
-# smart open command(mac-like) for GNU/Linux (c) syscl
+# smart open command (mac-like) for GNU/Linux (c) syscl
 # notice the key point here is to use '&>/dev/null' to 
 # fix the xdg-open errors, add multiple handle for this command (c) syscl
 # 0.6 - added URL support
 # 0.5 - added help for user
 # 0.4 - fixed absolute path open issue 
 # 0.3 - added multiple files handle/support
-# 0.2 - fixed output style when argument($@) contains './'
+# 0.2 - fixed output style when argument ($@) contains './'
 # 0.1 - fixed error while using xdg-open
 
 main()

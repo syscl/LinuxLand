@@ -4,7 +4,7 @@ This project targets at making Ubuntu on some specific laptops easy to use. Afte
 
 Don't hesitate to suggest if you have any good ideas.
 
-# Support models
+# Tested models
 
 - Dell Precision M3800
 - Dell XPS 15 9530
@@ -35,7 +35,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
 - [Simplenotes](https://simplenote.com/)
-- [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
+	 [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
 - Apache
 - FileZilla
 - git
@@ -171,7 +171,10 @@ subl ~/.local/share/applications/eclipse.desktop
 
 This will give you the correct path of the configuration location, change ```Logo=1``` to ```Logo=0```
 
-# Optimize ```netbeans```
+# ```HiDPI``` for Netease Music Player (temporary)
+Since Netease Music under Linux is achieved through Qt5, most elements are drawn by WebKit by a forking of Chromium, so we can just simply pass an startup argument ```--force-device-scale-factor=2``` for ```netease-cloud-music```, simply touch the ```/usr/share/applications/netease-cloud-music.desktop```, change ```Exec=netease-cloud-music %U``` to ```Exec=netease-cloud-music --force-device-scale-factor=2 %U```
+
+# Optimize ```netbeans``` 
 
 - Open netbeans' config
 ```
@@ -486,7 +489,7 @@ chmod +x deploy
 
 2017-02-20
 
-- Add macOS(Sierra) cursor for Ubuntu
+- Add macOS (Sierra) cursor for Ubuntu
 
 2017-02-19
 
@@ -502,4 +505,4 @@ chmod +x deploy
 
 2016-10-22
 
-- Init commit
+- Initial commit
