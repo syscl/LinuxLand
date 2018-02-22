@@ -31,6 +31,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [WPS](https://www.wps.com/linux)
 - [DiffMerge](https://sourcegear.com/diffmerge/)
 - [Pinta](https://pinta-project.com/pintaproject/pinta/)
+- [vlmcsd](https://github.com/Wind4/vlmcsd)
 - [Deepin Desktop Environment for Deepin Screenshot](https://launchpad.net/~leaeasy/+archive/ubuntu/dde)
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
@@ -91,6 +92,15 @@ gsettings reset org.gnome.desktop.interface monospace-font-name
 gsettings reset org.gnome.desktop.wm.preferences titlebar-font
 gsettings reset org.gnome.nautilus.desktop font
 gsettings reset org.gnome.desktop.interface text-scaling-factor
+```
+
+# vlmcsd
+Install compiled binaries to ```/usr/local/bin/vlmcsd```, then execute ```vlmcsd``` then ```vlmcs``` to start the server. Then on ```Windows``` client, open ```cmd``` as Administration, run the following:
+```sh
+slmgr -ipk <GLVKs Key> 
+slmgr -skms <vlmcsd server address>
+slmgr -ato
+slmgr -dlv
 ```
 
 # Install GoldenDict
