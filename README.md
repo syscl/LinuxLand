@@ -1,6 +1,6 @@
 # Deploy for laptops with Ubuntu
 
-This project targets at making Ubuntu on some specific laptops easy to use. After executing deploy, the script will make Ubuntu have a good user experience. I will place optimizations for Ubuntu on both M3800, XPS15 9530 and Asus X205ta, wish you all enjoy it.
+This project targets at making Ubuntu on some specific laptops easy to use. After executing deploy, the script will make Ubuntu have a good user experience. I will add more optimizations for Ubuntu on various laptops, wish you all enjoy it.
 
 Don't hesitate to suggest if you have any good ideas.
 
@@ -11,6 +11,7 @@ Don't hesitate to suggest if you have any good ideas.
 - Dell XPS 13 9350/9360
 - Asus x205ta
 - Asus VivoBook E12 E203NAS
+- Raspberry Pi 3 (rev. B)
 
 # Softwares & Optimizations
 
@@ -376,7 +377,7 @@ Note:
 
 # Disable ```Chrome``` ```webusb```
 
-Google Chrome (evidently a problem specific to Google's engineers) will also hook all USB ports. Sometimes this causes a problem. Personally, I don't see why a web browser should be hooking USB ports at the kernel level, so I always disable this "feature". Visit``` chrome://flags/#enable-webusb```, and you can disable it.
+Google Chrome (evidently a problem specific to Google's engineers) will also hook all USB ports. Sometimes this causes a problem. Personally, I don't see why a web browser should be hooking USB ports at the kernel level, so I always disable this "feature". Visit ```chrome://flags/#enable-webusb```, and you can disable it.
 
 # Get rid of resources greedy ```evolution-calendar*``` services on ```x205ta```
 ```shell
@@ -454,6 +455,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-02-21
+
+- Added kms server (vlmcsd) 
+- Added Raspberry Pi 3 as tested model
 
 2018-02-20
 
