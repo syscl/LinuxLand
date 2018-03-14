@@ -488,6 +488,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-03-13
+
+- Ubuntu recovery mode r/w method
+
 2018-02-16
 
 - Added ```nextcloud``` for server side
