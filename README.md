@@ -1,6 +1,6 @@
-# Deploy for laptops with Ubuntu
+# Deploy for laptops with Ubuntu/CentOS
 
-This project targets at making Ubuntu on some specific laptops easy to use. After executing deploy, the script will make Ubuntu have a good user experience. I will add more optimizations for Ubuntu on various laptops, wish you all enjoy it.
+This project targets at making Ubuntu/CentOS on some specific laptops easy to use. After executing deploy, the script will make Ubuntu/CentOS have a good user experience. I will add more optimizations for Ubuntu/CentOS on various laptops, wish you all enjoy it.
 
 Don't hesitate to suggest if you have any good ideas.
 
@@ -302,6 +302,14 @@ sudo apt-get install texlive
 sudo apt-get install texlive-fonts-recommended texlive-fonts-extra
 ```
 
+Fix the [loss of section numbering with the new update](https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15) issue
+
+```sh
+sudo wget http://mirrors.ctan.org/macros/latex/contrib/titlesec/titlesec.sty -O /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+```
+
+
+
 # Install JDK
 
 ```sh
@@ -438,6 +446,31 @@ mkdir ~/apache_service_root
 sudo apt upgrade
 ```
 
+# Check operating system archieture (32-bit vs 64-bit)
+```sh
+getconf LONG_BIT
+```
+
+# CentOS install ```nextcloud``` 
+
+Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands. 
+
+# CentOS creates Wireless Hotspot by one line command
+
+```sh
+nmcli dev wifi hotspot ifname wlan0 ssid test password "test1234"
+```
+
+More details please refer [here](https://unix.stackexchange.com/questions/234552/create-wireless-access-point-and-share-internet-connection-with-nmcli)
+
+
+
+# Ubuntu recovery mode mount root partition as read/write (rw)
+
+mount -o remount,rw /
+
+
+
 # How to use?
 
 - Download this project by
@@ -455,6 +488,11 @@ chmod +x deploy
 ```
 
 # Change log
+2018-02-16
+
+- Added ```nextcloud``` for server side
+- Added ```CentOS 7.x``` for RaspberryPI 
+
 2018-02-21
 
 - Added kms server (vlmcsd) 
