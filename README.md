@@ -22,7 +22,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Eclipse](https://eclipse.org/downloads/)
 - [Netease music](http://music.163.com/)
-- [GoldenDick](https://github.com/goldendict/goldendict)
+- [GoldenDict](https://github.com/goldendict/goldendict)
 - [Youdao dict](http://cidian.youdao.com/)
 - [Clang](http://llvm.org/)
 - [Sougou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
@@ -488,6 +488,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-03-19
+
+- Corrected ```GoldenDict``` typo credit @Penuchot
+
 2018-03-13
 
 - Ubuntu recovery mode r/w method
