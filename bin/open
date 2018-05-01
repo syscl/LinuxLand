@@ -2,6 +2,7 @@
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # notice the key point here is to use '&>/dev/null' to 
 # fix the xdg-open errors, add multiple handle for this command (c) syscl
+# For xbuntu, install it to /usr/local/bin
 # 0.7 - fixed '..' issue and simplified block logic
 # 0.6 - added URL support
 # 0.5 - added help for user

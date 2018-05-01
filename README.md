@@ -488,6 +488,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-04-30
+
+- Fixed '..' issue and simplified block logic for 'open' program
+
 2018-03-19
 
 - Corrected ```GoldenDict``` typo credit @Penuchot
