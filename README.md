@@ -450,6 +450,7 @@ sudo apt upgrade
 ```sh
 getconf LONG_BIT
 ```
+# CentOS/RHEL install ```deltarpm``` for allowing the delat rpm function. 
 
 # CentOS install ```nextcloud``` 
 
