@@ -456,6 +456,16 @@ getconf LONG_BIT
 
 Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands. 
 
+# CentOS/RHEL turn off beep/bell terminal sound
+- Remove ```pcspkr``` kernel module
+```sh
+rmmod -v pcspkr
+```
+- Blacklist ```pcspkr``` in ```/etc/modprobe.d/blacklist``` by adding the following line:
+```sh
+blacklist pcspkr
+```
+
 # CentOS creates Wireless Hotspot by one line command
 
 ```sh
