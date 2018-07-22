@@ -456,6 +456,28 @@ getconf LONG_BIT
 
 Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands. 
 
+# CentOS 7 install ```phpVirtualBox```
+- Add VirtualBox source by creating a file ```virtualbox.repo``` under ```/etc/yum.repos.d```:
+```
+[virtualbox]
+name=Oracle Linux / RHEL / CentOS-$releasever / $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/el/$releasever/$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+```
+- Install VirtualBox by ```yum install virtualbox```
+- Install [VirtualBox extension pack](https://www.virtualbox.org/wiki/Downloads) by ```VBoxManage extpack install [extension-pack-path]```
+- Install [phpVirtualBox](https://github.com/phpvirtualbox/phpvirtualbox)
+- Install subscript-manager 
+- Install epel repos 
+- Install php-soap, note if you have php 7.0 use ```yum install php70w-soap```
+- Disable ```selinux```
+- Find the path of soap through ```find -name soap.so```, usually it will be located at  ```/usr/lib64/php/modules/soap.so```
+- Insert in in ```/etc/php.ini``` by a new line: ```extension='/usr/lib64/php/modules/soap.so'```
+- Restart your ```httpd``` service by ```systemctl restart httpd```
+
 # CentOS/RHEL turn off beep/bell terminal sound
 - Remove ```pcspkr``` kernel module
 ```sh
@@ -499,6 +521,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-07-23
+
+- Virtualbox and phpVirtualbox for CentOS 7 with php7
+
 2018-04-30
 
 - Fixed '..' issue and simplified block logic for 'open' program
