@@ -37,7 +37,8 @@ Don't hesitate to suggest if you have any good ideas.
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
 - [Simplenotes](https://simplenote.com/)
-	 [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
+- [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
+- [netdata](https://my-netdata.io)
 - Apache
 - FileZilla
 - git
@@ -447,10 +448,12 @@ sudo apt upgrade
 ```
 
 # CentOS/Ubuntu install ```netdata```
-```Netdata``` is a powerful monitor tool set for developer to keep tracking of its servers, to install it simply type in
+```Netdata``` is a powerful monitor tool set for developer to keep tracking of its servers, to install it on Ubuntu ```18.04+``` simply type in
 ```sh
 apt install netdata
 ```
+- On CentOS, please refer [here](https://github.com/firehol/netdata/wiki/Installation)
+
 - To allow ANYONE to access netdata, change the ```bind socket to IP = 127.0.0.1``` to ```bind socket to IP = 0.0.0.0``` in ```/etc/netdata/netdata.conf```
 - Start all the services by the following:
 ```sh
@@ -549,7 +552,8 @@ chmod +x deploy
 
 - Virtualbox and phpVirtualbox for CentOS 7/Ubuntu with php7
 - Nextcloud for Ubuntu with pretty urls rewrite 
-- Netdata for Ubuntu ```18.04+```
+- Netdata for ```Ubuntu 18.04+``` and ```CentOS 6.5+```
+- Attach netdata and typo fixes in app list
 
 2018-04-30
 
