@@ -446,6 +446,21 @@ mkdir ~/apache_service_root
 sudo apt upgrade
 ```
 
+# CentOS/Ubuntu install ```netdata```
+```Netdata``` is a powerful monitor tool set for developer to keep tracking of its servers, to install it simply type in
+```sh
+apt install netdata
+```
+- To allow ANYONE to access netdata, change the ```bind socket to IP = 127.0.0.1``` to ```bind socket to IP = 0.0.0.0``` in ```/etc/netdata/netdata.conf```
+- Start all the services by the following:
+```sh
+systemctl start netdata
+ufw enable
+ufw allow 19999/tcp
+ufw reload
+```
+- Now access the netdata through ```http://your-server-ip:19999``` 
+
 # Check operating system archieture (32-bit vs 64-bit)
 ```sh
 getconf LONG_BIT
@@ -534,6 +549,7 @@ chmod +x deploy
 
 - Virtualbox and phpVirtualbox for CentOS 7/Ubuntu with php7
 - Nextcloud for Ubuntu with pretty urls rewrite 
+- Netdata for Ubuntu ```18.04+```
 
 2018-04-30
 
