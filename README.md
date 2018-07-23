@@ -456,7 +456,7 @@ getconf LONG_BIT
 
 Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands. 
 
-# CentOS 7 install ```phpVirtualBox```
+# CentOS 7/Ubuntu install ```phpVirtualBox```
 - Add VirtualBox source by creating a file ```virtualbox.repo``` under ```/etc/yum.repos.d```:
 ```
 [virtualbox]
@@ -471,6 +471,9 @@ gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
 - Install [VirtualBox extension pack](https://www.virtualbox.org/wiki/Downloads) by ```VBoxManage extpack install [extension-pack-path]```
 - Install [phpVirtualBox](https://github.com/phpvirtualbox/phpvirtualbox)
 - Install subscript-manager 
+- Create a new file in ```/etc/default/virtualbox``` so that we can ```systemctl start vboxweb-service```, the line we have to add is: ```VBOXWEB_USER=root``` notice here the user is "the user as which vboxwebsrv will run.", in this case  ```root```, more information can be referred to [here](https://github.com/phpvirtualbox/phpvirtualbox/wiki/vboxweb-service-Configuration-in-Linux)
+- Copy ```phpvirtualbox/config.php-example``` to ```phpvirtualbox/config.php``` and change the ```var $password = '*';``` as the password you want.
+- Add a new user ```vbox``` by ```useradd vbox``` and its password is the same as in ```phpvirtualbox/config.php```'s ```var $password = '*';```
 - Install epel repos 
 - Install php-soap, note if you have php 7.0 use ```yum install php70w-soap```
 - Disable ```selinux```
@@ -523,7 +526,7 @@ chmod +x deploy
 # Change log
 2018-07-23
 
-- Virtualbox and phpVirtualbox for CentOS 7 with php7
+- Virtualbox and phpVirtualbox for CentOS 7/Ubuntu with php7
 
 2018-04-30
 
