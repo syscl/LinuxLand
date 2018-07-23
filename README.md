@@ -518,6 +518,15 @@ gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
 - Insert in in ```/etc/php.ini``` by a new line: ```extension='/usr/lib64/php/modules/soap.so'```
 - Restart your ```httpd``` service by ```systemctl restart httpd```
 
+# Install ```Plex``` media server
+```sh
+echo deb https://downloads.plex.tv/repo/deb/ public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install plexmediaserver
+```
+
 # CentOS/RHEL turn off beep/bell terminal sound
 - Remove ```pcspkr``` kernel module
 ```sh
@@ -567,7 +576,7 @@ chmod +x deploy
 - Nextcloud for Ubuntu with pretty urls rewrite 
 - Netdata for ```Ubuntu 18.04+``` and ```CentOS 6.5+```
 - Enable temperature sensors for netdata and ```sensors``` command tip 
-- Attach netdata and typo fixes in app list
+- Attach netdata and plex in apps list
 
 2018-04-30
 
