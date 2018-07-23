@@ -452,9 +452,15 @@ getconf LONG_BIT
 ```
 # CentOS/RHEL install ```deltarpm``` for allowing the delat rpm function. 
 
-# CentOS install ```nextcloud``` 
+# CentOS/Ubuntu install ```nextcloud``` 
 
 Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands. 
+- Enable pretty urls (get rid of index.php*) append the following two lines in your ```[nextcloud root]/config/config.php```:
+```
+'overwrite.cli.url' => 'https://example.com/nextcloud',
+'htaccess.RewriteBase' => '/nextcloud',
+```
+then execute ```sudo -u www-data php [nextcloud root]/occ maintenance:update:htaccess```
 
 # CentOS 7/Ubuntu install ```phpVirtualBox```
 - Add VirtualBox source by creating a file ```virtualbox.repo``` under ```/etc/yum.repos.d```:
@@ -527,6 +533,7 @@ chmod +x deploy
 2018-07-23
 
 - Virtualbox and phpVirtualbox for CentOS 7/Ubuntu with php7
+- Nextcloud for Ubuntu with pretty urls rewrite 
 
 2018-04-30
 
