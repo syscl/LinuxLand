@@ -464,6 +464,19 @@ ufw reload
 ```
 - Now access the netdata through ```http://your-server-ip:19999``` 
 
+# Enable temperature for netdata
+- Install ```lm_sensors``` through ```apt install lm_sensors```
+- Uncomment ```# sensors=force``` in ```/etc/netdata/charts.d.conf```
+- ```cp /etc/netdata/conf.d/python.d/sensors /etc/netdata/conf.d```
+- Restart netdata by the following:
+```sh
+killall netdata
+systemctl daemon-reload
+systemctl enable netdata
+systemctl restart netdata
+```
+- as a side note, we can actually execute ```sensors``` after install ```lm_sensors``` to check CPU temperature
+
 # Check operating system archieture (32-bit vs 64-bit)
 ```sh
 getconf LONG_BIT
@@ -553,6 +566,7 @@ chmod +x deploy
 - Virtualbox and phpVirtualbox for CentOS 7/Ubuntu with php7
 - Nextcloud for Ubuntu with pretty urls rewrite 
 - Netdata for ```Ubuntu 18.04+``` and ```CentOS 6.5+```
+- Enable temperature sensors for netdata and ```sensors``` command tip 
 - Attach netdata and typo fixes in app list
 
 2018-04-30
