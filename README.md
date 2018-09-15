@@ -25,7 +25,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [GoldenDict](https://github.com/goldendict/goldendict)
 - [Youdao dict](http://cidian.youdao.com/)
 - [Clang](http://llvm.org/)
-- [Sougou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
+- [Sogou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [Typora](http://www.typora.io/#)
 - [netbeans](https://netbeans.org/)
@@ -219,13 +219,18 @@ sudo chown -R $USER:$USER /opt/foxitreader
 sudo rm -r /opt/foxitreader/fxplugins
 ```
 
-# Optimize ```sougou pinying```
+# Tunning ```sogou pinying```
+- On Ubuntu 18.04+, there's duplicate indicator of the panel on the right corner of the screen, to resolve this issue, simply type in the ```apt remove fcitx-ui-classic```. Additionally, I usually remove some more fcitx's unused dependencies by ```apt purge fcitx-pinyin fcitx-table-wbpy```
 - Disable shift switch key by ```Sougou```-->```Setting```-->```Button(K)```-->```Chinese2English```-->```None```
 - Change Font and Font size to meet the requirement of high resolution screen
 - ```System Settings```-->```Keyboard```-->```Shortcuts```-->```Typing```-->```Disable``` all by typing ```Backspace```
 - ```Fcitx```-->```Global Config```-->```Trigger input method```-->```Ctrl+Space```
 
 
+
+# Remove unused ibus 
+
+Since I use sogou pinyin with ifcitx as my major input source, so that ibus is not required on my system, remove it by ```apt purge ibus indicator-keyboard```
 
 # Sublime text as default editor
 
@@ -564,6 +569,11 @@ chmod +x deploy
 ```
 
 # Change log
+2018-09-15
+
+- Resolve duplicate indicators of fcitx and sogou on Ubuntu 18.04
+- Remove unused ibus and indicator-keyboard 
+
 2018-07-23
 
 - Virtualbox and phpVirtualbox for CentOS 7/Ubuntu with php7
