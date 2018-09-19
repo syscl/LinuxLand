@@ -226,7 +226,90 @@ sudo rm -r /opt/foxitreader/fxplugins
 - ```System Settings```-->```Keyboard```-->```Shortcuts```-->```Typing```-->```Disable``` all by typing ```Backspace```
 - ```Fcitx```-->```Global Config```-->```Trigger input method```-->```Ctrl+Space```
 
+# Install ```Aria2``` and ```Aria2 WebUI``` for off line download on Raspberry Pi
 
+```sh
+apt install aria2
+mkdir ~/.aria2
+```
+
+Attach the below contents to ```~/.aria2/aria.conf```
+
+```
+dir=/home/pi/downloads
+file-allocation=falloc
+continue
+log-level=error
+max-connection-per-server=4
+summary-interval=120
+daemon=true
+enable-rpc=true
+rpc-listen-port=6800
+rpc-listen-all=true
+max-concurrent-downloads=1
+disable-ipv6=true
+disk-cache=25M
+timeout=600
+retry-wait=30
+max-tries=50
+```
+
+This is a sample of the configuration, you can tune it as you like. Now create the launch init.d scirpt by the following script under ```/etc/init.d/aria2
+
+```sh
+#!/bin/sh
+# /etc/init.d/aria2
+
+### BEGIN INIT INFO
+# Provides: aria2cRPC
+# Required-Start: $network $local_fs $remote_fs
+# Required-Stop: $network $local_fs $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: aria2c RPC init script.
+# Description: Starts and stops aria2 RPC services.
+### END INIT INFO
+
+RETVAL=0
+case “$1” in
+start)
+echo -n “Starting aria2c daemon ”
+umask 0000
+aria2c –daemon=true –enable-rpc –rpc-listen-all -D –conf-path=/home/pi/.aria2/aria2.conf
+RETVAL=$?
+echo
+;;
+stop)
+echo -n “Shutting down aria2c daemon ”
+/usr/bin/killall aria2c
+RETVAL=$?
+echo
+;;
+restart)
+stop
+sleep 3
+start
+;;
+*)
+echo $”Usage: $0 {start|stop|restart}”
+RETVAL=1
+esac
+exit $RETVAL
+```
+
+Attach executable permission for the script just touched (chmod +x aria) then update rc script 
+
+```shell
+sudo update-rc.d aria2 defaults
+```
+
+Now we turn to install the ```Aria2 WebUI```
+
+- Download the latest version of ```Aria2 WebUI``` from [here](https://github.com/ziahamza/webui-aria2), we actually want the build files under ```docs```, copy the ```docs``` directory to ```/var/www/html``` as aria2 (so that we can access it directly).
+
+# Samba on Raspberry Pi
+
+Please refer to this [link](https://tutorials.ubuntu.com/tutorial/install-and-configure-samba#3) first, full document will be appended later on.
 
 # Remove unused ibus 
 
@@ -569,6 +652,12 @@ chmod +x deploy
 ```
 
 # Change log
+2018-09-19
+
+- Aria2 install guide on Raspberry Pi
+- Aria2-WebUI install guide on Raspberry Pi
+- Samba service attached on Raspberry Pi
+
 2018-09-15
 
 - Resolve duplicate indicators of fcitx and sogou on Ubuntu 18.04
