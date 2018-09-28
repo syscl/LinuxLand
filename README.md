@@ -407,6 +407,10 @@ apt-get install default-jdk
 
 
 
+# Tune Gnome 3.x
+
+- [NoAnnoyance](https://github.com/sindex/no-annoyance) removes the “Windows is ready” notification and puts the window into focus.
+
 # Resolve ```RAR``` Parsing filters unsupported error 
 
 You can use
