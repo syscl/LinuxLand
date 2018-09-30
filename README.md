@@ -134,7 +134,15 @@ cd goldendict && qmake-qt4 "CONFIG+=old_hunspell" && make
 make install
 # sudo mv /usr/local/share/applications/goldendict.desktop ~/.local/share/applications # correct the *.desktop path
 ```
-- svn
+# Tune GoldenDict
+
+- Install translate-shell by ```apt install translate-shell```
+- Add the following to ```Edit```->```Dictionaries```->```Sources```->```Programs```:
+  1. Enabled, Typed=```Plain Text```, Name: [EN->ZH], Command Line: ```trans -e google -s en -t zh -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"```
+  2. Enabled, Typed=```Plain Text```, Name: [ZH->EN], Command Line: ```trans -e google -s fr -t en -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"```
+
+# svn
+
 ```sh
 sudo apt install subversion
 ```
@@ -762,4 +770,4 @@ chmod +x deploy
 
 2016-10-22
 
-- Initial commit
+- Initial commitgo
