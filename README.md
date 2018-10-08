@@ -96,7 +96,30 @@ gsettings reset org.gnome.nautilus.desktop font
 gsettings reset org.gnome.desktop.interface text-scaling-factor
 ```
 
+
+
+# Dynamic Wallpaper
+
+```Gnome``` actually supports the dynamic wallpaper around 10 years ago, and recently macOS Majove has bought this function to macOS. To enable this beautiful function that is built-in Gnome, we have to load a customize ```xml``` as desktop and lock screen background as following:
+
+```sh
+mkdir -p ~/Pictures/Wallpapers/majove_dynamic
+curl -o ~/Pictures/Wallpapers/majove_dynamic/majove.xml https://github.com/syscl/Ubuntu4Laptops/blob/master/dynamic_wallpapers/majove.xml
+```
+
+Open the ```~/Pictures/Wallpapers/majove_dynamic/majove.xml ```, change the ```username``` from ```syscl``` to the user name you used, then unzip all the wallpapers from [here](https://files.rb.gd/mojave_dynamic.zip) to ```~/Pictures/Wallpapaers/majove_dynamic```
+
+Set up the lock screen and desktop background by the following 
+
+```sh
+gsettings set org.gnome.desktop.background picture-uri 'file:///home/syscl/Pictures/Wallpapers/mojave_dynamic/mojave.xml'
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/syscl/Pictures/Wallpapers/mojave_dynamic/mojave.xml'
+```
+
+```Note``` Change the ```syscl``` to the user name you used on the above command line. 
+
 # vlmcsd
+
 Install compiled binaries to ```/usr/local/bin/vlmcsd```, then execute ```vlmcsd``` then ```vlmcs``` to start the server. Then on ```Windows``` client, open ```cmd``` as Administration, run the following:
 ```sh
 slmgr -ipk <GLVKs Key> 
@@ -664,6 +687,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-10-08
+
+- Dynamic wallpapers configuration for Gnome 
+
 2018-09-19
 
 - Aria2 install guide on Raspberry Pi
