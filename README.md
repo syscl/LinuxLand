@@ -37,7 +37,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
 - [Simplenotes](https://simplenote.com/)
-- [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom	Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
+- [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
 - [netdata](https://my-netdata.io)
 - Apache
 - FileZilla
@@ -451,7 +451,10 @@ apt-get install default-jdk
 
 # Tune Gnome 3.x
 
+To install extensions for Gnome 3.x, just search the add-ons in ```Software``` application,  then tune it on through ```Extension Settings```. 
+
 - [NoAnnoyance](https://github.com/sindex/no-annoyance) removes the “Windows is ready” notification and puts the window into focus.
+- [Suspend Button](https://extensions.gnome.org/extension/826/suspend-button/) adds back the sleep/suspend button 
 
 # Resolve ```RAR``` Parsing filters unsupported error 
 
@@ -702,6 +705,8 @@ chmod +x deploy
 
 - Dynamic wallpapers configuration for Gnome 
 - Method to remove/hide icons in the ```Show Applications``` button
+- Suspend button for Gnome 3.x
+- Revert commit command
 
 2018-09-19
 
@@ -809,4 +814,4 @@ chmod +x deploy
 
 2016-10-22
 
-- Initial commitgo
+- Initial commit

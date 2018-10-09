@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# (c) 2018 syscl
+# force reset to remove git commit history
+git log --oneline
+printf "Type in the commit you want to revert back"
+read -p ": " commit
+git reset --hard ${commit}
+git push origin HEAD --force
+
+exit 0
+
