@@ -118,6 +118,17 @@ gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/syscl/Pict
 
 ```Note``` Change the ```syscl``` to the user name you used on the above command line. 
 
+
+
+# Remove/hide icons in the ```Show Applications``` button 
+
+Jump right into the ```/usr/share/applications``` directory in the terminal, and remove/hide the icons you want. For example, remove the deprecated ```reboot```, ```shut down``` and ```logout``` button when updating from Unity to Gnome
+
+```sh
+cd /usr/share/applications
+sudo rm -rf reboot.desktop shutdown.desktop logout.desktop
+```
+
 # vlmcsd
 
 Install compiled binaries to ```/usr/local/bin/vlmcsd```, then execute ```vlmcsd``` then ```vlmcs``` to start the server. Then on ```Windows``` client, open ```cmd``` as Administration, run the following:
@@ -690,6 +701,7 @@ chmod +x deploy
 2018-10-08
 
 - Dynamic wallpapers configuration for Gnome 
+- Method to remove/hide icons in the ```Show Applications``` button
 
 2018-09-19
 
