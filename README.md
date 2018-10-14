@@ -168,30 +168,36 @@ cd goldendict && qmake-qt4 "CONFIG+=old_hunspell" && make
 make install
 # sudo mv /usr/local/share/applications/goldendict.desktop ~/.local/share/applications # correct the *.desktop path
 ```
+System tray disappear on Ubuntu 18.04 (Gnome)
+
+Install ```sni-qt``` libraries: ```apt install sni-qt``` 
+
 # Tune GoldenDict
 
 - Install translate-shell by ```apt install translate-shell```
+
 - Add the following to ```Edit```->```Dictionaries```->```Sources```->```Programs```:
   1. Enabled, Typed=```Plain Text```, Name: [EN->ZH], Command Line: ```trans -e google -s en -t zh -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"```
   2. Enabled, Typed=```Plain Text```, Name: [ZH->EN], Command Line: ```trans -e google -s fr -t en -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"```
+
+  - For extra dictionaries you can refer to ```software/GoldenDict/dictionary``` folder under this git repo
+  - Changing the font and size for GoldenDict, use the following:
+
+  ```sh
+  echo 'body'  							  >~/.goldendict/article-style.css
+  echo '{'    							 >>~/.goldendict/article-style.css
+  echo '    font-family: Microsoft YaHei;' >>~/.goldendict/article-style.css
+  echo '    font-size: 12px;'              >>~/.goldendict/article-style.css
+  echo '}'                                 >>~/.goldendict/article-style.css
+  ```
+
+  More setting details please refer [here](http://goldendict.org/wiki/index.php/FAQ).
 
 # svn
 
 ```sh
 sudo apt install subversion
 ```
-
-- For extra dictionaries you can refer to ```software/GoldenDict/dictionary``` folder under this git repo
-
-- Changing the font and size for GoldenDict, use the following:
-```sh
-echo 'body'  							  >~/.goldendict/article-style.css
-echo '{'    							 >>~/.goldendict/article-style.css
-echo '    font-family: Microsoft YaHei;' >>~/.goldendict/article-style.css
-echo '    font-size: 12px;'              >>~/.goldendict/article-style.css
-echo '}'                                 >>~/.goldendict/article-style.css
-```
-More setting details please refer [here](http://goldendict.org/wiki/index.php/FAQ)
 
 # Optimize Eclipse
 
@@ -701,6 +707,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-10-13
+
+- Resolved GoldenDict on Ubuntu 18.04 system tray by installing sni-qt libraries 
+
 2018-10-08
 
 - Dynamic wallpapers configuration for Gnome 
