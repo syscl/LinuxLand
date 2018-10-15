@@ -185,10 +185,10 @@ Install ```sni-qt``` libraries: ```apt install sni-qt```
 
   ```sh
   echo 'body'  							  >~/.goldendict/article-style.css
-  echo '{'    							 >>~/.goldendict/article-style.css
-  echo '    font-family: Microsoft YaHei;' >>~/.goldendict/article-style.css
-  echo '    font-size: 12px;'              >>~/.goldendict/article-style.css
-  echo '}'                                 >>~/.goldendict/article-style.css
+  echo '{'    							 >>~/.goldendict/article-style.css\
+  echo '    font-family: Microsoft YaHei;' >>~/.goldendict/article-style.css\
+  echo '    font-size: 12px;'              >>~/.goldendict/article-style.css\
+  echo '}'                                 >>~/.goldendict/article-style.css\
   ```
 
   More setting details please refer [here](http://goldendict.org/wiki/index.php/FAQ).
@@ -362,6 +362,28 @@ Please refer to this [link](https://tutorials.ubuntu.com/tutorial/install-and-co
 # Remove unused ibus 
 
 Since I use sogou pinyin with ifcitx as my major input source, so that ibus is not required on my system, remove it by ```apt purge ibus indicator-keyboard```
+
+# Dash to Dock configuration
+
+- Ubuntu dash to dock (modified version of dash to dock): 
+
+Reset ```transparent-mode``` to ```'ADAPTIVE'```:
+
+```sh
+gsettings reset org.gnome.shell.extensions.dash-to-dock transparency-mode
+```
+
+Reset ```min-alpha``` to default
+
+```sh
+gsettings reset org.gnome.shell.extensions.dash-to-dock min-alpha
+```
+
+- Original dash to dock extension:
+
+Recommend style set to ```Dots```, and the rest are the same as Ubuntu dash-to-dock.
+
+
 
 # Sublime text as default editor
 
@@ -707,6 +729,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-10-15
+
+- Settings for Dash to Dock
+
 2018-10-13
 
 - Resolved GoldenDict on Ubuntu 18.04 system tray by installing sni-qt libraries 
