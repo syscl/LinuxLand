@@ -383,7 +383,7 @@ gsettings reset org.gnome.shell.extensions.dash-to-dock min-alpha
 
 Recommend style set to ```Dots```, and the rest are the same as Ubuntu dash-to-dock.
 
-
+But if this is not enough to reset all settings, try to remove and reinstall the whole directories under ```/usr/share/gnome-shell/extensions```
 
 # Sublime text as default editor
 
