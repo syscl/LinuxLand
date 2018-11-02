@@ -731,6 +731,7 @@ chmod +x deploy
 # Change log
 2018-11-2
 
+- Revised the open command using python2/3
 - Revised battery information script using python2/3
 
 2018-10-15

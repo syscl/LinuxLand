@@ -1,42 +1,36 @@
-#!/bin/bash
+#!/usr/bin/python
 # smart open command (mac-like) for GNU/Linux (c) syscl
-# notice the key point here is to use '&>/dev/null' to 
-# fix the xdg-open errors, add multiple handle for this command (c) syscl
-# For xbuntu, install it to /usr/local/bin
-# 0.7 - fixed '..' issue and simplified block logic
-# 0.6 - added URL support
-# 0.5 - added help for user
-# 0.4 - fixed absolute path open issue 
-# 0.3 - added multiple files handle/support
-# 0.2 - fixed output style when argument ($@) contains './'
-# 0.1 - fixed error while using xdg-open
+# To use it copy it to /usr/local/bin
+import sys
+import os
+import platform
+import subprocess
 
-main()
-{
-	if [ ${#@} -eq 0 ]; then 
-		# print help
-		echo "Usage: open [filenames]"
-		echo "Help: Open opens files from a shell."
-		echo "      By default, opens each file using the default application for that file."
-		echo "      If the file is in the form of a URL, the file will be opened as a URL."
-		exit 0
-	fi
+# define errors
+kArgvMissing = -1
 
-	for path in "$@" 
-	do
-		if [[ "${path:0:1}" == "~" || "${path:0:1}" == "/" || "${path:0:7}" == "http://" || "${path:0:8}" == "https://"  || "${path:0:8}" == "ftp://" ]]; then
-			# absolute path or website
-			local fpath="${path}"
-		else
-			local fpath="${PWD}/${path}"
-			# a directory or a file
-			if [[ ! -d "${fpath}" && ! -f "${fpath}" ]]; then
-				echo "The file ${fpath} does not exist."
-				exit -1
-			fi
-		fi
-		xdg-open "${fpath}" &>/dev/null
-	done
-}
+if len(sys.argv) <= 1:
+    print("Usage: open [filesnames]")
+    print("Help: Open opens files from a shell.")
+    print("      By default, opens each file using the default application for that file.")
+    print("      If the file is in the form of a URL, the file will be opened as a URL.") 
+    exit(kArgvMissing)
 
-main "$@"
+# starting from index one to end
+# note: shell paraphases "~" into "/home/[username]" 
+for path in sys.argv[1:]:
+    is_link = path.find("http://") == 0 or path.find("https://") == 0 or path.find("ftp://") == 0
+    if path[0] == '~' or path[0] == '/' or is_link:
+        # TODO: remove invalid input e.g. "~~"
+        pass
+    else: 
+        # correct it with current working directory use
+        path = os.getcwd() + "/" + path
+
+    if not is_link and not os.path.exists(path):
+        print("The file " + path + " does not exist.")
+        continue
+
+    subprocess.call(["xdg-open", path], stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
+
+exit()
