@@ -729,6 +729,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-11-2
+
+- Revised battery information script using python2/3
+
 2018-10-15
 
 - Settings for Dash to Dock

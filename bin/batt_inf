@@ -9,7 +9,7 @@ def getAndSetPath():
     """ Get and set the correct path for the battery information
     Linux 2.6.24-: /proc 
     Linux 2.6.24+: /sys/class/power_supply/BAT0
-    Linux 3.19+:   /sys/class/power_supply/BAT1/
+    Linux 3.19+:   /sys/class/power_supply/BAT1
     """ 
     # Linux kernel number convention
     # obtain all the number from the `uname -r`
@@ -32,7 +32,7 @@ bt_inf = os.popen("upower -i $(upower -e | grep '/battery')").readlines()
 # remove ":" and `leading` white spaces then remove '\n'
 time_remain = [s for s in bt_inf if "time" in s][0].split(':', 1)[-1].strip().rstrip('\n')
 
-# print the time remaing
+# print battery time remaining
 if time_remain is not None:
     # remove tailing '\n'
     print("Time remaining:  " + time_remain)
