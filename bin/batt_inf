@@ -1,0 +1,48 @@
+#!/usr/bin/python
+# To execute it just make it executable first by chmod +x 
+import os
+import platform
+import re
+
+
+def getAndSetPath():
+    """ Get and set the correct path for the battery information
+    Linux 2.6.24-: /proc 
+    Linux 2.6.24+: /sys/class/power_supply/BAT0
+    Linux 3.19+:   /sys/class/power_supply/BAT1/
+    """ 
+    # Linux kernel number convention
+    # obtain all the number from the `uname -r`
+    release = re.findall(r'\d+', platform.release())
+    kern_ver = int(release[0])
+    kern_major = int(release[1])
+    kern_minor = int(release[2])
+    # set the battery info path
+    if kern_ver >= 4 or kern_ver == 3 and kern_major >= 19:
+        return "/sys/class/power_supply/BAT1"
+    elif kern_ver >= 2 and kern_major >= 6 and kern_minor >= 24:
+        return "/sys/class/power_supply/BAT0"
+    else:
+        # I don't have linux version earlier than that
+        # please let me know the actual battery information
+        return "/proc"
+
+
+bt_inf = os.popen("upower -i $(upower -e | grep '/battery')").readlines()
+# remove ":" and `leading` white spaces then remove '\n'
+time_remain = [s for s in bt_inf if "time" in s][0].split(':', 1)[-1].strip().rstrip('\n')
+
+# print the time remaing
+if time_remain is not None:
+    # remove tailing '\n'
+    print("Time remaining:  " + time_remain)
+
+path = getAndSetPath()
+fcap = path + "/capacity"
+try:
+    with open(fcap) as f:
+        capacity = f.readlines()
+    if capacity is not None:
+        print("Battery present: " + capacity[0].rstrip('\n') + "%")
+except:
+    pass

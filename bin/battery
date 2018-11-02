@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# show information about battery:
-# time to empty (h:m)
-# percentage (%)
-upower -i /org/freedesktop/UPower/devices/battery_BAT0 |grep -E "time|percentage"
-
-exit 0
