@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
+
+# 0.4 clean code style
+# 0.3 samba protocol support
+# 0.2 consider duplicate '/' character 
+# 0.1 initial version
+
 import sys
 import os
 import platform
@@ -16,18 +22,41 @@ if len(sys.argv) <= 1:
     print("      If the file is in the form of a URL, the file will be opened as a URL.") 
     exit(kArgvMissing)
 
+def is_remote_proto(repo):
+    """check if it is remote protocol"""
+    rps_list = ["http", "https", "ftp", "smb", "nfs"]
+    for proto in rps_list:
+        if repo.find(proto + "://") == 0:
+            return True
+    return False
+
 # starting from index one to end
 # note: shell paraphases "~" into "/home/[username]" 
 for path in sys.argv[1:]:
-    is_link = path.find("http://") == 0 or path.find("https://") == 0 or path.find("ftp://") == 0
+    # remote protocols
+    is_link = is_remote_proto(path)
     if path[0] == '~' or path[0] == '/' or is_link:
-        # TODO: remove invalid input e.g. "~~"
-        pass
+        if not is_link:
+            # Remove duplicate '/' even though xdg-open 
+            # concern the case but we are not sure
+            # if it will remove this feature later on
+            tmp = ""
+            is_dup = False
+            for i in range(len(path)):
+                if path[i] == '/' and is_dup:
+                    continue
+                elif path[i] == '/':
+                    is_dup = True
+                else:
+                    is_dup = False
+                tmp = tmp + path[i]
+            path = tmp
+            print(path)
     else: 
-        # correct it with current working directory use
+        # correct it with current working directory in use
         path = os.getcwd() + "/" + path
 
-    if not is_link and not os.path.exists(path):
+    if not (is_link or os.path.exists(path)):
         print("The file " + path + " does not exist.")
         continue
 

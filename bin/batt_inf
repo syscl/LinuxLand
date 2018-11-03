@@ -18,7 +18,7 @@ def getAndSetPath():
     kern_major = int(release[1])
     kern_minor = int(release[2])
     # set the battery info path
-    if kern_ver >= 4 or kern_ver == 3 and kern_major >= 19:
+    if kern_ver >= 4 or (kern_ver == 3 and kern_major >= 19):
         return "/sys/class/power_supply/BAT1"
     elif kern_ver >= 2 and kern_major >= 6 and kern_minor >= 24:
         return "/sys/class/power_supply/BAT0"
@@ -34,7 +34,6 @@ time_remain = [s for s in bt_inf if "time" in s][0].split(':', 1)[-1].strip().rs
 
 # print battery time remaining
 if time_remain is not None:
-    # remove tailing '\n'
     print("Time remaining:  " + time_remain)
 
 path = getAndSetPath()
