@@ -2,6 +2,7 @@
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
 
+# 0.5 generate merge_dups routine for later use
 # 0.4 clean code style
 # 0.3 samba protocol support
 # 0.2 consider duplicate '/' character 
@@ -30,6 +31,21 @@ def is_remote_proto(repo):
             return True
     return False
 
+def merge_dups(s, t):
+    """merge duplicates character t of a string s into one"""
+    is_dup = False
+    ret = ""
+    for c in s:
+        if c == t and is_dup:
+            continue
+        elif c == t:
+            is_dup = True
+        else:
+            is_dup = False
+        ret = ret + c
+    return ret
+
+
 # starting from index one to end
 # note: shell paraphases "~" into "/home/[username]" 
 for path in sys.argv[1:]:
@@ -40,18 +56,7 @@ for path in sys.argv[1:]:
             # Remove duplicate '/' even though xdg-open 
             # concern the case but we are not sure
             # if it will remove this feature later on
-            tmp = ""
-            is_dup = False
-            for i in range(len(path)):
-                if path[i] == '/' and is_dup:
-                    continue
-                elif path[i] == '/':
-                    is_dup = True
-                else:
-                    is_dup = False
-                tmp = tmp + path[i]
-            path = tmp
-            print(path)
+            path = merge_dups(path, "/")
     else: 
         # correct it with current working directory in use
         path = os.getcwd() + "/" + path
