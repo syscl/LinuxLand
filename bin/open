@@ -2,7 +2,8 @@
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
 
-# 0.5 generate merge_dups routine for later use
+# 0.6 O(1) is_remote_proto() using frozenset instead of previous O(n) algo
+# 0.5 merge_dups() for more flexible usage
 # 0.4 clean code style
 # 0.3 samba protocol support
 # 0.2 consider duplicate '/' character 
@@ -25,10 +26,10 @@ if len(sys.argv) <= 1:
 
 def is_remote_proto(repo):
     """check if it is remote protocol"""
-    rps_list = ["http", "https", "ftp", "smb", "nfs"]
-    for proto in rps_list:
-        if repo.find(proto + "://") == 0:
-            return True
+    # frozenset never changes
+    rps_set = frozenset(["http", "https", "ftp", "smb", "nfs"])
+    if repo[0:repo.find("://")] in rps_set:
+        return True
     return False
 
 def merge_dups(s, t):
@@ -49,12 +50,12 @@ def merge_dups(s, t):
 # starting from index one to end
 # note: shell paraphases "~" into "/home/[username]" 
 for path in sys.argv[1:]:
-    # remote protocols
+    # check if it is remote protocols
     is_link = is_remote_proto(path)
     if path[0] == '~' or path[0] == '/' or is_link:
         if not is_link:
             # Remove duplicate '/' even though xdg-open 
-            # concern the case but we are not sure
+            # concerns the case but we are not sure
             # if it will remove this feature later on
             path = merge_dups(path, "/")
     else: 

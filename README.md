@@ -729,6 +729,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-11-3
+
+- O(1) is_remote_proto() using frozenset instead of previous list traversing O(n) of ```open```
+
 2018-11-2
 
 - Revised the open command using python2/3

@@ -82,7 +82,7 @@ function _disSuspend()
 {
     #
     # Note: we'd better disable hibernate/suspend mode on x205ta because
-    # it will very likely panic the system. Sleep perform pretty well
+    # it will very likely break the system. Sleep performs pretty well
     # if you close the lid. We also need to disable the Suspend button
     # in menu as well
     #
