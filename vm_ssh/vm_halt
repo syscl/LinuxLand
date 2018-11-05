@@ -24,10 +24,10 @@ for vm in vm_run:
     index = index + 1
 
 prompt = "Enter the virtual machine to power off"
-if len(vm_list) == 1:
+if vm_size == 1:
     prompt = prompt + "[1]: "
 else:
-    prompt = prompt + "[1-{0}]: ".format(len(vm_list))
+    prompt = prompt + "[1-{0}]: ".format(vm_size)
 target = input(prompt) - 1
 while target < 0 or target >= vm_size:
     print("Enter invalid number.")
