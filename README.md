@@ -729,6 +729,10 @@ chmod +x deploy
 ```
 
 # Change log
+2018-11-4
+
+- ssh to guest virtual machine, along with ```vm_init``` to start virtual machine in background
+
 2018-11-3
 
 - O(1) is_remote_proto() using frozenset instead of previous list traversing O(n) of ```open```

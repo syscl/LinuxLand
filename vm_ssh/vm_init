@@ -1,0 +1,41 @@
+#!/usr/bin/python
+# init the virtual machine in backgroud 
+
+import os
+import re
+import sys
+
+vm_set = set(os.popen("VBoxManage list vms"))
+# note the print will append extra newline character at the
+# end of the string, to print it explicity use print(repr(str))
+vm_run = set(os.popen("VBoxManage list runningvms"))
+
+for rvm in vm_run:
+    vm_set.remove(rvm)
+
+vm_size = len(vm_set)
+if vm_size == 0:
+    print("All virtual machines are running.")
+    exit(0)
+
+vm_list = []
+index = 1
+for vm in vm_set:
+    vm = re.findall(r'"([^"]*)"', vm)[0]
+    print("[{0}] {1}".format(index, vm))
+    vm_list.append(vm)
+    index = index + 1
+
+prompt = "Enter the virtual machine to start in background"
+if len(vm_list) == 1:
+    prompt = prompt + "[1]: "
+else:
+    prompt = prompt + "[1-{0}]: ".format(len(vm_list))
+target = input(prompt) - 1
+while target < 0 or target >= vm_size:
+    print("Enter invalid number.")
+    target = input(prompt) - 1
+init_cmd = "VBoxManage startvm " + "\"" + vm_list[target]  + "\"" + " -type headless"
+os.popen(init_cmd)
+
+exit()
