@@ -1,0 +1,9 @@
+#!/usr/bin/python
+# one line command line update for apt-based system
+# To use it as a system cli, copy it to /usr/local/bin
+import subprocess
+
+subprocess.call(["sudo", "apt-get", "update"])
+subprocess.call(["sudo", "apt-get", "-y", "upgrade"])
+
+exit()
