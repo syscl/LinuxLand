@@ -96,7 +96,37 @@ gsettings reset org.gnome.nautilus.desktop font
 gsettings reset org.gnome.desktop.interface text-scaling-factor
 ```
 
+# tmux
 
+It is highly recommend to use tmux for both your dev server or local machine because of its multiplex feature. 
+
+```sh
+sudo apt install tmux
+```
+
+Make the tmux launch for every terminal, append the following lines at the end of the ```.bashrc```
+
+```sh
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+```
+
+The above command is going to make sure that
+
+```
+ (1) tmux exists on the system 
+ (2) we're in an interactive shell
+ (3) tmux doesn't try to run within itself
+```
+
+Reference:
+
+- [Using bash's command to check for existence of a command](http://man7.org/linux/man-pages/man1/bash.1.html#SHELL_BUILTIN_COMMANDS)
+- [Why to use command instead of which to check for the existence of commands](https://unix.stackexchange.com/a/85250)
+- [Using $PS1 to check for interactive shell](https://www.gnu.org/software/bash/manual/html_node/Is-this-Shell-Interactive_003f.html)
+- [Expected state of $TERM environment variable "for all programs running inside tmux"](http://man7.org/linux/man-pages/man1/tmux.1.html#WINDOWS_AND_PANES)
+- [Start tmux on every shell login](<https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login>)
 
 # Dynamic Wallpaper
 
@@ -729,6 +759,10 @@ chmod +x deploy
 ```
 
 # Change log
+2019-5-03
+
+- tmux with set up guide line
+
 2019-03-26
 
 - update cli for easy updating apt-based system

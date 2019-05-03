@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# poweroff the virtual machine in  
+# poweroff the virtual machine
 
 import os
 import re
