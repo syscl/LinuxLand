@@ -1,9 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # one line command line update for apt-based system
 # To use it as a system cli, copy it to /usr/local/bin
 import subprocess
+import shlex
+import os
 
-subprocess.call(["sudo", "apt-get", "update"])
-subprocess.call(["sudo", "apt-get", "-y", "upgrade"])
+APT_GET = "/usr/bin/apt-get"
+APT_UPDATE = "sudo {} update".format(APT_GET)
+APT_UPGRADE = "sudo {} -y upgrade".format(APT_GET)
+subprocess.call(shlex.split(APT_UPDATE))
+subprocess.call(shlex.split(APT_UPGRADE))
 
-exit()
+exit(os.EX_OK)

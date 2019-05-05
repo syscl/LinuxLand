@@ -1,36 +1,47 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
 
+# 0.8 shlex to analyze the shell command lexically prevent security hole
+# 0.7 use env to find python interpreter 
 # 0.6 O(1) is_remote_proto() using frozenset instead of previous O(n) algo
 # 0.5 merge_dups() for more flexible usage
 # 0.4 clean code style
 # 0.3 samba protocol support
-# 0.2 consider duplicate '/' character 
+# 0.2 consider duplicate '/' character
 # 0.1 initial version
 
 import sys
 import os
 import platform
 import subprocess
+import shlex
 
 # define errors
 kArgvMissing = -1
 
+XDG_OPEN = "/usr/bin/xdg-open"
+
 if len(sys.argv) <= 1:
     print("Usage: open [filesnames]")
     print("Help: Open opens files from a shell.")
-    print("      By default, opens each file using the default application for that file.")
-    print("      If the file is in the form of a URL, the file will be opened as a URL.") 
+    print(
+        "      By default, opens each file using the default application for that file."
+    )
+    print(
+        "      If the file is in the form of a URL, the file will be opened as a URL."
+    )
     exit(kArgvMissing)
+
 
 def is_remote_proto(repo):
     """check if it is remote protocol"""
     # frozenset never changes
     rps_set = frozenset(["http", "https", "ftp", "smb", "nfs"])
-    if repo[0:repo.find("://")] in rps_set:
+    if repo[0 : repo.find("://")] in rps_set:
         return True
     return False
+
 
 def merge_dups(s, t):
     """merge duplicates character t of a string s into one"""
@@ -48,17 +59,17 @@ def merge_dups(s, t):
 
 
 # starting from index one to end
-# note: shell paraphases "~" into "/home/[username]" 
+# note: shell paraphases "~" into "/home/<username>"
 for path in sys.argv[1:]:
     # check if it is remote protocols
     is_link = is_remote_proto(path)
-    if path[0] == '~' or path[0] == '/' or is_link:
+    if path[0] == "~" or path[0] == "/" or is_link:
         if not is_link:
-            # Remove duplicate '/' even though xdg-open 
+            # Remove duplicate '/' even though xdg-open
             # concerns the case but we are not sure
             # if it will remove this feature later on
             path = merge_dups(path, "/")
-    else: 
+    else:
         # correct it with current working directory in use
         path = os.getcwd() + "/" + path
 
@@ -66,6 +77,11 @@ for path in sys.argv[1:]:
         print("The file " + path + " does not exist.")
         continue
 
-    subprocess.call(["xdg-open", path], stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
+    open_cmd = "{} {}".format(XDG_OPEN, path)
+    subprocess.check_call(
+        shlex.split(open_cmd),
+        stdout=open(os.devnull, "w"),
+        stderr=subprocess.STDOUT,
+    )
 
-exit()
+exit(os.EX_OK)

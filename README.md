@@ -759,6 +759,11 @@ chmod +x deploy
 ```
 
 # Change log
+2019-5-05
+
+- env to find python interpreter 
+- shlex to analyze command lexically in case to prevent security hole
+
 2019-5-03
 
 - tmux with set up guide line

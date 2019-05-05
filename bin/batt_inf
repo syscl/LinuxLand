@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # To execute it just make it executable first by chmod +x 
 import os
 import platform
