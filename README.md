@@ -39,6 +39,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Simplenotes](https://simplenote.com/)
 - [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
 - [netdata](https://my-netdata.io)
+- [hyper](https://hyper.is/plugins/hyper-native)
 - Apache
 - FileZilla
 - git
@@ -759,6 +760,10 @@ chmod +x deploy
 ```
 
 # Change log
+2019-5-07
+
+- hyper web shell for et/mosh
+
 2019-5-05
 
 - env to find python interpreter 
