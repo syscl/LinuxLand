@@ -129,6 +129,12 @@ Reference:
 - [Expected state of $TERM environment variable "for all programs running inside tmux"](http://man7.org/linux/man-pages/man1/tmux.1.html#WINDOWS_AND_PANES)
 - [Start tmux on every shell login](<https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login>)
 
+Enable mouse scroll:
+
+- echo 'set -g mouse on' >> ~/.tmux.conf
+- To select or copy in tmux, press ```Fn``` key in Linux (macOS use ```Option```)
+- More settings can be referred to: <https://github.com/gpakosz/.tmux>
+
 # Edit binary
 
 - Vi/Vim: ```:%!xxd``` to enter hex edit mode, ```:!xxd -r``` to quit
