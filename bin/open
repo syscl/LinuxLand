@@ -2,6 +2,7 @@
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
 
+# 0.9 fixed parse string as seperate arguments
 # 0.8 shlex to analyze the shell command lexically prevent security hole
 # 0.7 use env to find python interpreter 
 # 0.6 O(1) is_remote_proto() using frozenset instead of previous O(n) algo
@@ -77,7 +78,7 @@ for path in sys.argv[1:]:
         print("The file " + path + " does not exist.")
         continue
 
-    open_cmd = "{} {}".format(XDG_OPEN, path)
+    open_cmd = '{} "{}"'.format(XDG_OPEN, path)
     subprocess.check_call(
         shlex.split(open_cmd),
         stdout=open(os.devnull, "w"),

@@ -129,6 +129,11 @@ Reference:
 - [Expected state of $TERM environment variable "for all programs running inside tmux"](http://man7.org/linux/man-pages/man1/tmux.1.html#WINDOWS_AND_PANES)
 - [Start tmux on every shell login](<https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login>)
 
+# Edit binary
+
+- Vi/Vim: ```:%!xxd``` to enter hex edit mode, ```:!xxd -r``` to quit
+- Or use command line hex edit by ```apt install hexedit```
+
 # Dynamic Wallpaper
 
 ```Gnome``` actually supports the dynamic wallpaper around 10 years ago, and recently macOS Majove has bought this function to macOS. To enable this beautiful function that is built-in Gnome, we have to load a customize ```xml``` as desktop and lock screen background as following:
@@ -760,6 +765,11 @@ chmod +x deploy
 ```
 
 # Change log
+2019-5-11
+
+- Fixed path splited due to blank space
+- Added hexedit cli
+
 2019-5-07
 
 - hyper web shell for et/mosh
