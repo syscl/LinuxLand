@@ -135,6 +135,10 @@ Enable mouse scroll:
 - To select or copy in tmux, press ```Fn``` key in Linux (macOS use ```Option```)
 - More settings can be referred to: <https://github.com/gpakosz/.tmux>
 
+# Fuzzy auto completion in terminal
+
+For an enhancement of ```Ctrl+R``` refer [here](https://github.com/junegunn/fzf)
+
 # Edit binary
 
 - Vi/Vim: ```:%!xxd``` to enter hex edit mode, ```:!xxd -r``` to quit
