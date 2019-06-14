@@ -137,7 +137,7 @@ Enable mouse scroll:
 
 # Albert (similar to Alfred and Spotlight in macOS)
 
-This ultimately improve your productivity. Check here for [installation](<https://albertlauncher.github.io/docs/installing/)
+This ultimately improve your productivity. Check here for [installation](https://albertlauncher.github.io/docs/installing/)
 
 - To enable quick search: settings (on the top right of the box) - Extensions - WebSearch - Trigger. For example change ``gg`` to `g` for Google
 
