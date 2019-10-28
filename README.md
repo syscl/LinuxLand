@@ -145,6 +145,13 @@ This ultimately improve your productivity. Check here for [installation](https:/
 
 For an enhancement of ```Ctrl+R``` refer [here](https://github.com/junegunn/fzf)
 
+For ```Ubuntu``` specific:
+
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
 # Edit binary
 
 - Vi/Vim: ```:%!xxd``` to enter hex edit mode, ```:!xxd -r``` to quit
