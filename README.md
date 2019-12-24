@@ -631,7 +631,6 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
 ```
 
 
-
 # Visual Studio Code Settings
 
  ```
@@ -641,6 +640,21 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
     "editor.fontFamily": "'Menlo', 'Consolas', 'DejaVu Sans Mono', 'monospace'",
 }
  ```
+To have a vertical line (vertical rulers) to control line length, set a ruler in 
+```settings.json``` as (in this case length is 80)
+```
+{
+  "editor.rulers": [80]
+}
+```
+For remote developing, install [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) and copy public key to dev server by
+```
+ssh-copy-id [username]@[ip]
+```
+
+Markdown preview extension: ```Markdown all in one```
+
+
 
 # Mac-like command: ```open``` for Ubuntu
 
