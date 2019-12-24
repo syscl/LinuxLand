@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # one line command line update for apt-based system
 # To use it as a system cli, copy it to /usr/local/bin
 import subprocess
