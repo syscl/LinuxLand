@@ -1,19 +1,22 @@
-#!/usr/bin/env python
-# To execute it just make it executable first by chmod +x 
+#!/usr/bin/env python3
+# To execute it just make it executable first by chmod +x
+# Copy to /usr/local/bin/
 import os
 import platform
 import re
 
+from typing import List
 
-def getAndSetPath():
+
+def getAndSetPath() -> str:
     """ Get and set the correct path for the battery information
     Linux 2.6.24-: /proc 
     Linux 2.6.24+: /sys/class/power_supply/BAT0
     Linux 3.19+:   /sys/class/power_supply/BAT1
-    """ 
+    """
     # Linux kernel number convention
     # obtain all the number from the `uname -r`
-    release = re.findall(r'\d+', platform.release())
+    release = re.findall(r"\d+", platform.release())
     kern_ver = int(release[0])
     kern_major = int(release[1])
     kern_minor = int(release[2])
@@ -28,20 +31,22 @@ def getAndSetPath():
         return "/proc"
 
 
-bt_inf = os.popen("upower -i $(upower -e | grep '/battery')").readlines()
+bt_inf: List[str] = os.popen("upower -i $(upower -e | grep '/battery')").readlines()
 # remove ":" and `leading` white spaces then remove '\n'
-time_remain = [s for s in bt_inf if "time" in s][0].split(':', 1)[-1].strip().rstrip('\n')
+time_remain = (
+    [s for s in bt_inf if "time" in s][0].split(":", 1)[-1].strip().rstrip("\n")
+)
 
 # print battery time remaining
 if time_remain is not None:
     print("Time remaining:  " + time_remain)
 
-path = getAndSetPath()
-fcap = path + "/capacity"
+path: str = getAndSetPath()
+fcap: str = os.path.join(path, "capacity")
 try:
     with open(fcap) as f:
         capacity = f.readlines()
     if capacity is not None:
-        print("Battery present: " + capacity[0].rstrip('\n') + "%")
+        print("Battery percentage: " + capacity[0].rstrip("\n") + "%")
 except:
     pass

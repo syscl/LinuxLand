@@ -2,6 +2,7 @@
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
 
+# 1.0.1 Use join to cat file path
 # 1.0.0 Use python3 + use subprocess run + type anonation + resolve hard code path for xdg-open  
 # 0.9   fixed parse string as seperate arguments
 # 0.8   shlex to analyze the shell command lexically prevent security hole
@@ -74,10 +75,10 @@ for path in sys.argv[1:]:
             path = merge_dups(path, "/")
     else:
         # correct it with current working directory in use
-        path = os.getcwd() + "/" + path
+        path = os.path.join(os.getcwd(), path)
 
     if not (is_link or os.path.exists(path)):
-        print("The file " + path + " does not exist.")
+        print(f"The file {path} does not exist.")
         continue
 
     open_cmd: str = f'{XDG_OPEN} "{path}"'
