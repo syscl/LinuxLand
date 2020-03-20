@@ -1,9 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # poweroff the virtual machine
 
 import os
 import re
 import sys
+
+from typing import List
 
 # note the print will append extra newline character at the
 # end of the string, to print it explicity use print(repr(str))
@@ -15,7 +17,7 @@ if vm_size == 0:
     print("No virtual machines are running.")
     exit(0)
 
-vm_list = []
+vm_list: List[str] = []
 index = 1
 for vm in vm_run:
     vm = re.findall(r'"([^"]*)"', vm)[0]
@@ -23,16 +25,18 @@ for vm in vm_run:
     vm_list.append(vm)
     index = index + 1
 
-prompt = "Enter the virtual machine to power off"
+prompt: str = "Enter the virtual machine to power off"
 if vm_size == 1:
-    prompt = prompt + "[1]: "
+    prompt = f"{prompt} [1]: "
 else:
-    prompt = prompt + "[1-{0}]: ".format(vm_size)
-target = input(prompt) - 1
+    prompt = f"{prompt} [1-{vm_size}]: "
+target: int = input(prompt) - 1
+
 while target < 0 or target >= vm_size:
     print("Enter invalid number.")
     target = input(prompt) - 1
-init_cmd = "VBoxManage controlvm " + "\"" + vm_list[target]  + "\"" + " acpipowerbutton"
-os.popen(init_cmd)
+
+argv: List[str] = ["VBoxManage", "controlvm", f'"{vm_list[target]}"', "acpipowerbutton"]
+os.execv(argv[0], argv)
 
 exit()
