@@ -1,27 +1,29 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # smart open command (mac-like) for GNU/Linux (c) syscl
 # To use it copy it to /usr/local/bin
 
-# 0.9 fixed parse string as seperate arguments
-# 0.8 shlex to analyze the shell command lexically prevent security hole
-# 0.7 use env to find python interpreter 
-# 0.6 O(1) is_remote_proto() using frozenset instead of previous O(n) algo
-# 0.5 merge_dups() for more flexible usage
-# 0.4 clean code style
-# 0.3 samba protocol support
-# 0.2 consider duplicate '/' character
-# 0.1 initial version
+# 1.0.0 Use python3 + use subprocess run + type anonation + resolve hard code path for xdg-open  
+# 0.9   fixed parse string as seperate arguments
+# 0.8   shlex to analyze the shell command lexically prevent security hole
+# 0.7   use env to find python interpreter
+# 0.6   O(1) is_remote_proto() using frozenset instead of previous O(n) algo
+# 0.5   merge_dups() for more flexible usage
+# 0.4   clean code style
+# 0.3   samba protocol support
+# 0.2   consider duplicate '/' character
+# 0.1   initial version
 
 import sys
 import os
-import platform
-import subprocess
+from subprocess import run, STDOUT
 import shlex
 
-# define errors
-kArgvMissing = -1
+from shutil import which
 
-XDG_OPEN = "/usr/bin/xdg-open"
+# define errors
+kArgvMissing: int = -1
+
+XDG_OPEN: str = which("xdg-open")
 
 if len(sys.argv) <= 1:
     print("Usage: open [filesnames]")
@@ -35,7 +37,7 @@ if len(sys.argv) <= 1:
     exit(kArgvMissing)
 
 
-def is_remote_proto(repo):
+def is_remote_proto(repo) -> bool:
     """check if it is remote protocol"""
     # frozenset never changes
     rps_set = frozenset(["http", "https", "ftp", "smb", "nfs"])
@@ -44,10 +46,10 @@ def is_remote_proto(repo):
     return False
 
 
-def merge_dups(s, t):
+def merge_dups(s: str, t: str) -> str:
     """merge duplicates character t of a string s into one"""
-    is_dup = False
-    ret = ""
+    is_dup: bool = False
+    ret: str = ""
     for c in s:
         if c == t and is_dup:
             continue
@@ -63,7 +65,7 @@ def merge_dups(s, t):
 # note: shell paraphases "~" into "/home/<username>"
 for path in sys.argv[1:]:
     # check if it is remote protocols
-    is_link = is_remote_proto(path)
+    is_link: bool = is_remote_proto(path)
     if path[0] == "~" or path[0] == "/" or is_link:
         if not is_link:
             # Remove duplicate '/' even though xdg-open
@@ -78,11 +80,9 @@ for path in sys.argv[1:]:
         print("The file " + path + " does not exist.")
         continue
 
-    open_cmd = '{} "{}"'.format(XDG_OPEN, path)
-    subprocess.check_call(
-        shlex.split(open_cmd),
-        stdout=open(os.devnull, "w"),
-        stderr=subprocess.STDOUT,
+    open_cmd: str = f'{XDG_OPEN} "{path}"'
+    run(
+        shlex.split(open_cmd), stdout=open(os.devnull, "w"), stderr=STDOUT
     )
 
 exit(os.EX_OK)
