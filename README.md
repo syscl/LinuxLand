@@ -18,7 +18,8 @@ Don't hesitate to suggest if you have any good ideas.
 - [VisualStudio Code](https://code.visualstudio.com/)
 - [Atom](https://atom.io/)
 - [Sublime text](https://www.sublimetext.com/)
-- [Chrome](https://www.google.com/chrome/)
+- Firefox
+- [gnome-sushi](https://gitlab.gnome.org/GNOME/sushi): a quick previewer for Nautilus use space bar
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Eclipse](https://eclipse.org/downloads/)
 - [Netease music](http://music.163.com/)
