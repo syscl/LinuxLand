@@ -3,12 +3,30 @@
 # To use it as a system cli, copy it to /usr/local/bin
 import subprocess
 import shlex
-import os
+import sys
 
-APT_GET = "/usr/bin/apt-get"
-APT_UPDATE = "sudo {} update".format(APT_GET)
-APT_UPGRADE = "sudo {} -y upgrade".format(APT_GET)
-subprocess.call(shlex.split(APT_UPDATE))
-subprocess.call(shlex.split(APT_UPGRADE))
+from os import EX_OK
+from shutil import which
 
-exit(os.EX_OK)
+
+_APT_GET: str = which("apt-get")
+_APT_UPDATE: str = f"sudo {_APT_GET} update"
+_APT_UPGRADE: str = f"sudo {_APT_GET} upgrade -y"
+_APT_AUTOREMOVE: str = f"sudo {_APT_GET} autoremove"
+_APT_CLEAN: str = f"sudo {_APT_GET} clean"
+
+
+def run(cli: str) -> None:
+    subprocess.run(shlex.split(cli))
+
+
+if "--full" in sys.argv:
+    run("sudo fc-cache -fv")
+    run("sudo update-grub")
+    run(_APT_CLEAN)
+    run(_APT_AUTOREMOVE)
+
+run(_APT_UPDATE)
+run(_APT_UPGRADE)
+
+exit(EX_OK)
