@@ -79,14 +79,17 @@ sudo apt-get install -f
 Nowadays you can simply run the following in a terminal to change/reset all your desktop font settings:
 ```sh
 # change windows title
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Microsoft YaHei 11'
-gsettings set org.gnome.desktop.interface document-font-name 'Microsoft YaHei 11'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Microsoft YaHei UI 11'
+gsettings set org.gnome.desktop.interface document-font-name 'Microsoft YaHei UI 11'
 # default font
-gsettings set org.gnome.desktop.interface font-name 'Microsoft YaHei 11'
+gsettings set org.gnome.desktop.interface font-name 'Microsoft YaHei 11 UI'
 # monospace-font 
 gsettings set org.gnome.desktop.interface monospace-font-name 'SF Mono Extra-Condensed 12'
 gsettings set org.gnome.nautilus.desktop font '' # default font '', leave blank
 ```
+
+`SF Mono` is more preferrable from macOS: `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts`
+In macOS: open Fonts within `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts` then install it. `SF Mono - Medium`  is my new favour.
 
 to reset above setting, just simply type in 
 ```sh
