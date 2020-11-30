@@ -16,7 +16,12 @@ gScriptVersion=1.0
 #
 # GitHub branch to pull data from (master or Beta).
 #
-gGitHubBranch="master"
+# github change branch name from 'master' to 'main', this patch
+# read the branch name
+# 2ff1c2a9c4c73dd33857bfd657e479d445d43aa7 refs/heads/master
+# 2ff1c2a9c4c73dd33857bfd657e479d445d43aa7 refs/remotes/origin/HEAD
+# 2ff1c2a9c4c73dd33857bfd657e479d445d43aa7 refs/remotes/origin/master
+gGitHubBranch="$(git show-ref|grep heads|awk '{print $2}'|cut -d '/' -f 3)"
 
 #
 # Get user id
@@ -150,7 +155,7 @@ function _add_commit()
 
 function _push()
 {
-    _tidy_exec "git push -u origin ${gGitHubBranch}" "$gCommit_Contents"
+    _tidy_exec "git push -u origin ${gGitHubBranch}" "${gCommit_Contents}"
 }
 
 #
