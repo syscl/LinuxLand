@@ -15,7 +15,7 @@ Don't hesitate to suggest if you have any good ideas.
 
 # Softwares & Optimizations
 
-- [VisualStudio Code](https://code.visualstudio.com/)
+- [VSCodium](https://vscodium.com/) is an open source code editor, VisualStudio Code is not opened source, don't be misleading by Micro$oft.
 - [Atom](https://atom.io/)
 - [Sublime text](https://www.sublimetext.com/)
 - Firefox
