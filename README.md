@@ -11,11 +11,13 @@ Don't hesitate to suggest if you have any good ideas.
 - Dell XPS 13 9350/9360
 - Asus x205ta
 - Asus VivoBook E12 E203NAS
-- Raspberry Pi 3 (rev. B)
+- Raspberry Pi 3 (rev. B) & Raspberry Pi 4
 
 # Softwares & Optimizations
 
 - [VSCodium](https://vscodium.com/) is an open source code editor, VisualStudio Code is not opened source, don't be misleading by Micro$oft.
+- [youtube-dl](https://youtube-dl.org/) for youtube video download: `youtube-dl -f [quality] [link]`
+- [Eternal Terminal](https://eternalterminal.dev/) `et -c 'tmux -CC' pi@<addr>`
 - [Atom](https://atom.io/)
 - [Sublime text](https://www.sublimetext.com/)
 - Firefox
