@@ -12,6 +12,7 @@ Don't hesitate to suggest if you have any good ideas.
 - Asus x205ta
 - Asus VivoBook E12 E203NAS
 - Raspberry Pi 3 (rev. B) & Raspberry Pi 4
+- Lenovo ThinkStation P520
 
 # Softwares & Optimizations
 
@@ -267,6 +268,50 @@ Install ```sni-qt``` libraries: ```apt install sni-qt```
 ```sh
 sudo apt install subversion
 ```
+
+# Install Ubuntu/Debian on F2FS
+This is a note for temporarily install Debian or Debian-like Distros on F2FS, tested on P520, E203 and raspberry pi (EFI + root partition). The basic idea is copying and updating initramfs:
+- Install system as root on EXT4/EXT2
+- Install `f2fs-tools` to the current system
+- Add the following to the `/etc/initramfs-tools/modules`:
+```
+f2fs
+fscrypto
+crc32-pclmul
+crc32c_generic
+crc32c-intel
+crc32_generic
+libcrc32c
+```
+- Create F2FS partition by command `mkfs.f2fs /dev/sd<diskNum><partNum> -f`
+- Mount F2FS partition to /mnt
+- Sync the current partition content to a temp disk: `sudo rsync -HPXax / /mnt`
+- Once sync has completed, prepare for chroot:
+```sh
+for type in dev sys proc run boot boot/efi sudo mount --bind /dev /mnt/$type
+```
+- Noted down the f2fs partition's UUID `sudo blkid|grep f2fs`
+- Change the root in `/mnt/etc/fstab` to the new UUID
+- Change `ext4` to `f2fs` and `errors=remount-ro` to `noatime`.
+- Access the chroot environment to update its initramfs and get it set up in grub:
+```sh
+sudo chroot /mnt
+update-initramfs
+update-grub2
+exit
+```
+- Cleanly unmount the target system's mounts
+```
+sudo unmount /mnt/boot/efi
+sudo unmount /mnt/*
+sudo unmount /mnt
+```
+- Reboot the system
+
+Note:
+- For one disk installation, you can created three partitions: 1) EFI 2) Large F2FS chunck 3) 10G EXT4 as initial root. Once you completed the installation, move EXT4 to F2FS and resize the partition (I haven't got `resize.f2fs` succeed yet)
+- It's better to have two disks to finish the copy and swap procedure, this way you can fully maximize the F2FS on the disk
+
 
 # Optimize Eclipse
 
