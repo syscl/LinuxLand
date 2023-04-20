@@ -34,8 +34,17 @@ opkg install wpad-openssl
 Please refer to this [link](https://openwrt.org/docs/guide-user/advanced/expand_root)
 
 
+- Change default shell with chsh
+```
+opkg update
+opkg install shadow-chsh
+opkg install bash # or zsh if you like
+chsh -s /bin/bash
+```
+
 TODO:
 - /lib/firmware/i915's intel graphics card's DMC was failed to load even with manually copied bin
 - Wireless AP is still disabled
-- 
+- install git-http for git clone?
+- bash cannot load `~/.bashrc` by default
 
