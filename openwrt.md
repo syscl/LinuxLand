@@ -42,9 +42,14 @@ opkg install bash # or zsh if you like
 chsh -s /bin/bash
 ```
 
+- Power on the Acess Point
+As for now, we need to change the AP setting as following to make it able to associate with:
+- Network->Tab->Edit->Operating frequency: Mode: N, Band 2.4 Ghz, Channel: manually select one except `auto`
+- `Save & Apply`
+
 TODO:
 - /lib/firmware/i915's intel graphics card's DMC was failed to load even with manually copied bin
-- Wireless AP is still disabled
+- Makes the AP able to use 5G auto switch
 - install git-http for git clone?
 - bash cannot load `~/.bashrc` by default
 
