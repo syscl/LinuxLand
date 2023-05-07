@@ -156,6 +156,9 @@ The above command is going to make sure that
  (3) tmux doesn't try to run within itself
 ```
 
+# Tmux connection command I use at work
+alias devvm="ssh ${cloudtop_address} -oCompression=yes -oCheckHostIP=no -oServerAliveInterval=60 -t -- '\''tmx2 -CC new -A -s work'\'"
+
 Reference:
 
 - [Using bash's command to check for existence of a command](http://man7.org/linux/man-pages/man1/bash.1.html#SHELL_BUILTIN_COMMANDS)
