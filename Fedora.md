@@ -20,7 +20,7 @@ then insert the `'scale-monitor-framebuffer'` in the list.
 In Chromium address bar, type `chrome://flags`, hit enter. Search for `Preferred Ozone platform` and change its value to `Wayland`
 
 # Disable Gnome Overview when login the system
-One may find it annoying when login the system, Gnome shows the overview mode. To disable it, just install the [No overview at start-up Extension](https://extensions.gnome.org/extension/4099/no-overview/).
+One may find it annoying when login the system, Gnome shows the overview mode. To disable it, ~~just install the [No overview at start-up Extension](https://extensions.gnome.org/extension/4099/no-overview/)~~ just install the [Dash-to-Dock](https://extensions.gnome.org/extension/307/dash-to-dock/), open its setting -> `Appearance` -> turn off `Show overview on startup`.
 
 # Sound card auto switch problem
 I'm currently only able to make it work on Fedora and Manjaro. First install the following packages:
