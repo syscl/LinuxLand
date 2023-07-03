@@ -35,3 +35,8 @@ load-module module-alsa-source device=hw:0,1
 load-module module-alsa-sink device=hw:0,5
 ```
 Note on Gnome, you need to copy the `c1030/pulse` folder to the `/etc` and overwrite it to make the speaker and headphone work with auto-switch feature. The config is actually copied from the Manjaro KDE 22.04 working with my own modification.
+
+
+# Flash latest rom for c1030
+- Located the UEFI firmware by your device by the [source.sh](https://github.com/MrChromebox/scripts/blob/master/sources.sh), in this case c1030 is device name is `jinlon`, download the firmware by `wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_edk2-jinlon-mrchromebox_20230515.rom`
+- Flash the rom via `sudo flashrom -p internal -w <rom_location>`

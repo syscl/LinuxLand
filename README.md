@@ -4,20 +4,24 @@ This project targets at making Ubuntu/CentOS on some specific laptops easy to us
 
 Don't hesitate to suggest if you have any good ideas.
 
-# Tested models
+# Tested Models
 
 - Dell Precision M3800/XPS 15 9530
 - Dell XPS 13 9350/9360
 - [HP Elite c1030 (Chromebook with coreboot)](https://github.com/syscl/LinuxLand/blob/master/Fedora.md)
+- [Asus Chromebox 3 (with coreboot)](https://github.com/syscl/LinuxLand/blob/master/Fedora.md)
 - Asus x205ta
 - Asus VivoBook E12 E203NAS
 - Raspberry Pi 3 (rev. B) & Raspberry Pi 4
 - Lenovo ThinkStation P520
 
+# TODO plan
+I'm thinking of creating my own Linux inside a container (e.g. using VMware, VirtualBox) so that I can bring the system as a container over to many laptop without resetting all my personal settings and share with others if needed. But this seems to be a cumbersome idea, need to come up with more throughout idea. 
+
 # Softwares & Optimizations
 
-- [VSCodium](https://vscodium.com/) is an open source code editor, VisualStudio Code is not opened source, don't be misleading by Micro$oft.
-- [youtube-dl](https://youtube-dl.org/) for youtube video download: `youtube-dl -f [quality] [link]`
+- [VSCode](https://code.visualstudio.com) for code editing.
+- To download youtube video with best video quality (e.g. 1080p) + best audio, use [yt-dlp](https://github.com/yt-dlp/yt-dlp) for a given video: `yt-dlp -f "bv+ba/b" <video-link>`
 - [Eternal Terminal](https://eternalterminal.dev/) `et -c 'tmux -CC' pi@<addr>`
 - [Atom](https://atom.io/)
 - [Sublime text](https://www.sublimetext.com/)

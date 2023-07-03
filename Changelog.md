@@ -1,4 +1,12 @@
 # Change log
+
+2023-07-03
+- Replace `youtube-dl` (`youtube-dl -f [quality] [link]`) with the `yt-dlp` due to the long existing issue `ERROR: Unable to extract uploader id; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+An error occurred during the download`
+- Replaced VSCodium [VSCodium](https://vscodium.com/) is an open source code editor, VisualStudio Code is not opened source, don't be misleading by Micro$oft. with VSCode
+- Added flash mrchromebox rom for chromebook device(s)
+- Added a todo plan for linux inside container for VM
+
 2023-04-24
 
 - Added various improvements to tweak the system, especially for Fedora
