@@ -1,5 +1,8 @@
 # Change log
 
+2023-07-11
+- Add readme for extracting screensavers from kindle firmware
+
 2023-07-03
 - Replace `youtube-dl` (`youtube-dl -f [quality] [link]`) with the `yt-dlp` due to the long existing issue `ERROR: Unable to extract uploader id; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
 An error occurred during the download`

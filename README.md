@@ -14,6 +14,7 @@ Don't hesitate to suggest if you have any good ideas.
 - Asus VivoBook E12 E203NAS
 - Raspberry Pi 3 (rev. B) & Raspberry Pi 4
 - Lenovo ThinkStation P520
+- [Kindle Paperwhite 3-5, Scribe](https://github.com/syscl/LinuxLand/blob/master/Kindle.md)
 
 # TODO plan
 I'm thinking of creating my own Linux inside a container (e.g. using VMware, VirtualBox) so that I can bring the system as a container over to many laptop without resetting all my personal settings and share with others if needed. But this seems to be a cumbersome idea, need to come up with more throughout idea. 
