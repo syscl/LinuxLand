@@ -1,6 +1,6 @@
-# Deploy for laptops with Ubuntu/CentOS
+# Tips for improving experience on mainstream GNU/Linux
 
-This project targets at making Ubuntu/CentOS on some specific laptops easy to use. After executing deploy, the script will make Ubuntu/CentOS have a good user experience. I will add more optimizations for Ubuntu/CentOS on various laptops, wish you all enjoy it.
+This project targets at making Ubuntu/Fedora easy to use. Improvements will keep adding to the repo, wish you enjoy it.
 
 Don't hesitate to suggest if you have any good ideas.
 
@@ -26,7 +26,7 @@ I'm thinking of creating my own Linux inside a container (e.g. using VMware, Vir
 - [Eternal Terminal](https://eternalterminal.dev/) `et -c 'tmux -CC' pi@<addr>`
 - [Atom](https://atom.io/)
 - [Sublime text](https://www.sublimetext.com/)
-- Firefox
+- [Firefox](https://www.mozilla.org/en-US/firefox/)
 - [gnome-sushi](https://gitlab.gnome.org/GNOME/sushi): a quick previewer for Nautilus use space bar
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Eclipse](https://eclipse.org/downloads/)
