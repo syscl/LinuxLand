@@ -1,5 +1,9 @@
 # Change log
 
+20230-10-22
+- Resolve cannot update firmware due to Active ME
+- Add a firefox/chrome plugin due to GDPR: `I still don't care about cookies`
+
 2023-07-11
 - Add readme for extracting screensavers from kindle firmware
 

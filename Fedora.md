@@ -38,5 +38,9 @@ Note on Gnome, you need to copy the `c1030/pulse` folder to the `/etc` and overw
 
 
 # Flash latest rom for c1030
-- Located the UEFI firmware by your device by the [source.sh](https://github.com/MrChromebox/scripts/blob/master/sources.sh), in this case c1030 is device name is `jinlon`, download the firmware by `wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_edk2-jinlon-mrchromebox_20230515.rom`
-- Flash the rom via `sudo flashrom -p internal -w <rom_location>`
+- Located the UEFI firmware by your device by the [source.sh](https://github.com/MrChromebox/scripts/blob/master/sources.sh), in this case c1030 is device name is `jinlon`, download the firmware by `wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_edk2-jinlon-mrchromebox_20230930.rom`
+- Flash the rom via `sudo flashrom -p internal -w <rom_path>`
+- Note: Flashing room may throw error that found an `Opaque flash chip` due to active ME. This is caused by the [write protection](https://wiki.mrchromebox.tech/Firmware_Write_Protect). To address it, one can simply flash the rom with the following command:
+```bash
+sudo flashrom -p internal -w <rom_path> --ifd -i bios --noverify-all
+```

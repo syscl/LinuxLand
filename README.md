@@ -695,9 +695,6 @@ Note:
 # Alternative screen capture using default shortcut
 - ```Shift``` + ```prt sc sysrq``` to capture select area
 
-# Disable ```Chrome``` ```webusb```
-
-Google Chrome (evidently a problem specific to Google's engineers) will also hook all USB ports. Sometimes this causes a problem. Personally, I don't see why a web browser should be hooking USB ports at the kernel level, so I always disable this "feature". Visit ```chrome://flags/#enable-webusb```, and you can disable it.
 
 # Get rid of resources greedy ```evolution-calendar*``` services on ```x205ta```
 ```shell
@@ -845,6 +842,9 @@ gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
 
 # Install ```emby``` media server
 Unlike ```$lex``` require money everywhere,  ```emby``` is an open source media server, like universal media server (ums on Sony PS4), the way to install is straightforward, but notice change the ```user``` and ```group``` as ```emby:emby``` for the folders you want to attach as libraries otherwise permission errors will occurs. 
+
+# Chrome extensions / Firefox add-ons
+- [I still don't care about cookies](https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm) to remove annoying cookie pops up
 
 # CentOS/RHEL turn off beep/bell terminal sound
 - Remove ```pcspkr``` kernel module
