@@ -53,7 +53,7 @@ I'm thinking of creating my own Linux inside a container (e.g. using VMware, Vir
 - [Excalidraw](https://github.com/excalidraw/excalidraw) drawing diagram
 - [hyper](https://hyper.is/plugins/hyper-native)
 - Apache
-- FileZilla
+- [FileZilla](https://filezilla-project.org)
 - git
 ```sh
 sudo apt-get install git
