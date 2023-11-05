@@ -90,6 +90,7 @@ Fonts is important and worth a section for discussing it. I used `Gnome Tweaks` 
 - `Interface Text` and `Document Text`: `Helvetica Regular 10`
 - `Legacy Window Titles`: `Helvetica Bold 11`
 - `Monospace Text`: `SF Mono Regular 10`
+- [DM Mono](https://fonts.google.com/specimen/DM+Mono) is great for website code block
 
 ## Firefox fonts
 LatIn (refers macOS):
@@ -192,6 +193,17 @@ For ```Ubuntu``` specific:
 ```sh
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+```
+
+# Ubuntu the following packages have been kept back
+Please refer to [this](https://askubuntu.com/questions/601/the-following-packages-have-been-kept-back-why-and-how-do-i-solve-it):
+Solution 1:
+```
+sudo apt-get --with-new-pkgs upgrade <list of packages kept back>
+```
+Solution 2:
+```
+sudo apt-get install <list of packages kept back>
 ```
 
 # Edit binary
