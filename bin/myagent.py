@@ -18,12 +18,12 @@ logging.basicConfig(level=logging.WARNING, format=log_format)
 logger = logging.getLogger(__name__)
 
 
-VERSION = 0.1
+VERSION = "0.1.1"
 GPT_MODEL_VERSION = "gpt-4"
 
 
 def main():
-    print(f"AI Agent Shim v{VERSION}, model version: {GPT_MODEL_VERSION}")
+    print(f"AI Agent v{VERSION}, model version: {GPT_MODEL_VERSION}")
     print("Type help for more commands in the console")
 
     system_message = {"role": "system", "content": "You are a intelligent assistant."}
@@ -31,8 +31,9 @@ def main():
     while True:
         try:
             message = input("> ")
-            if message:
-                strip_message = message.strip().lower()
+            strip_message = message.strip().lower()
+            # Ensure it is not an empty string
+            if strip_message:
                 if strip_message == "clear":
                     messages = [system_message]
                 elif strip_message == "help":
