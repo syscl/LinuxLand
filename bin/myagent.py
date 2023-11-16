@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.WARNING, format=log_format)
 logger = logging.getLogger(__name__)
 
 
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 GPT_MODEL_VERSION = "gpt-4"
 
 
@@ -54,7 +54,6 @@ def main():
             messages = [system_message]
             print("KeyboardInterrupt, clear all context")
         except EOFError:
-            print("Abort.")
             sys.exit(0)
 
 
