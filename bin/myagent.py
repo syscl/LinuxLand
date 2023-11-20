@@ -30,6 +30,11 @@ def main():
     messages = [system_message]
     while True:
         try:
+            # TODO: handle the input with newline
+            # Currently when there's newline pasted in the console
+            # the process will executed automatically, which is
+            # not ideal. Should distingush between the enter and newline
+            # to fix this.
             message = input("> ")
             strip_message = message.strip().lower()
             # Ensure it is not an empty string
