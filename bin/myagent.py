@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.WARNING, format=log_format)
 logger = logging.getLogger(__name__)
 
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 GPT_MODEL_VERSION = "gpt-4"
 
 
@@ -53,7 +53,7 @@ def main():
                         model=GPT_MODEL_VERSION, messages=messages
                     )
                     reply = chat.choices[0].message.content
-                    print(f"AI: {reply}")
+                    print(f"AI: {reply}\n")
                     messages.append({"role": "assistant", "content": reply})
         except KeyboardInterrupt:
             messages = [system_message]
