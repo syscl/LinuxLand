@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 VERSION = "0.1.3"
+# Make this configurable
 GPT_MODEL_VERSION = "gpt-4"
 
 
