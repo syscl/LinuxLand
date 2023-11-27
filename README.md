@@ -60,7 +60,7 @@ sudo apt-get install git
 ```
 - deepin scrot/screenshot
 ```sh
-sudo apt-get install pthon-xlib
+sudo apt-get install python-xlib
 ```
 - Change tty font style
 Though Ubuntu gave me a beautiful UI, I still want my console font classic and clean, that's why I choose VGA font in this case. Change step will be the following:
