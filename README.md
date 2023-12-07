@@ -601,7 +601,7 @@ synclient "TapButton3" "8"
 
 
 
-# Install latest LaTex
+# Install LaTex
 
 Before you install the latest LaTex, you should remove older version to avoid conflict just in case
 
