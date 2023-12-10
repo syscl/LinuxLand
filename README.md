@@ -887,11 +887,11 @@ mount -o remount,rw /
 
 - Download this project by
 ```sh
-git clone https://github.com/syscl/Ubuntu4Laptops
+git clone https://github.com/syscl/LinuxLand
 ```
 - This will download the whole directory, the next step is to change the deploy permission so that it can be executed:
 ```sh
-cd Ubuntu4Laptops
+cd LinuxLand
 chmod +x deploy
 ```
 - Execute deploy by typing:
