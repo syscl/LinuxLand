@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.WARNING, format=log_format)
 logger = logging.getLogger(__name__)
 
 
-VERSION = "0.1.3"
+VERSION = "0.1.4"
 # Make this configurable
 GPT_MODEL_VERSION = "gpt-4"
 
@@ -60,6 +60,8 @@ def main():
             messages = [system_message]
             print("KeyboardInterrupt, clear all context")
         except EOFError:
+            # Hide the "^D" on the terminal
+            print("" * len("^D"))
             sys.exit(0)
 
 
