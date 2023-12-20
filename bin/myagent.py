@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.WARNING, format=log_format)
 logger = logging.getLogger(__name__)
 
 
-VERSION = "0.1.5"
+VERSION = "0.1.6"
 # Make this configurable
 GPT_MODEL_VERSION = "gpt-4"
 
@@ -28,12 +28,13 @@ def main():
     print(f"AI Agent v{VERSION}, model version: {GPT_MODEL_VERSION}")
     print("Type help for more commands in the console")
 
-    system_message = {"role": "system", "content": "You are a intelligent assistant."}
+    system_message = {"role": "system", "content": "You are a super intelligent assistant."}
     messages = [system_message]
     while True:
         try:
             # library readline will handle the input (via `input()`)
             # like bash terminal. Alternative will be `prompt_toolkit` library
+            # TODO(syscl): handle arrow keys up and down for history
             message = input("> ")
             strip_message = message.strip().lower()
             # Ensure it is not an empty string
@@ -44,6 +45,8 @@ def main():
                     print(
                         "command: clear for starting a new chat without history (context)"
                     )
+                elif strip_message == "exit":
+                    sys.exit(0)
                 else:
                     messages.append(
                         {"role": "user", "content": message},
