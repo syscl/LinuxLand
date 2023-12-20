@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 import logging
 import sys
+import readline
 
 from openai import OpenAI
 
@@ -18,7 +19,7 @@ logging.basicConfig(level=logging.WARNING, format=log_format)
 logger = logging.getLogger(__name__)
 
 
-VERSION = "0.1.4"
+VERSION = "0.1.5"
 # Make this configurable
 GPT_MODEL_VERSION = "gpt-4"
 
@@ -31,11 +32,8 @@ def main():
     messages = [system_message]
     while True:
         try:
-            # TODO: handle the input with newline
-            # Currently when there's newline pasted in the console
-            # the process will executed automatically, which is
-            # not ideal. Should distingush between the enter and newline
-            # to fix this.
+            # library readline will handle the input (via `input()`)
+            # like bash terminal. Alternative will be `prompt_toolkit` library
             message = input("> ")
             strip_message = message.strip().lower()
             # Ensure it is not an empty string
