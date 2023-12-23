@@ -59,7 +59,7 @@ def main():
                     messages.append({"role": "assistant", "content": reply})
         except KeyboardInterrupt:
             messages = [system_message]
-            print("KeyboardInterrupt, clear all context")
+            print("KeyboardInterrupt, clear all previous context.")
         except EOFError:
             # Hide the "^D" on the terminal
             print("" * len("^D"))
