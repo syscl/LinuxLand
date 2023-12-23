@@ -39,7 +39,7 @@ time_remain = (
 
 # print battery time remaining
 if time_remain is not None:
-    print("Time remaining:  " + time_remain)
+    print(f"Time remaining:  {time_remain}")
 
 path: str = getAndSetPath()
 fcap: str = os.path.join(path, "capacity")
