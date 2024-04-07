@@ -26,7 +26,6 @@ Don't hesitate to suggest if you have any good ideas.
 - [Firefox](https://www.mozilla.org/en-US/firefox/)
 - [gnome-sushi](https://gitlab.gnome.org/GNOME/sushi): a quick previewer for Nautilus use space bar
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
-- [Eclipse](https://eclipse.org/downloads/)
 - [Netease music](http://music.163.com/)
 - [GoldenDict](https://github.com/goldendict/goldendict)
 - [Youdao dict](http://cidian.youdao.com/)
@@ -353,26 +352,6 @@ Note:
 - For one disk installation, you can created three partitions: 1) EFI 2) Large F2FS chunck 3) 10G EXT4 as initial root. Once you completed the installation, move EXT4 to F2FS and resize the partition (I haven't got `resize.f2fs` succeed yet)
 - It's better to have two disks to finish the copy and swap procedure, this way you can fully maximize the F2FS on the disk
 
-
-# Optimize Eclipse
-
-- Create app lnk for Unity
-```sh
-sudo ln -s $HOME/java/eclipse/eclipse /usr/bin/eclipse
-```
-
-- Launch ```Eclipse``` then lock it to the dock
-
-- Now, ```~/.local/share/applications/eclipse.desktop``` has been created. What we need to do is Change its name and icon by:
-```
-cp ~/eclipse/icon.xpm ~/.local/share/icons/hicolor/*/apps/eclipse.xpm
-```
-- Then 
-```
-subl ~/.local/share/applications/eclipse.desktop
-```
-- Change ```Icon=...``` to ```Icon=eclipse.xpm```
-- Change ```Name=...``` to ```Name=Eclipse```
 
 # Optimize ```libreoffice```
 
