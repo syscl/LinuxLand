@@ -401,12 +401,43 @@ sudo chown -R $USER:$USER /opt/foxitreader
 sudo rm -r /opt/foxitreader/fxplugins
 ```
 
-# Tunning ```sogou pinying```
-- On Ubuntu 18.04+, there's duplicate indicator of the panel on the right corner of the screen, to resolve this issue, simply type in the ```apt remove fcitx-ui-classic```. Additionally, I usually remove some more fcitx's unused dependencies by ```apt purge fcitx-pinyin fcitx-table-wbpy```
-- Disable shift switch key by ```Sougou```-->```Setting```-->```Button(K)```-->```Chinese2English```-->```None```
-- Change Font and Font size to meet the requirement of high resolution screen
-- ```System Settings```-->```Keyboard```-->```Shortcuts```-->```Typing```-->```Disable``` all by typing ```Backspace```
-- ```Fcitx```-->```Global Config```-->```Trigger input method```-->```Ctrl+Space```
+# Install ```pinying```
+## On Ubuntu 24.04
+1. It is recommended to install fcitx5 and cloudpinyin for pinyin input. A brief description of installing pinyin addon
+```
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3
+```
+2. Open Settings -> Keyboard -> Input Source, remove Chinese Pinyin from the list.
+3. Run `im-config`, follow the wizard and choose fcitx5 as IME.
+
+4. Run `sudo vi /etc/environment` and add below environment variables:
+```
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=ibus
+```
+This step is important, without it you will be unable to switch IME in most of the applications.
+
+5. Open Tweaks (install by sudo apt install gnome-tweaks) and add Fcitx 5 to Startup Applications.
+
+6. Reboot
+
+
+## On Ubuntu 16.04-22.04
+- On Ubuntu 18.04-22.04, to install sogou pinyin please refer to [guide](https://shurufa.sogou.com/linux/guide) and :
+```
+sudo apt purge ibus
+
+sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2
+
+sudo apt install libgsettings-qt1
+
+sudo cp /usr/share/applications/fcitx.desktop /etc/xdg/autostart/
+
+sudo dpkg -i <sogou-pinyin>.deb; sudo apt install -f
+```
 
 # Install ```Aria2``` and ```Aria2 WebUI``` for off line download on Raspberry Pi
 
