@@ -640,6 +640,11 @@ sudo wget http://mirrors.ctan.org/macros/latex/contrib/titlesec/titlesec.sty -O 
 apt-get install default-jdk
 ```
 
+# No such native application org.gnome.chrome_gnome_shell
+This is because the missing [gnome-browser-connector](https://wiki.gnome.org/Projects/GnomeShellIntegration/Installation). Install it to fix installing gnome extension issues.
+
+> Note: Bing Wallpaper is a nice extension for gnome
+
 
 
 # Tune Gnome 3.x
