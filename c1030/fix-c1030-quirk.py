@@ -21,9 +21,8 @@ def listSinks() -> Dict[str, str]:
 
 if __name__ == "__main__":
     # Restart the pulseaudio service
-    os.system("systemctl --user restart pulseaudio > /home/syscl/result1.txt")
-    with open("/home/syscl/result.txt", "w") as f:
-        f.write(f"Restarted pulseaudio service\n{listSinks()}")
+    os.system("systemctl --user restart pulseaudio")
+    
     # Wait until the headphone sink is available
     headphone_sink = "alsa_output.pci-0000_00_1f.3-platform-sof_rt5682.stereo-fallback"
     while True:
