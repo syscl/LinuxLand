@@ -668,6 +668,19 @@ I recommend to install only one of these (unrar in my case). Then use archive ma
 sudo apt-get install file-roller
 ```
 
+# Blur app on factional scaling
+One may found chromium based or electron app blur when Gnome Wayland fractional scaling is enabled. To address it, you need to put `--ozone-platform=wayland` for app.
+
+## Address VSCode blur
+1. Append `--ozone-platform=wayland` option to `Exec` in `/usr/share/applications/code.desktop` (you can test run the option in terminal `code --ozone-platform=wayland`)
+2. Change the title bar to custom (otherwise there's glitch between title bar and window decorator): `Window: Title Bar Style` > `Custom`.
+
+## Address Chromium blur
+> Warning: change `Preferred Ozone platform` in `chrome:flags` may cause browser flicking and broken. So use command line or change option on `/usr/share/applications/google-chrome.desktop`
+will be much safer (since you can revert back without losing app data). Append the `--ozone-platform=wayland` to `Exec` or command line.
+
+
+
 # Add 7z support
 ```sh
 sudo apt-get install p7zip-full
