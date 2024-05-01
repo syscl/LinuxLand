@@ -20,7 +20,6 @@ def listSinks() -> Dict[str, str]:
 
 
 if __name__ == "__main__":
-    time.sleep(10)
     # Restart the pulseaudio service
     os.system("systemctl --user restart pulseaudio > /home/syscl/result1.txt")
     with open("/home/syscl/result.txt", "w") as f:
