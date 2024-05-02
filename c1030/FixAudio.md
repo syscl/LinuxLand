@@ -32,8 +32,6 @@ mkdir /etc/pulse/default.pa.d
 ```
 Add the following to /etc/pulse/default.pa.d/chromebook.pa
 ```
-load-module module-oss
-load-module module-switch-on-connect
 load-module module-alsa-source device="hw:0,1" name="dmic"
 set default-source alsa_input.hw_0_0
 .ifexists module-udev-detect.so
