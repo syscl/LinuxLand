@@ -680,6 +680,11 @@ One may found chromium based or electron app blur when Gnome Wayland fractional 
 ## Address Chromium blur
 > Warning: change `Preferred Ozone platform` in `chrome:flags` may cause browser flicking and broken. So use command line or change option on `/usr/share/applications/google-chrome.desktop`
 will be much safer (since you can revert back without losing app data). Append the `--ozone-platform=wayland` to `Exec` or command line.
+Without setting the ozone platform, Chrome's hangs a lot for me, making is basically unusable. (Constantly freezes for half a second while scrolling.)
+
+Using the command line parameter worked nicely.
+
+If anyone is reluctant to delete their ~/.config/google-chrome folder, you can simply edit your config manually when Chrome is not running. The config is in a JSON file called "Local State". Search for "ozone" and remove the corresponding key under "browser". (I think it was something like "lab_experiments" that I zapped.)
 
 
 
