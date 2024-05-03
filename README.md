@@ -183,7 +183,9 @@ This ultimately improve your productivity. Check here for [installation](https:/
 
 # Fuzzy auto completion in terminal
 
-For an enhancement of ```Ctrl+R``` refer [here](https://github.com/junegunn/fzf)
+For an enhancement of `Ctrl+R` refer [here](https://github.com/junegunn/fzf)
+
+> An alternative shell magic history using [Atuin](https://atuin.sh/). `enter_accept` is set to true by default, which means default enter to the selection will execute the command. To change the selected item, just hit `tab` instead of `enter`. Documents about more settings [here](https://docs.atuin.sh/configuration/config).
 
 For ```Ubuntu``` specific:
 
