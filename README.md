@@ -91,18 +91,21 @@ Fonts is important and worth a section for discussing it. I used `Gnome Tweaks` 
 
 ## Firefox fonts
 LatIn (refers macOS):
+
 - `Proportional`: `Serif`, `Size`: `16`
 - `Serif`: `Times`
 - `Sans-serif`: `Helvetica`
 - `Monospace`: `Menlo`, `Size`: `13`
 
 Chinese(refers to macOS):
+
 - `Proportional`: `Sans Serif`, `Size`: `16`
 - `Serif`: `Times New Roman`
 - `Sans-serif`: `Arial`
 - `Monospace`: `Menlo`, `Size`: `16`
 
 ## Chromium fonts
+
 - `Sans-serif font`: `Helvetica`
 - `Mathematical font`: `STIX Two Math` [link](https://github.com/stipub/stixfonts)
 
@@ -110,6 +113,7 @@ Chinese(refers to macOS):
 ```gconftool-2``` has been superseeded by ```gsettings``` on Ubuntu ```16.04+``` and in other GNOME based systems.
 
 Nowadays you can simply run the following in a terminal to change/reset all your desktop font settings:
+
 ```sh
 # change windows title
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Microsoft YaHei UI 11'
@@ -647,6 +651,8 @@ This is because the missing [gnome-browser-connector](https://wiki.gnome.org/Pro
 
 > Note: Bing Wallpaper is a nice extension for gnome
 
+# Enable swipe back and forward for chrome on Wayland
+This is a tricky feature that Firefox support while chromium base browser missing. Enable it by adding this `--enable-features=TouchpadOverscrollHistoryNavigation` to the chrome executable. Another alternative I haven't tried yet is using multi gesture libraries.
 
 
 # Tune Gnome 3.x
