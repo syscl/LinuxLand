@@ -654,6 +654,24 @@ This is because the missing [gnome-browser-connector](https://wiki.gnome.org/Pro
 # Enable swipe back and forward for chrome on Wayland
 This is a tricky feature that Firefox support while chromium base browser missing. Enable it by adding this `--enable-features=TouchpadOverscrollHistoryNavigation` to the chrome executable. Another alternative I haven't tried yet is using multi gesture libraries.
 
+# Install native WeChat (Universal OS) on Ubuntu
+- You need flatpak and flathub install on Debian: https://flathub.org/setup/Ubuntu:
+```
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+- Then on Fedora/Ubuntu do the following:
+```
+flatpak install flathub com.tencent.WeChat
+```
+- To run wechat
+```
+flatpak run com.tencent.WeChat
+```
+
+TODO: some emoji fonts are missing
+
 
 # Tune Gnome 3.x
 
