@@ -613,6 +613,9 @@ After applying the patch, you will soon enjoy the trackpad on Ubuntu.
 synclient "TapButton3" "8"
 ```
 
+## [Caffein Gnome Extension](https://github.com/eonpatapon/gnome-shell-extension-caffeine)
+Install it, configured it to show in the status bar. Enable/disable it by scroll mouse on the icon. 
+
 
 
 # Install LaTex
@@ -954,5 +957,19 @@ chmod +x deploy
 ```sh
 ./deploy
 ```
+
+## zsh and configuration
+
+- Switch default shell `chsh -s $(which zsh)`
+- Install [oh-my-zsh](https://ohmyz.sh/)
+- Enable autosuggestion in `~/.zshrc` > `plugins` > `zsh-autosuggestions`:
+```
+plugins=(
+        ...
+        zsh-autosuggestions
+)
+```
+- Install [powerlevel10k](https://github.com/romkatv/powerlevel10k), with patched `Meslo Nerd Font`.
+
 
 See changelogs [here](https://github.com/syscl/LinuxLand/blob/master/Changelog.md)
