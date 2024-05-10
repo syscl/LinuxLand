@@ -180,21 +180,12 @@ Enable mouse scroll:
 - More settings can be referred to: <https://github.com/gpakosz/.tmux>
 
 ## Enable mouse selection and copy/paste for tmux
-One may notice that copy is not as natural as default terminal - i.e. mouse select + copy shortcut. To fix this, you need to add the following to the `~/.tmux.conf`:
-```
-# Set copy/paste keys
-unbind -T copy-mode-vi Enter
-bind-key -T copy-mode-vi 'v' send -X begin-selection
-bind-key -T copy-mode-vi 'y' send -X copy-selection
-bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
+One may notice that copy is not as natural as default terminal - i.e. mouse select + copy shortcut. To fix this, you need to add install tpm and `tmux-yank`:
+1. Install tmux plugin manager (tpm): https://github.com/tmux-plugins/tpm
+2. Add `set -g @plugin 'tmux-plugins/tmux-yank'` to ~/.tmux.conf
+3. In tmux, invoke `<prefix-key>+I` to trigger the `tmux-yank` install
 
-# Set buffer for pasting
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X stop-selection
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -se c -i"
-bind-key -T root MouseDown2Pane run -b "xclip -o | tmux load-buffer - ; tmux paste-buffer
-```
-After that run `tmux source ~/.tmux.conf` in tmux, and you can select-to-copy effienctly.
-> Note you need to install xclip as well.
+You can select-to-copy effienctly.
 
 ## Add cpu and memory utilization for tmux
 1. Install tmux plugin manager (tpm): https://github.com/tmux-plugins/tpm
