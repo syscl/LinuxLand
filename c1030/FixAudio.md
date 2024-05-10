@@ -1,5 +1,21 @@
-# Fix sof-rt5682 on Fedora and Gnome
+# Fix sof-rt5682 (hp c1030) on Fedora and Gnome
 
+If you are using KDE(manjaro, fedora), you just need to change the audio configure profile to `pro audio`, then the sound is out automatically. (note you need to manually choose the output, e.g. hw:0:1 is jack, hw:0:5 is speaker).
+
+On Ubuntu, you need to install pipewire and pavucontrol to select the `pro audio`:
+1. Install pipewire, pavucontrol and disbale pulseaudio service, enable pipewire service:
+```
+sudo apt install pipewire-audio-client-libraries pipewire-pulse libspa-0.2-bluetooth pavucontrol
+systemctl --user --now disable pulseaudio.service
+systemctl --user --now mask pulseaudio.service
+systemctl --user --now enable pipewire pipewire-pulse
+```
+2. PulseAudio Volume Control > Configuration > Profile > Pro Audio.
+3. You can verify if the sound service is on pipewire via `pactl info|grep 'Server Name'`
+
+
+
+> Note below has been deprecated, since pulseaudio is so unreliable and cannot even detect the hdmi output properly. 
 This has been tested on Fedora 40 and Ubuntu 24.04 LTS.
 
 > Note on Fedora the result is more reliable, while Ubuntu needs a restart of the `pulseaudio.service`.
@@ -42,4 +58,4 @@ set-sink-volume 1 25000
 
 - Headphone will lose sound on idle, to fix it comment out/remove the `load-module module-suspend-on-idle`. 
 
-- On ubuntu install a restart pulseaudio.service script on login using `/etc/profile.d/`. Since `profile.d/*.sh` is executed by `/etc/profile`, we need to create a shell script that will invoke another script. Just cp `fix-c1030-quirk.sh` and `fix-c1030-quirk.py` to the `/etc/profile.d`. 
+- On ubuntu install a restart pulseaudio.service script on login using `/etc/profile.d/`. Since `profile.d/*.sh` is executed by `/etc/profile`, we need to create a shell script that will invoke another script. Just cp `fix-c1030-quirk.sh` and `fix-c1030-quirk.py` to the `/etc/profile.d`.
