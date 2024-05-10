@@ -999,5 +999,15 @@ plugins=(
 ```
 - Install [powerlevel10k](https://github.com/romkatv/powerlevel10k), with patched `Meslo Nerd Font`.
 
+# Enable ZRAM for ubuntu
+On low memory machine, it will be benefit to enable memory compression (ZRAM is enabled by default on Fedora):
+- Install zram: `sudo apt install zram-config`
+- Enable zram:
+```
+systemctl enable zram-config
+systemctl start zram-config
+```
+- Check the zram status by: `zramctl`. Also read some document about zswap.
+
 
 See changelogs [here](https://github.com/syscl/LinuxLand/blob/master/Changelog.md)
