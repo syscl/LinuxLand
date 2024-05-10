@@ -25,6 +25,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Sublime text](https://www.sublimetext.com/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/)
 - [gnome-sushi](https://gitlab.gnome.org/GNOME/sushi): a quick previewer for Nautilus use space bar
+- [gnome-weather](https://apps.gnome.org/en/Weather/): `sudo apt install gnome-weather`
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Netease music](http://music.163.com/)
 - [GoldenDict](https://github.com/goldendict/goldendict)
