@@ -4,12 +4,13 @@ If you are using KDE(manjaro, fedora), you just need to change the audio configu
 
 On Ubuntu, you need to install pipewire and pavucontrol to select the `pro audio`:
 1. Install pipewire, pavucontrol and disbale pulseaudio service, enable pipewire service:
-```
-sudo apt install pipewire-audio-client-libraries pipewire-pulse libspa-0.2-bluetooth pavucontrol
+``` 
+sudo apt install  install pipewire-audio-client-libraries libspa-0.2-bluetooth libspa-0.2-jack wireplumber pipewire-media-session- pavucontrol
 systemctl --user --now disable pulseaudio.service
 systemctl --user --now mask pulseaudio.service
 systemctl --user --now enable pipewire pipewire-pulse
 ```
+> NOTE: there's a '-' in the end of the command indicates to remove the package. The command will also install the required pipewire-pulse automatically. wireplumber is more advanced than simple media-session.
 2. PulseAudio Volume Control > Configuration > Profile > Pro Audio.
 3. You can verify if the sound service is on pipewire via `pactl info|grep 'Server Name'`
 
