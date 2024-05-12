@@ -129,7 +129,7 @@ gsettings set org.gnome.nautilus.desktop font '' # default font '', leave blank
 `SF Mono` is more preferrable from macOS: `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts`
 In macOS: open Fonts within `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts` then install it. `SF Mono - Medium`  is my new favour.
 
-to reset above setting, just simply type in 
+To reset above setting, just simply type in 
 ```sh
 gsettings reset org.gnome.desktop.interface font-name
 gsettings reset org.gnome.desktop.interface document-font-name
