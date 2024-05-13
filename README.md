@@ -740,6 +740,9 @@ If anyone is reluctant to delete their ~/.config/google-chrome folder, you can s
 sudo apt-get install p7zip-full
 ```
 
+# vscode [idea key binding](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+One may find `ctrl+w` not work on Linux the shortcut has been defined to other feature. To restore it, just go to the `idea keybindings`' setting > `Extension Keyboard Shortcuts` > search for `ctrl+w` > `Remove Keybinding`.
+
 # Install Pinta 
 
 - Open terminal with CTRL+ALT+T Add Pinta stable PPA repository:
