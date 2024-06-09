@@ -34,7 +34,6 @@ Don't hesitate to suggest if you have any good ideas.
 - [Sogou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [Typora](http://www.typora.io/#)
-- [netbeans](https://netbeans.org/)
 - [WPS](https://www.wps.com/linux)
 - [DiffMerge](https://sourcegear.com/diffmerge/)
 - [Pinta](https://pinta-project.com/pintaproject/pinta/)
@@ -393,22 +392,6 @@ This will give you the correct path of the configuration location, change ```Log
 
 # ```HiDPI``` for Netease Music Player (temporary)
 Since Netease Music under Linux is achieved through Qt5, most elements are drawn by WebKit by a forking of Chromium, so we can just simply pass an startup argument ```--force-device-scale-factor=2``` for ```netease-cloud-music```, simply touch the ```/usr/share/applications/netease-cloud-music.desktop```, change ```Exec=netease-cloud-music %U``` to ```Exec=netease-cloud-music --force-device-scale-factor=2 %U```
-
-# Optimize ```netbeans``` 
-
-- Open netbeans' config
-```
-netbeans root folder/etc/netbeans.conf
-```
-
-- Make sure the variable ```netbeans_jdkhome``` has correct value, for example
-```
-netbeans_jdkhome="/usr/lib/jvm/java-8-oracle"
-```
-or(my case)
-```
-netbeans_jdkhome="/usr/lib/jvm/default-java"
-```
 
 # Optimize ```foxitreader```
 - Install program by
@@ -1003,6 +986,9 @@ systemctl enable zram-config
 systemctl start zram-config
 ```
 - Check the zram status by: `zramctl`. Also read some document about zswap.
+
+# Install GraalVM on Fedora/Ubuntu
+Please refer to this [link](https://gist.github.com/ricardozanini/fa65e485251913e1467837b1c5a8ed28).
 
 
 See changelogs [here](https://github.com/syscl/LinuxLand/blob/master/Changelog.md)
