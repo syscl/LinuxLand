@@ -44,3 +44,11 @@ Note on Gnome, you need to copy the `c1030/pulse` folder to the `/etc` and overw
 ```bash
 sudo flashrom -p internal -w <rom_path> --ifd -i bios --noverify-all
 ```
+
+# Install cloudpinyin on Fedora KDE
+Please refer to this [link](https://www.youtube.com/watch?v=Z7EO00F5H6s) for more detail. Basically:
+```
+sudo dnf install fcitx5-chinese-addons
+```
+- Logout
+- Right click the fcitx input icon > Add `Pinyin` from right > hit `Configure` > `Enable Cloudpinyin` > select your prefer backend 
