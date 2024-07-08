@@ -20,7 +20,7 @@ Don't hesitate to suggest if you have any good ideas.
 # Softwares & Optimizations
 
 - [VSCode](https://code.visualstudio.com) for code editing.
-- To download youtube video with best video quality (e.g. 1080p) + best audio, use [yt-dlp](https://github.com/yt-dlp/yt-dlp) for a given video: `yt-dlp -f "bv+ba/b" <video-link>`
+- To download youtube video with best video quality (e.g. 1080p or higher) + best audio, use [yt-dlp](https://github.com/yt-dlp/yt-dlp) for a given video: `yt-dlp -f "bv+ba/b" <video-link>`
 - [Eternal Terminal](https://eternalterminal.dev/) `et -c 'tmux -CC' pi@<addr>`
 - [Sublime text](https://www.sublimetext.com/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/)
