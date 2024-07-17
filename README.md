@@ -88,7 +88,7 @@ Fonts is important and worth a section for discussing it. I used `Gnome Tweaks` 
 - `Legacy Window Titles`: `Helvetica Bold 11`
 - `Monospace Text`: `SF Mono Regular 10`
 - [DM Mono](https://fonts.google.com/specimen/DM+Mono) is great for website code block
-- Nerd font family, it's important to use a nerd font for powerlevel10k theme on zsh. I prefer Apple's [SF Mono](https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized/tree/main) with a nerd font patched.
+- Nerd font family, it's important to use a nerd font for powerlevel10k theme on zsh. I prefer [SF Mono](https://github.com/Twixes/SF-Mono-Powerline) with a nerd font patched: `brew install --cask font-sf-mono-for-powerline`
 
 ## Firefox fonts
 LatIn (refers macOS):
