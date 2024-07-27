@@ -38,7 +38,6 @@ Don't hesitate to suggest if you have any good ideas.
 - [DiffMerge](https://sourcegear.com/diffmerge/)
 - [Pinta](https://pinta-project.com/pintaproject/pinta/)
 - [vlmcsd](https://github.com/Wind4/vlmcsd)
-- [Deepin Desktop Environment for Deepin Screenshot](https://launchpad.net/~leaeasy/+archive/ubuntu/dde)
 - [Lantern](https://github.com/getlantern/lantern)
 - [Gummi](https://github.com/alexandervdm/gummi/wiki/Installing-Gummi)
 - Encryption [KeePassXC](https://keepassxc.org/) for Linux, macOS and Windows
@@ -55,10 +54,7 @@ Don't hesitate to suggest if you have any good ideas.
 ```sh
 sudo apt-get install git
 ```
-- deepin scrot/screenshot
-```sh
-sudo apt-get install python-xlib
-```
+
 - Change tty font style
 Though Ubuntu gave me a beautiful UI, I still want my console font classic and clean, that's why I choose VGA font in this case. Change step will be the following:
 ```sh
@@ -654,31 +650,6 @@ sudo apt update
 ```sh
 sudo apt install pinta
 ```
-
-# Install the lastest powerful ```Deepin Screenshot``` (c) syscl
-
-- Add latest ```Deepin Desktop Environment(DDE)``` for ```Ubuntu```
-```sh
-sudo add-apt-repository ppa:leaeasy/dde
-sudo apt-get update
-```
-- Install ```Screenshot dependencies``` by
-```sh
-sudo apt install python python-pyqt5 python-opengl \
-python-sip python-wnck deepin-gettext-tools \
-deepin-menu deepin-qml-widgets deepin-social-sharing
-```
-
-- Now we can install ```Deepin Screenshot``` by
-```sh
-sudo apt install deepin-screenshot
-```
-# Add shortcut for ```Deepin Screenshot```
-- ```System Settings``` -> ```Keyboard``` -> ```Shortcuts``` -> ```Custom Shortcuts``` -> ```+ Command: deepin-screenshot```
-
-Note:
-- ```deepin-screenshot``` can be applied to call ```deepin shortcut``` through terminal as well.
-- While apply for screenshot, right click to change preference for ```deepin screenshot```
 
 
 # Alternative screen capture using default shortcut
