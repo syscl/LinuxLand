@@ -16,7 +16,6 @@ Don't hesitate to suggest if you have any good ideas.
 - Lenovo ThinkStation P520
 - [Kindle Paperwhite 3-5, Scribe](https://github.com/syscl/LinuxLand/blob/master/Kindle.md)
 
-
 # Softwares & Optimizations
 
 - [VSCode](https://code.visualstudio.com) for code editing.
