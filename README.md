@@ -87,7 +87,7 @@ Fonts is important and worth a section for discussing it. I used `Gnome Tweaks` 
 - `Monospace Text`: `SF Mono Regular 10`
 - [DM Mono](https://fonts.google.com/specimen/DM+Mono) is great for website code block
 
-## Firefox fonts
+## Firefox Fonts
 LatIn (refers macOS):
 
 - `Proportional`: `Serif`, `Size`: `16`
