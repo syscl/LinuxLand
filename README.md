@@ -49,6 +49,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [hyper](https://hyper.is/plugins/hyper-native)
 - Apache
 - [FileZilla](https://filezilla-project.org)
+- [btop](https://github.com/aristocratos/btop) a htop/top alternative
 - git
 ```sh
 sudo apt-get install git
@@ -59,7 +60,7 @@ sudo apt-get install python-xlib
 ```
 - Change tty font style
 Though Ubuntu gave me a beautiful UI, I still want my console font classic and clean, that's why I choose VGA font in this case. Change step will be the following:
-```sh 
+```sh
 sudo dpkg-reconfigure console-setup
 ```
 ```Font for the console```->```VGA``` or ```Do not change the boot/kernel font```
@@ -118,7 +119,7 @@ gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Microsoft YaHei UI
 gsettings set org.gnome.desktop.interface document-font-name 'Microsoft YaHei UI 11'
 # default font
 gsettings set org.gnome.desktop.interface font-name 'Microsoft YaHei 11 UI'
-# monospace-font 
+# monospace-font
 gsettings set org.gnome.desktop.interface monospace-font-name 'SF Mono Extra-Condensed 12'
 gsettings set org.gnome.nautilus.desktop font '' # default font '', leave blank
 ```
@@ -126,7 +127,7 @@ gsettings set org.gnome.nautilus.desktop font '' # default font '', leave blank
 `SF Mono` is more preferrable from macOS: `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts`
 In macOS: open Fonts within `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts` then install it. `SF Mono - Medium`  is my new favour.
 
-To reset above setting, just simply type in 
+To reset above setting, just simply type in
 ```sh
 gsettings reset org.gnome.desktop.interface font-name
 gsettings reset org.gnome.desktop.interface document-font-name
@@ -138,7 +139,7 @@ gsettings reset org.gnome.desktop.interface text-scaling-factor
 
 # tmux
 
-It is highly recommend to use tmux for both your dev server or local machine because of its multiplex feature. 
+It is highly recommend to use tmux for both your dev server or local machine because of its multiplex feature.
 
 ```sh
 sudo apt install tmux
@@ -155,7 +156,7 @@ fi
 The above command is going to make sure that
 
 ```
- (1) tmux exists on the system 
+ (1) tmux exists on the system
  (2) we're in an interactive shell
  (3) tmux doesn't try to run within itself
 ```
@@ -242,18 +243,18 @@ curl -o ~/Pictures/Wallpapers/majove_dynamic/majove.xml https://github.com/syscl
 
 Open the ```~/Pictures/Wallpapers/majove_dynamic/majove.xml ```, change the ```username``` from ```syscl``` to the user name you used, then unzip all the wallpapers from [here](https://files.rb.gd/mojave_dynamic.zip) to ```~/Pictures/Wallpapaers/majove_dynamic```
 
-Set up the lock screen and desktop background by the following 
+Set up the lock screen and desktop background by the following
 
 ```sh
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/syscl/Pictures/Wallpapers/mojave_dynamic/mojave.xml'
 gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/syscl/Pictures/Wallpapers/mojave_dynamic/mojave.xml'
 ```
 
-```Note``` Change the ```syscl``` to the user name you used on the above command line. 
+```Note``` Change the ```syscl``` to the user name you used on the above command line.
 
 
 
-# Remove/hide icons in the ```Show Applications``` button 
+# Remove/hide icons in the ```Show Applications``` button
 
 Jump right into the ```/usr/share/applications``` directory in the terminal, and remove/hide the icons you want. For example, remove the deprecated ```reboot```, ```shut down``` and ```logout``` button when updating from Unity to Gnome
 
@@ -266,7 +267,7 @@ sudo rm -rf reboot.desktop shutdown.desktop logout.desktop
 
 Install compiled binaries to ```/usr/local/bin/vlmcsd```, then execute ```vlmcsd``` then ```vlmcs``` to start the server. Then on ```Windows``` client, open ```cmd``` as Administration, run the following:
 ```sh
-slmgr -ipk <GLVKs Key> 
+slmgr -ipk <GLVKs Key>
 slmgr -skms <vlmcsd server address>
 slmgr -ato
 slmgr -dlv
@@ -274,7 +275,7 @@ slmgr -dlv
 
 # Install GoldenDict
 
-- Installing External Deps on Ubuntu 
+- Installing External Deps on Ubuntu
 ```sh
 sudo apt-get install git pkg-config build-essential qt4-qmake \
      libvorbis-dev zlib1g-dev libhunspell-dev x11proto-record-dev \
@@ -293,7 +294,7 @@ cd goldendict && qmake-qt4 && make
 Note: to compile with ```libhunspell``` older than 1.5, use the following command to build instead
 
 ```sh
-cd goldendict && qmake-qt4 "CONFIG+=old_hunspell" && make 
+cd goldendict && qmake-qt4 "CONFIG+=old_hunspell" && make
 ```
 
 - Install the binary to ```/usr/share/local``` by
@@ -303,7 +304,7 @@ make install
 ```
 System tray disappear on Ubuntu 18.04 (Gnome)
 
-Install ```sni-qt``` libraries: ```apt install sni-qt``` 
+Install ```sni-qt``` libraries: ```apt install sni-qt```
 
 # Tune GoldenDict
 
@@ -517,7 +518,7 @@ esac
 exit $RETVAL
 ```
 
-Attach executable permission for the script just touched (chmod +x aria) then update rc script 
+Attach executable permission for the script just touched (chmod +x aria) then update rc script
 
 ```shell
 sudo update-rc.d aria2 defaults
@@ -531,13 +532,13 @@ Now we turn to install the ```Aria2 WebUI```
 
 Please refer to this [link](https://tutorials.ubuntu.com/tutorial/install-and-configure-samba#3) first, full document will be appended later on.
 
-# Remove unused ibus 
+# Remove unused ibus
 
 Since I use sogou pinyin with ifcitx as my major input source, so that ibus is not required on my system, remove it by ```apt purge ibus indicator-keyboard```
 
 # Dash to Dock configuration
 
-- Ubuntu dash to dock (modified version of dash to dock): 
+- Ubuntu dash to dock (modified version of dash to dock):
 
 Reset ```transparent-mode``` to ```'ADAPTIVE'```:
 
@@ -575,7 +576,7 @@ sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /e
 wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
 ```
 
-- Now it's time to install 
+- Now it's time to install
 
 ```shell
 sudo apt update && sudo apt install filezilla
@@ -615,7 +616,7 @@ synclient "TapButton3" "8"
 ```
 
 ## [Caffein Gnome Extension](https://github.com/eonpatapon/gnome-shell-extension-caffeine)
-Install it, configured it to show in the status bar. Enable/disable it by scroll mouse on the icon. 
+Install it, configured it to show in the status bar. Enable/disable it by scroll mouse on the icon.
 
 
 
@@ -679,12 +680,12 @@ TODO: some emoji fonts are missing
 
 # Tune Gnome 3.x
 
-To install extensions for Gnome 3.x, just search the add-ons in ```Software``` application,  then tune it on through ```Extension Settings```. 
+To install extensions for Gnome 3.x, just search the add-ons in ```Software``` application,  then tune it on through ```Extension Settings```.
 
 - [NoAnnoyance](https://github.com/sindex/no-annoyance) removes the “Windows is ready” notification and puts the window into focus.
-- [Suspend Button](https://extensions.gnome.org/extension/826/suspend-button/) adds back the sleep/suspend button 
+- [Suspend Button](https://extensions.gnome.org/extension/826/suspend-button/) adds back the sleep/suspend button
 
-# Resolve ```RAR``` Parsing filters unsupported error 
+# Resolve ```RAR``` Parsing filters unsupported error
 
 You can use
 
@@ -724,7 +725,7 @@ sudo apt-get install p7zip-full
 # vscode [idea key binding](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 One may find `ctrl+w` not work on Linux the shortcut has been defined to other feature. To restore it, just go to the `idea keybindings`' setting > `Extension Keyboard Shortcuts` > search for `ctrl+w` > `Remove Keybinding`.
 
-# Install Pinta 
+# Install Pinta
 
 - Open terminal with CTRL+ALT+T Add Pinta stable PPA repository:
 ```sh
@@ -773,7 +774,7 @@ for procname in $(ps aux | grep evolution | awk -F'/' '{print $NF}' | grep evolu
     "editor.fontFamily": "'Menlo', 'Consolas', 'DejaVu Sans Mono', 'monospace'",
 }
  ```
-To have a vertical line (vertical rulers) to control line length, set a ruler in 
+To have a vertical line (vertical rulers) to control line length, set a ruler in
 ```settings.json``` as (in this case length is 80)
 ```
 {
@@ -793,7 +794,7 @@ Markdown preview extension: ```Markdown all in one```
 
 ```open``` command in mac is really convenient and its alias is xdg-open. However the xdg-open is not as smart as open in mac. Due to the fact of this, I wrote a handy script(in bin/open) for you to deal with it. You can place it under ```/usr/local/bin``` manually or install it by executing deploy as well.
 
-# Apache 
+# Apache
 
 - Install ```Apache```
 ```sh
@@ -805,7 +806,7 @@ sudo apt install apache2
 mkdir ~/apache_service_root
 ```
 
-- Change ```/etc/apache2/sites-available/000-default.conf``` and ```/etc/apache2/apache2.conf``` from ```DocumentRoot /var/www/index``` to ```DocumentRoot /home/syscl/apache_server_root``` and from ```<Directory /var/www/>``` to ```<Directory /home/syscl/apache_server_root/>``` 
+- Change ```/etc/apache2/sites-available/000-default.conf``` and ```/etc/apache2/apache2.conf``` from ```DocumentRoot /var/www/index``` to ```DocumentRoot /home/syscl/apache_server_root``` and from ```<Directory /var/www/>``` to ```<Directory /home/syscl/apache_server_root/>```
 
 # Update for website
 ```sh
@@ -833,7 +834,7 @@ ufw enable
 ufw allow 19999/tcp
 ufw reload
 ```
-- Now access the netdata through ```http://your-server-ip:19999``` 
+- Now access the netdata through ```http://your-server-ip:19999```
 
 # Enable temperature for netdata
 - Install ```lm_sensors``` through ```apt install lm_sensors```
@@ -852,11 +853,11 @@ systemctl restart netdata
 ```sh
 getconf LONG_BIT
 ```
-# CentOS/RHEL install ```deltarpm``` for allowing the delat rpm function. 
+# CentOS/RHEL install ```deltarpm``` for allowing the delat rpm function.
 
-# CentOS/Ubuntu install ```nextcloud``` 
+# CentOS/Ubuntu install ```nextcloud```
 
-Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands. 
+Please refer [here](https://www.howtoforge.com/tutorial/how-to-install-nextcloud-with-nginx-and-php-fpm-on-centos-7/). And don't forget to change ```php70w-*``` to ```php-*``` for the installation commands.
 - Enable pretty urls (get rid of index.php*) append the following two lines in your ```[nextcloud root]/config/config.php```:
 ```
 'overwrite.cli.url' => 'https://example.com/nextcloud',
@@ -878,11 +879,11 @@ gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
 - Install VirtualBox by ```yum install virtualbox```
 - Install [VirtualBox extension pack](https://www.virtualbox.org/wiki/Downloads) by ```VBoxManage extpack install [extension-pack-path]```
 - Install [phpVirtualBox](https://github.com/phpvirtualbox/phpvirtualbox)
-- Install subscript-manager 
+- Install subscript-manager
 - Create a new file in ```/etc/default/virtualbox``` so that we can ```systemctl start vboxweb-service```, the line we have to add is: ```VBOXWEB_USER=root``` notice here the user is "the user as which vboxwebsrv will run.", in this case  ```root```, more information can be referred to [here](https://github.com/phpvirtualbox/phpvirtualbox/wiki/vboxweb-service-Configuration-in-Linux)
 - Copy ```phpvirtualbox/config.php-example``` to ```phpvirtualbox/config.php``` and change the ```var $password = '*';``` as the password you want.
 - Add a new user ```vbox``` by ```useradd vbox``` and its password is the same as in ```phpvirtualbox/config.php```'s ```var $password = '*';```
-- Install epel repos 
+- Install epel repos
 - Install php-soap, note if you have php 7.0 use ```yum install php70w-soap```
 - Disable ```selinux```
 - Find the path of soap through ```find -name soap.so```, usually it will be located at  ```/usr/lib64/php/modules/soap.so```
@@ -890,7 +891,7 @@ gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
 - Restart your ```httpd``` service by ```systemctl restart httpd```
 
 # Install ```emby``` media server
-Unlike ```$lex``` require money everywhere,  ```emby``` is an open source media server, like universal media server (ums on Sony PS4), the way to install is straightforward, but notice change the ```user``` and ```group``` as ```emby:emby``` for the folders you want to attach as libraries otherwise permission errors will occurs. 
+Unlike ```$lex``` require money everywhere,  ```emby``` is an open source media server, like universal media server (ums on Sony PS4), the way to install is straightforward, but notice change the ```user``` and ```group``` as ```emby:emby``` for the folders you want to attach as libraries otherwise permission errors will occurs.
 
 # Chrome extensions / Firefox add-ons
 - [I still don't care about cookies](https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm) to remove annoying cookie pops up
