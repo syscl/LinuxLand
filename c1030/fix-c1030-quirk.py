@@ -5,10 +5,8 @@ import shlex
 import subprocess
 import os
 
-from typing import Dict
 
-
-def listSinks() -> Dict[str, str]:
+def listSinks() -> dict[str, str]:
     ret = subprocess.check_output(shlex.split("pactl list sinks short"))
     sinks = dict()
     for line in ret.decode().splitlines():
@@ -23,7 +21,7 @@ if __name__ == "__main__":
     time.sleep(3)
     # Restart the pulseaudio service
     os.system("systemctl --user restart pulseaudio")
-    
+
     # Wait until the headphone sink is available
     headphone_sink = "alsa_output.pci-0000_00_1f.3-platform-sof_rt5682.stereo-fallback"
     while True:
