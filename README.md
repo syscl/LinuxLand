@@ -43,7 +43,6 @@ Don't hesitate to suggest if you have any good ideas.
   - Use **KeePassDX** for Android
   - Use **KeePassium** for iOS
 - [Simplenotes](https://simplenote.com/)
-- [Mailspring](https://getmailspring.com/) or install it by ```Software center```. Recommend setting: ```Edit```->```Preference```->```Appearance```->```Window Control and Menubar```->```Custom Window Frame and Right-hand Menu```. And lower down the ```scaling``` a bit if the size is too large.
 - [netdata](https://my-netdata.io)
 - [Excalidraw](https://github.com/excalidraw/excalidraw) drawing diagram
 - [hyper](https://hyper.is/plugins/hyper-native)
