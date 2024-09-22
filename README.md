@@ -50,7 +50,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [FileZilla](https://filezilla-project.org)
 - [btop](https://github.com/aristocratos/btop) a htop/top alternative
 - git
-```sh
+```
 sudo apt-get install git
 ```
 - deepin scrot/screenshot
