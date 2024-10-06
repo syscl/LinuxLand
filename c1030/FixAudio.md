@@ -4,7 +4,7 @@ If you are using KDE(manjaro, fedora), you just need to change the audio configu
 
 On Ubuntu, you need to install pipewire and pavucontrol to select the `pro audio`:
 1. Install pipewire, pavucontrol and disbale pulseaudio service, enable pipewire service:
-``` 
+```
 sudo apt install  install pipewire-audio-client-libraries libspa-0.2-bluetooth libspa-0.2-jack wireplumber pipewire-media-session- pavucontrol
 systemctl --user --now disable pulseaudio.service
 systemctl --user --now mask pulseaudio.service
@@ -16,7 +16,7 @@ systemctl --user --now enable pipewire pipewire-pulse
 
 
 
-> Note below has been deprecated, since pulseaudio is so unreliable and cannot even detect the hdmi output properly. 
+> Note below has been deprecated, since pulseaudio is so unreliable and cannot even detect the hdmi output properly.
 This has been tested on Fedora 40 and Ubuntu 24.04 LTS.
 
 > Note on Fedora the result is more reliable, while Ubuntu needs a restart of the `pulseaudio.service`.
@@ -57,6 +57,6 @@ set-default-sink alsa_output.hw_0_5
 set-sink-volume 1 25000
 ```
 
-- Headphone will lose sound on idle, to fix it comment out/remove the `load-module module-suspend-on-idle`. 
+- Headphone will lose sound when idle, to fix it comment out/remove the `load-module module-suspend-on-idle`.
 
 - On ubuntu install a restart pulseaudio.service script on login using `/etc/profile.d/`. Since `profile.d/*.sh` is executed by `/etc/profile`, we need to create a shell script that will invoke another script. Just cp `fix-c1030-quirk.sh` and `fix-c1030-quirk.py` to the `/etc/profile.d`.
