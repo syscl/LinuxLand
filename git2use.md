@@ -56,7 +56,7 @@ git push -u origin master
 or use
 ```sh
 git add file
-git commit -m "Contents..."
+git commit -m <commit-message>
 git remote add origin https://github.com/syscl/LinuxLand.git
-git push -u origin master
+git push -u origin main
 ```
