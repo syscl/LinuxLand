@@ -1,4 +1,4 @@
-# Fix sof-rt5682 (hp c1030) on Fedora and Gnome
+# Fix sof-rt5682 (hp c1030) on Fedora Gnome
 
 If you are using KDE(manjaro, fedora), you just need to change the audio configure profile to `pro audio`, then the sound is out automatically. (note you need to manually choose the output, e.g. hw:0:1 is jack, hw:0:5 is speaker).
 
