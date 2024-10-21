@@ -59,4 +59,4 @@ set-sink-volume 1 25000
 
 - Headphone will lose sound when idle, to fix it comment out/remove the `load-module module-suspend-on-idle`.
 
-- On ubuntu install a restart pulseaudio.service script on login using `/etc/profile.d/`. Since `profile.d/*.sh` is executed by `/etc/profile`, we need to create a shell script that will invoke another script. Just cp `fix-c1030-quirk.sh` and `fix-c1030-quirk.py` to the `/etc/profile.d`.
+- On ubuntu install a restart pulseaudio.service script on login using `/etc/profile.d/`. Since `profile.d/*.sh` is executed by `/etc/profile`, we need to create a shell script that will invoke another script. Just copy `fix-c1030-quirk.sh` and `fix-c1030-quirk.py` to the `/etc/profile.d`.
