@@ -963,4 +963,7 @@ systemctl start zram-config
 Please refer to this [link](https://gist.github.com/ricardozanini/fa65e485251913e1467837b1c5a8ed28).
 
 
+[antiX Linux]
+For pretty old hardware, antiX doing a great job, especially on iMac8,1(2008). I want to like puppy Linux, however it has screen flickering on iMac8,1.
+
 See changelogs [here](https://github.com/syscl/LinuxLand/blob/master/Changelog.md)
