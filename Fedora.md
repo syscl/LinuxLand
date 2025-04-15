@@ -51,4 +51,10 @@ Please refer to this [link](https://www.youtube.com/watch?v=Z7EO00F5H6s) for mor
 sudo dnf install fcitx5-chinese-addons
 ```
 - Logout
-- Right click the fcitx input icon > Add `Pinyin` from right > hit `Configure` > `Enable Cloudpinyin` > select your prefer backend 
+- Right click the fcitx input icon > Add `Pinyin` from right > hit `Configure` > `Enable Cloudpinyin` > select your prefer backend
+
+
+# Perform update to Fedora release
+Check with this: https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/
+
+On UEFI system, don't need to update grub2-install, use https://fedoraproject.org/wiki/GRUB_2#Instructions_for_UEFI-based_systems to update UEFI.

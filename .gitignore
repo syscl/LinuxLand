@@ -1,2 +1,6 @@
 # OpenAI
 .env
+
+.DS_Store*
+# ignore all .DS_Store
+**/.DS_Store
