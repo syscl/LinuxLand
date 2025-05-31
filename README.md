@@ -15,8 +15,9 @@ Don't hesitate to suggest if you have any good ideas.
 - Raspberry Pi 3 (rev. B) & Raspberry Pi 4
 - Lenovo ThinkStation P520
 - [Kindle Paperwhite 3-5, Scribe](https://github.com/syscl/LinuxLand/blob/master/Kindle.md)
+- openwrt: tp-link Archer C7
 
-# Softwares & Optimizations
+# Software & Optimizations
 
 - [VSCode](https://code.visualstudio.com) for code editing.
 - To download youtube video with best video quality (e.g. 1080p) + best audio, use [yt-dlp](https://github.com/yt-dlp/yt-dlp) for a given video: `yt-dlp -f "bv+ba/b" <video-link>`
@@ -28,6 +29,7 @@ Don't hesitate to suggest if you have any good ideas.
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Netease music](http://music.163.com/)
 - [GoldenDict](https://github.com/goldendict/goldendict)
+- [Excalidra](https://docs.excalidraw.com/docs/introduction/development)
 - [Youdao dict](http://cidian.youdao.com/)
 - [Clang](http://llvm.org/)
 - [Sogou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
@@ -967,3 +969,6 @@ Please refer to this [link](https://gist.github.com/ricardozanini/fa65e485251913
 For pretty old hardware, antiX doing a great job, especially on iMac8,1(2008). I want to like puppy Linux, however it has screen flickering on iMac8,1.
 
 See changelogs [here](https://github.com/syscl/LinuxLand/blob/master/Changelog.md)
+
+[Excalidraw](https://docs.excalidraw.com/docs/introduction/development)
+I cannot express how much I love the app, it is so simple to use (I was waiting for yeaers) just for this app, and it can be self hosted!
