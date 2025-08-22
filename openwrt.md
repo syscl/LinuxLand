@@ -1,7 +1,7 @@
 # This aims for the usage of OpenWrt 24.10.1 on Asus Chromebox 3 / tplink_archer-a7-v5 (TP-Link Archer A7 v5)
 
 # DNS using quad9 / cloudflare
-Note smartdns seems not working for me, work it is working is using https://docs.quad9.net/Setup_Guides/Open-Source_Routers/OpenWrt_LuCi/:
+Note smartdns seems not working for me, what it is working is using https://docs.quad9.net/Setup_Guides/Open-Source_Routers/OpenWrt_LuCi/:
 - Install (bring back dnsmasq package): `opkg install dnsmasq`
 - Navigate to `Network` -> `DHCP and DNS`
 - Set `9.9.9.9` and `149.112.112.112`, or the addresses of your preferred Quad9 service in the "DNS forwardings" input fields.

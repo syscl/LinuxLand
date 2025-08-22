@@ -972,3 +972,23 @@ See changelogs [here](https://github.com/syscl/LinuxLand/blob/master/Changelog.m
 
 [Excalidraw](https://docs.excalidraw.com/docs/introduction/development)
 I cannot express how much I love the app, it is so simple to use (I was waiting for yeaers) just for this app, and it can be self hosted!
+
+## Remove ubuntu welcome message at ssh
+```bash
+sudo sed -i 's/\(.*motd.*\)/#\1/g' /etc/pam.d/*
+```
+## Add current user to docker group
+If I want existing user to have the ability to run docker, run the following:
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+## Could not acquire name on session bus (Mate desktop with Chrome Remote Desktop)
+refer: https://ubuntu-mate.community/t/could-not-acquire-name-on-session-bus/23060
+By the way, the solution for me with the Chrome Remote Desktop issue was to add a config file in the home directory named .chrome-remote-desktop-session and containing the lines
+```
+unset DBUS_SESSION_BUS_ADDRESS
+unset SESSION_MANAGER
+mate-session
+```
