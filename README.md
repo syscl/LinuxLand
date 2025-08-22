@@ -16,6 +16,7 @@ Don't hesitate to suggest if you have any good ideas.
 - Lenovo ThinkStation P520
 - [Kindle Paperwhite 3-5, Scribe](https://github.com/syscl/LinuxLand/blob/master/Kindle.md)
 - openwrt: tp-link Archer C7
+- proxomox virtual environment (pve 9.0.x): thinkstation p520, asus chromebox cn65. https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install to remove non-subscription.
 
 # Software & Optimizations
 
