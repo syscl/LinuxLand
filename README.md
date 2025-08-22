@@ -138,6 +138,25 @@ gsettings reset org.gnome.nautilus.desktop font
 gsettings reset org.gnome.desktop.interface text-scaling-factor
 ```
 
+# iterm + et(erminal) + tmux + setup
+This is a very smooth integration and experience as iterm support tmux integration and feels natively.
+The setup is as following:
+1. Install et on both server and client side
+2. On client side(macOS), iTerm > Settings > tmux > Attaching: `When attaching, restore windows as:` > `Tabs in the attaching window`, this will give you
+a persistent, and all tabs within one window.
+3. On client side, use this to achieve the connection `et -c 'tmux -CC new-session -A -s dev' devvm` (note to use port forward, you can asl `et -c 'tmux -CC new-session -A -s dev' devvm -t 8081:8081 ...`)
+4. If you want to have alias for connection, you can configure this in `~/.ssh/config`:
+```
+Host devvm
+    HostName  <your-remote-hostname>
+    Port      <connection-port>
+    User      <username>
+    IdentityFile <your-key-file-path>
+    LocalForward 8081 localhost:8081
+```
+then you can use `ssh devvm` to connect. Note, et usually use 2022 port after the ssh connection. Configured this in fast-reverse-proxy.
+
+
 # tmux
 
 It is highly recommend to use tmux for both your dev server or local machine because of its multiplex feature.
