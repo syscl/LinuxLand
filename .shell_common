@@ -1,0 +1,62 @@
+# Share common shell configurations at ~/.shell_common
+export PATH="$HOME/.local/bin:$PATH"
+
+# check which shell it is bash or zsh
+# first decide if kubectl exist before auto completion
+if command -v kubectl &>/dev/null; then
+    if [ -n "$BASH_VERSION" ]; then
+    source <(kubectl completion bash)
+  elif [ -n "$ZSH_VERSION" ]; then
+    source <(kubectl completion zsh)
+  fi
+fi
+
+# add docker auto complete
+if command -v docker &>/dev/null; then
+  if [ -n "$BASH_VERSION" ]; then
+    source <(docker completion bash)
+  elif [ -n "$ZSH_VERSION" ]; then
+    source <(docker completion zsh)
+  fi
+fi
+
+# kubectl alias
+alias kda="kubectl describe apps -n argocd"
+alias kdp="kubectl describe pod"
+alias kl="kubectl logs"
+alias klf="kubectl logs -f"
+alias kga="kubectl get apps -n argocd"
+alias kgp="kubectl get pods"
+alias kgs="kubectl get svc"
+alias kpatch="kubectl patch -p '{"metadata":{"finalizers":null}}' --type=merge"
+alias kgd="kubectl get deployment"
+alias kgcm="kubectl get cm"
+alias kexec="kubectl exec -it"
+
+# docker alias
+alias dps="docker ps"
+alias dstop="docker stop"
+alias drm="docker rm"
+alias dstart="docker start"
+alias dexec="docker exec -it"
+alias dl="docker logs"
+alias dlf="docker logs -f"
+
+# github shortcut
+alias gp="git pull"
+alias gc="git checkout"
+alias gcm="git commit -m"
+alias rb="git pull --rebase origin main"
+alias rbc="git rebase --continue"
+alias grs="git checkout origin/main --"
+# git push origin
+function gpo() {
+    if [[ -d .git ]]; then
+        git push origin "$(git branch --show-current) $1"
+    fi
+}
+
+export GIT_EDITOR="nvim"
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
