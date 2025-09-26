@@ -1,10 +1,11 @@
 # Tips for improving experience on mainstream GNU/Linux
 
-This project targets at making Ubuntu/Fedora easy to use. Improvements will keep adding to the repo, wish you enjoy it.
+This project aim at making Ubuntu/Debian/Fedora easy to use. Improvements will keep adding to the repo, wish you enjoy it.
 
 Don't hesitate to suggest if you have any good ideas.
 
 # Tested Models
+This is just the models that I tested/verify my changes, but not limited to any machines with the same system.
 
 - Dell Precision M3800/XPS 15 9530
 - Dell XPS 13 9350/9360
@@ -13,7 +14,7 @@ Don't hesitate to suggest if you have any good ideas.
 - Asus x205ta
 - Asus VivoBook E12 E203NAS
 - Raspberry Pi 3 (rev. B) & Raspberry Pi 4
-- Lenovo ThinkStation P520
+- Lenovo ThinkStation P520 (ProxmoxVE 9.x)
 - [Kindle Paperwhite 3-5, Scribe](https://github.com/syscl/LinuxLand/blob/master/Kindle.md)
 - openwrt: tp-link Archer C7
 - proxomox virtual environment (pve 9.0.x): thinkstation p520, asus chromebox cn65. https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install to remove non-subscription.
@@ -23,19 +24,15 @@ Don't hesitate to suggest if you have any good ideas.
 - [VSCode](https://code.visualstudio.com) for code editing.
 - To download youtube video with best video quality (e.g. 1080p) + best audio, use [yt-dlp](https://github.com/yt-dlp/yt-dlp) for a given video: `yt-dlp -f "bv+ba/b" <video-link>`
 - [Eternal Terminal](https://eternalterminal.dev/) `et -c 'tmux -CC' pi@<addr>`
-- [Sublime text](https://www.sublimetext.com/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/)
 - [gnome-sushi](https://gitlab.gnome.org/GNOME/sushi): a quick previewer for Nautilus use space bar
 - [gnome-weather](https://apps.gnome.org/en/Weather/): `sudo apt install gnome-weather`
 - [Cherrytree](http://www.giuspen.com/cherrytree/)
 - [Netease music](http://music.163.com/)
 - [GoldenDict](https://github.com/goldendict/goldendict)
-- [Excalidra](https://docs.excalidraw.com/docs/introduction/development)
 - [Youdao dict](http://cidian.youdao.com/)
 - [Clang](http://llvm.org/)
-- [Sogou Pinyin](http://pinyin.sogou.com/linux/?r=pinyin)
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-- [Typora](http://www.typora.io/#)
 - [WPS](https://www.wps.com/linux)
 - [DiffMerge](https://sourcegear.com/diffmerge/)
 - [Pinta](https://pinta-project.com/pintaproject/pinta/)
@@ -45,13 +42,13 @@ Don't hesitate to suggest if you have any good ideas.
 - Encryption [KeePassXC](https://keepassxc.org/) for Linux, macOS and Windows
   - Use **KeePassDX** for Android
   - Use **KeePassium** for iOS
-- [Simplenotes](https://simplenote.com/)
 - [netdata](https://my-netdata.io)
 - [Excalidraw](https://github.com/excalidraw/excalidraw) drawing diagram
 - [hyper](https://hyper.is/plugins/hyper-native)
-- Apache
 - [FileZilla](https://filezilla-project.org)
 - [btop](https://github.com/aristocratos/btop) a htop/top alternative
+- [Zed](https://zed.dev/)
+- [fcitx5-rime-ice](https://github.com/iDvel/rime-ice) Please refer to the fcitx5-rime section for installation and configuration
 - git
 ```
 sudo apt-get install git
@@ -71,16 +68,9 @@ sudo dpkg-reconfigure console-setup
 ```sh
 sudo apt install exfat-fuse exfat-utils
 ```
-- Resolve VI/VIM arrow keys binding issue
+- Use neovim to replace default vi/vim
 ```sh
-sudo apt install vim
-```
-
-- Sogou fcitx install steps
-```sh
-sudo apt install fcitx
-sudo dpkg -i [package-of-sogou].deb
-sudo apt-get install -f
+sudo apt install neovim
 ```
 
 # Fonts for Linux
@@ -430,43 +420,6 @@ sudo chown -R $USER:$USER /opt/foxitreader
 sudo rm -r /opt/foxitreader/fxplugins
 ```
 
-# Install ```pinying```
-## On Ubuntu 24.04
-1. It is recommended to install fcitx5 and cloudpinyin for pinyin input. A brief description of installing pinyin addon
-```
-sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3
-```
-2. Open Settings -> Keyboard -> Input Source, remove Chinese Pinyin from the list.
-3. Run `im-config`, follow the wizard and choose fcitx5 as IME.
-
-4. Run `sudo vi /etc/environment` and add below environment variables:
-```
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=ibus
-```
-This step is important, without it you will be unable to switch IME in most of the applications.
-
-5. Open Tweaks (install by sudo apt install gnome-tweaks) and add Fcitx 5 to Startup Applications.
-
-6. Reboot
-
-
-## On Ubuntu 16.04-22.04
-- On Ubuntu 18.04-22.04, to install sogou pinyin please refer to [guide](https://shurufa.sogou.com/linux/guide) and :
-```
-sudo apt purge ibus
-
-sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2
-
-sudo apt install libgsettings-qt1
-
-sudo cp /usr/share/applications/fcitx.desktop /etc/xdg/autostart/
-
-sudo dpkg -i <sogou-pinyin>.deb; sudo apt install -f
-```
 
 # Install ```Aria2``` and ```Aria2 WebUI``` for off line download on Raspberry Pi
 
@@ -552,10 +505,6 @@ Now we turn to install the ```Aria2 WebUI```
 # Samba on Raspberry Pi
 
 Please refer to this [link](https://tutorials.ubuntu.com/tutorial/install-and-configure-samba#3) first, full document will be appended later on.
-
-# Remove unused ibus
-
-Since I use sogou pinyin with ifcitx as my major input source, so that ibus is not required on my system, remove it by ```apt purge ibus indicator-keyboard```
 
 # Dash to Dock configuration
 
@@ -719,6 +668,26 @@ I recommend to install only one of these (unrar in my case). Then use archive ma
 ```
 sudo apt-get install file-roller
 ```
+
+# fcitx5 rime (pinyin)
+All the pinyin, e.g. sogou and baidu is shit, we want a modern and effienct reliable input source, that is rime-ice run on top of fcitx5. To use it this is the following steps:
+1. Install fcitx5-rime (this will includes all deps)
+```
+sudo apt-get install fcitx5-rime
+```
+2. Remove ibus by `sudo apt-get remove ibus -y && sudo apt-get autoremove -y`
+3. Download and install plum first: `cd ~ && git clone https://github.com/rime/plum.git plum`
+4. Install rime using plum: `cd ~/plum && bash plum/rime-install iDvel/rime-ice:others/recipes/full`
+5. Unlike macOS and Windows, you cannot use `default.custom.yaml`  to configure theme on Linux, so you need to install theme to fcitx5, I use macOS theme for fcitx from https://github.com/thep0y/fcitx5-themes-candlelight.
+6. Just copy the theme from https://github.com/thep0y/fcitx5-themes-candlelight to ~/.local/share/fcitx5/themes, then reload the fcitx5 `fcitx5 -r`.
+7. Now go to fcitx5 configuration > Addons > Classic User Interface > Themes: macOS-light, Dark Theme: macOS-dark
+This is my linux custom/patch config for `~/.local/share/fcitx5/rime/default.custom.yaml`:
+```
+patch:
+  menu:
+    page_size: 8
+```
+This is the same as macOS Tahoe input.
 
 # Blur app on factional scaling
 One may found chromium based or electron app blur when Gnome Wayland fractional scaling is enabled. To address it, you need to put `--ozone-platform=wayland` for app.
