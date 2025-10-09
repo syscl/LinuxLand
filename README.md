@@ -776,6 +776,12 @@ For remote developing, install [Remote - SSH](https://marketplace.visualstudio.c
 ssh-copy-id [username]@[ip]
 ```
 
+"Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)"
+Please refer to [this](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc), the limit can be increased to its maximum by editing /etc/sysctl.conf
+```
+fs.inotify.max_user_watches=524288
+```
+
 Markdown preview extension: ```Markdown all in one```
 
 
