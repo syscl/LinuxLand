@@ -987,3 +987,22 @@ unset DBUS_SESSION_BUS_ADDRESS
 unset SESSION_MANAGER
 mate-session
 ```
+
+[Customize Zed Config]
+```
+{
+  "ui_font_size": 14,
+  "buffer_font_size": 13,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "ui_font_family": "JetBrains Mono",
+  "buffer_font_family": "JetBrains Mono",
+  "terminal": {
+    "cursor_shape": "bar",
+    "font_family": "Liga SFMono Nerd Font"
+  }
+}
+```
