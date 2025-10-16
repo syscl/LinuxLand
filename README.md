@@ -987,6 +987,12 @@ unset DBUS_SESSION_BUS_ADDRESS
 unset SESSION_MANAGER
 mate-session
 ```
+## Select a session to launch within your Chrome Remote Desktop Environment for Gnome in `$HOME/.chrome-remote-desktop-session`
+```
+export XDG_SESSION_TYPE=x11
+export ZED_ALLOW_EMULATED_GPU=1
+exec /usr/bin/gnome-session --session=gnome
+```
 
 [Customize Zed Config]
 ```
