@@ -48,6 +48,7 @@ This is just the models that I tested/verify my changes, but not limited to any 
 - [FileZilla](https://filezilla-project.org)
 - [btop](https://github.com/aristocratos/btop) a htop/top alternative
 - [Zed](https://zed.dev/)
+- [ibus-rime](https://github.com/iDvel/ibus-rime) and [rime-ice](https://github.com/iDvel/rime-ice)
 - [fcitx5-rime-ice](https://github.com/iDvel/rime-ice) Please refer to the fcitx5-rime section for installation and configuration
 - git
 ```
