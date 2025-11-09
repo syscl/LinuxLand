@@ -594,7 +594,7 @@ Install it, configured it to show in the status bar. Enable/disable it by scroll
 ## [Transparent Top Bar (Adjustable transparency)](https://github.com/zhanghai/gnome-shell-extension-transparent-top-bar)
 ## [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
 ## [Compact Top Bar](https://github.com/metehan-arslan/gnome-compact-top-bar) for vanilla Gnome as it looks better. Ubuntu does not need this.
-## [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) for removing the gnome's "xx is ready" notification instead of pop up the window. On tab "Behaviour" you have "Window Demands Attention Focus" option. It will remove the notification and focus on the window.
+## [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) for removing the gnome's "xx is ready" notification instead of pop up the window. On tab "Behaviour" you have "Window Demands Attention Focus" option. It will remove the notification and focus on the window. Also disable show overview in Behavior > Startup Status > Desktop
 
 # Install LaTex
 
@@ -698,6 +698,18 @@ patch:
   menu:
     page_size: 8
 ```
+- Default to English on every system login : `~/.config/ibus/rime/rime_ice.custom.yaml`:
+```
+patch:
+  switches:
+    - name: ascii_mode
+      states: [中, Ａ]
+      reset: 1
+    - name: ascii_punct # 中英标点
+      states: [¥, $]
+      reset: 1
+```
+The reset value is the actul index of the states, in this case we default to "A"(ascii_mode).
 
 # fcitx5 rime (pinyin)
 All the pinyin, e.g. sogou and baidu is shit, we want a modern and effienct reliable input source, that is rime-ice run on top of fcitx5. To use it this is the following steps:
