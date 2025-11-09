@@ -27,10 +27,7 @@ Now I have both working logs and none working logs, so I did a compare by
 ```
 diff -ru kde-soundcard-proaudio-on gnome-soundcard
 ```
-this tells the difference between the two soundcards logs in two folders:
-```
-
-here's the output:
+this tells the difference between the two soundcards logs in two folders, here's the output:
 ```
 diff -ru kde-soundcard-proaudio-on/inxi.log gnome-soundcard/inxi.log
 --- kde-soundcard-proaudio-on/inxi.log	2025-11-08 12:49:37
