@@ -1041,3 +1041,6 @@ exec /usr/bin/gnome-session --session=gnome
   }
 }
 ```
+
+## Question mark instead of WiFi/network icon in Ubuntu when turn on VPN
+Inspired by [this](https://askubuntu.com/questions/1029361/question-mark-icon-instead-of-wifi-icon): Settings > Privacy > Connectivity Checking
