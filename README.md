@@ -50,6 +50,7 @@ This is just the models that I tested/verify my changes, but not limited to any 
 - [Zed](https://zed.dev/)
 - [ibus-rime](https://github.com/iDvel/ibus-rime) and [rime-ice](https://github.com/iDvel/rime-ice)
 - [fcitx5-rime-ice](https://github.com/iDvel/rime-ice) Please refer to the fcitx5-rime section for installation and configuration
+- gnome extension manager: `sudo apt install gnome-shell-extension-manager`
 - git
 ```
 sudo apt-get install git
@@ -586,10 +587,13 @@ After applying the patch, you will soon enjoy the trackpad on Ubuntu.
 synclient "TapButton3" "8"
 ```
 
+# Gnome Extensions
+This extensions makes Gnome into usable and nice state, otherwise it looks ugly.
 ## [Caffein Gnome Extension](https://github.com/eonpatapon/gnome-shell-extension-caffeine)
 Install it, configured it to show in the status bar. Enable/disable it by scroll mouse on the icon.
-
-
+## [Transparent Top Bar (Adjustable transparency)](https://github.com/zhanghai/gnome-shell-extension-transparent-top-bar)
+## [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
+## [Compact Top Bar](https://github.com/metehan-arslan/gnome-compact-top-bar) for vanilla Gnome as it looks better. Ubuntu does not need this.
 
 # Install LaTex
 
