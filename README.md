@@ -594,6 +594,7 @@ Install it, configured it to show in the status bar. Enable/disable it by scroll
 ## [Transparent Top Bar (Adjustable transparency)](https://github.com/zhanghai/gnome-shell-extension-transparent-top-bar)
 ## [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
 ## [Compact Top Bar](https://github.com/metehan-arslan/gnome-compact-top-bar) for vanilla Gnome as it looks better. Ubuntu does not need this.
+## [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) for removing the gnome's "xx is ready" notification instead of pop up the window. On tab "Behaviour" you have "Window Demands Attention Focus" option. It will remove the notification and focus on the window.
 
 # Install LaTex
 
