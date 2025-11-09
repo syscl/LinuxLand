@@ -669,6 +669,30 @@ I recommend to install only one of these (unrar in my case). Then use archive ma
 sudo apt-get install file-roller
 ```
 
+# ibus-rime
+Since my major desktop environment is Gnome, I will mainly focus on ibus-rime, for KDE/LXQT environments, please refer to fcitx5-rime section. People may ask why I want to use different input method, as using fcitx5 across all platforms is more consistent and easier to manage. The answer is simpler than you think, fcitx5 cannot be actived when I type search in gnome overview window, that say ibus-rime is better integrated with GTK so I created this section for the installation.
+
+Noted, I only tested this on Ubuntu 24.04.3 lts.
+1. Install ibus-rime `sudo apt-get install ibus-rime`. Log out or reboot to let the changes take effect.
+2. Settings > Keyboard > Add Input Sources > Add > ibus-rime, also you can remove English input as rime support English input by just hit `shift` Key
+3. Install a good dictionary for the input engine, as ibus-rime default to traditional chinese. In my case, I use [rime-ice](https://github.com/iDvel/rime-ice?tab=readme-ov-file). To use it follow the following steps:
+4. Install rime's config management tool: plum: `curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | bash`
+5. Go to `~/plum` and run `bash rime-install iDvel/rime-ice:others/recipes/full` to install rime-ice
+6. Make a few configurations, for example, change it from veritcal to horizontal, candidates 8, rime-ice by two config files. Note this is werid, but on Ubuntu 24.04.3 we need to have two config to make this takes effect. First, change style to horizontal, schema to rime_ice in `~/.config/ibus/rime/ibus_rime_custom.yaml`
+```
+patch:
+  schema_list:
+    - schema: rime_ice
+  style:
+    horizontal: true
+```
+Now to change words candidates, create `~/.config/ibus/rime/default.custom.yaml`:
+```
+patch:
+  menu:
+    page_size: 8
+```
+
 # fcitx5 rime (pinyin)
 All the pinyin, e.g. sogou and baidu is shit, we want a modern and effienct reliable input source, that is rime-ice run on top of fcitx5. To use it this is the following steps:
 1. Install fcitx5-rime (this will includes all deps)
