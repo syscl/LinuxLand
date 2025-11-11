@@ -684,7 +684,7 @@ Noted, I only tested this on Ubuntu 24.04.3 lts.
 3. Install a good dictionary for the input engine, as ibus-rime default to traditional chinese. In my case, I use [rime-ice](https://github.com/iDvel/rime-ice?tab=readme-ov-file). To use it follow the following steps:
 4. Install rime's config management tool: plum: `curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | bash`
 5. Go to `~/plum` and run `bash rime-install iDvel/rime-ice:others/recipes/full` to install rime-ice
-6. Make a few configurations, for example, change it from veritcal to horizontal, candidates 8, rime-ice by two config files. Note this is werid, but on Ubuntu 24.04.3 we need to have two config to make this takes effect. First, change style to horizontal, schema to rime_ice in `~/.config/ibus/rime/ibus_rime_custom.yaml`
+6. Make a few configurations, for example, change it from veritcal to horizontal, candidates 8, rime-ice by two config files. Note this is werid, but on Ubuntu 24.04.3 we need to have two config to make this takes effect. First, change style to horizontal, schema to rime_ice in `~/.config/ibus/rime/ibus_rime.custom.yaml`
 ```
 patch:
   schema_list:
