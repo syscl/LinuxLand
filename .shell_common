@@ -1,17 +1,19 @@
 # Share common shell configurations at ~/.shell_common
 export PATH="$HOME/.local/bin:$PATH"
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+# Go path follow official doc https://go.dev/doc/install
+export PATH=$PATH:/usr/local/go/bin
+
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -69,11 +71,8 @@ alias grs="git checkout origin/main --"
 # git push origin
 function gpo() {
     if [[ -d .git ]]; then
-        git push origin "$(git branch --show-current) $1"
+        git push origin "$(git branch --show-current)"
     fi
 }
 
 export GIT_EDITOR="nvim"
-
-# add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
