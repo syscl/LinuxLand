@@ -595,6 +595,8 @@ Install it, configured it to show in the status bar. Enable/disable it by scroll
 ## [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
 ## [Compact Top Bar](https://github.com/metehan-arslan/gnome-compact-top-bar) for vanilla Gnome as it looks better. Ubuntu does not need this.
 ## [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) for removing the gnome's "xx is ready" notification instead of pop up the window. On tab "Behaviour" you have "Window Demands Attention Focus" option. It will remove the notification and focus on the window. Also disable show overview in Behavior > Startup Status > Desktop
+## [Blur my Shell](https://github.com/aunetx/blur-my-shell) to make overview transparent. BTW, to avoid ugly dash-to-dock hover effect when open overview, disable the blur on `Dash to Dock`
+## [Dash to Panel](https://github.com/home-sweet-gnome/dash-to-panel) for making the top bar on all monitors, current GNOME top bar does not support on all monitors.
 
 # Install LaTex
 
