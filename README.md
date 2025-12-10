@@ -77,10 +77,12 @@ sudo apt install neovim
 
 # Fonts for Linux
 Fonts is important and worth a section for discussing it. I used `Gnome Tweaks` to change system fonts, here are the settings:
-- `Interface Text` and `Document Text`: `Helvetica Regular 10`
-- `Legacy Window Titles`: `Helvetica Bold 11`
+- `Interface Text` and `Document Text`: `PingFang Regular 10`
+- `Legacy Window Titles`: `PingFang Bold 11`
 - `Monospace Text`: `SF Mono Regular 10`
 - [DM Mono](https://fonts.google.com/specimen/DM+Mono) is great for website code block
+Note: I used this [PingFang](https://github.com/ctrngk/backup). As for latin, it is recommended to use SF Pro from apple.
+Math font (mainly for Chrome), mac use STIX Math font, however, the latex font seems more nice, which is ComputerModern. Here's a starter discussion https://www.reddit.com/r/math/comments/5w48xx/which_text_fonts_should_i_use_for_math/, this one https://tex.stackexchange.com/questions/1390/latin-modern-vs-cm-super further discuss the modernized and vectorized Latin Modern.
 
 ## Firefox Fonts
 LatIn (refers macOS):
