@@ -658,6 +658,10 @@ You can use
 ```
 sudo apt-get install unrar # support RAR 3
 ```
+For unrar protected files (note protected files supports much better than unrar-free unfortunately)
+```
+unrar x -p<password> <archive_name>
+```
 
 I recommend to install only one of these (unrar in my case). Then use archive manager:
 
