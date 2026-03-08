@@ -1,4 +1,103 @@
-# This aims for the usage of OpenWrt 24.10.1 on Asus Chromebox 3 / tplink_archer-a7-v5 (TP-Link Archer A7 v5)
+# This aims for the usage of OpenWrt 25.12.0 on Netgear RBR/RBS/RBK50(v1) or Asus Chromebox 3 or tplink_archer-a7-v5 (TP-Link Archer A7 v5)
+
+# Create Guest WiFi for one specific Radio
+0. Export the SSID and password:
+```
+GUEST_WIFI_SSID=<your_guestwifi_ssid>
+GUEST_WIFI_PASSWORD=<your_guest_wifi_password>
+```
+Follow the official doc: https://openwrt.org/docs/guide-user/network/wifi/guestwifi/guest-wlan
+```
+1. Configure network
+uci -q delete network.guest_dev
+uci set network.guest_dev="device"
+uci set network.guest_dev.type="bridge"
+uci set network.guest_dev.name="br-guest"
+uci -q delete network.guest
+uci set network.guest="interface"
+uci set network.guest.proto="static"
+uci set network.guest.device="br-guest"
+uci set network.guest.ipaddr="192.168.3.1/24"
+uci commit network
+service network restart
+```
+2. Set up a wireless interface bound to the guest network interface.
+```
+# Configure wireless
+WIFI_DEV="$(uci get wireless.@wifi-iface[0].device)"
+uci -q delete wireless.guest
+uci set wireless.guest="wifi-iface"
+uci set wireless.guest.device="${WIFI_DEV}"
+uci set wireless.guest.mode="ap"
+uci set wireless.guest.network="guest"
+uci set wireless.guest.ssid=${GUEST_WIFI_SSID}
+uci set wireless.guest.encryption="sae-mixed"
+uci set wireless.guest.key=${GUEST_WIFI_PASSWORD}
+uci set wireless.guest.isolate="1"
+wifi-iface
+uci commit wireless
+wifi reload
+```
+3. Configure a DHCP pool for the guest network.
+```
+uci -q delete dhcp.guest
+uci set dhcp.guest="dhcp"
+uci set dhcp.guest.interface="guest"
+uci set dhcp.guest.start="100"
+uci set dhcp.guest.limit="150"
+uci set dhcp.guest.leasetime="1h"
+uci commit dhcp
+service dnsmasq restart
+```
+4. Configure firewall for the guest network. Allow to forward traffic from the guest network to WAN. Allow DHCP requests and DNS queries.
+```
+uci -q delete firewall.guest
+uci set firewall.guest="zone"
+uci set firewall.guest.name="guest"
+uci set firewall.guest.network="guest"
+uci set firewall.guest.input="REJECT"
+uci set firewall.guest.output="ACCEPT"
+uci set firewall.guest.forward="REJECT"
+uci -q delete firewall.guest_wan
+uci set firewall.guest_wan="forwarding"
+uci set firewall.guest_wan.src="guest"
+uci set firewall.guest_wan.dest="wan"
+uci -q delete firewall.guest_dns
+uci set firewall.guest_dns="rule"
+uci set firewall.guest_dns.name="Allow-DNS-Guest"
+uci set firewall.guest_dns.src="guest"
+uci set firewall.guest_dns.dest_port="53"
+uci set firewall.guest_dns.proto="tcp udp"
+uci set firewall.guest_dns.target="ACCEPT"
+uci -q delete firewall.guest_dhcp
+uci set firewall.guest_dhcp="rule"
+uci set firewall.guest_dhcp.name="Allow-DHCP-Guest"
+uci set firewall.guest_dhcp.src="guest"
+uci set firewall.guest_dhcp.dest_port="67"
+uci set firewall.guest_dhcp.proto="udp"
+uci set firewall.guest_dhcp.family="ipv4"
+uci set firewall.guest_dhcp.target="ACCEPT"
+uci commit firewall
+service firewall restart
+```
+
+Note for guest WiFI, I used quad9 DNS such that it has a more restricted less ad experienced.
+
+# DSA (Distributed Switch Architecture) no internet on most of the app(except chromium-based browsers)
+The 25.12.x introduces DSA that RBS(satteliate)50 no longer see the WAN port and causing problem, this will use LAN1 as WAN to fix the issue:
+1. Remove LAN1 from bridge in Network > Devices > Bridge Ports > unchecked LAN1
+2. Network > Interfaces > Add new interfac:
+```
+Protocol: DHCP client
+Device: lan1
+Advance Settings: "unchecked Use DNS servers advertised by peer", Use Custom DNS: 1.1.1.1,secondary: 1.0.0.1
+```
+3. Repeated this for wan6 (except DNS)
+4. Network > Firewall > Add > name: wan, input: reject, output: accept, IPv4 Masquerading: check, Covered Network, wan and wan6
+Should hopefully see the internet.
+
+Note RBS50 needs to set the QCA9984 (4x4 MIMO) to a higher channel, e.g. 149 to make it active (otherwise fail for some reason).
+
 
 # DNS using quad9 / cloudflare
 Note smartdns seems not working for me, what it is working is using https://docs.quad9.net/Setup_Guides/Open-Source_Routers/OpenWrt_LuCi/:
