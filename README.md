@@ -1137,6 +1137,19 @@ One may notice that scroll in the rustdesk client is too fast and even cause blu
 ### Verify chrome gpu acceleration: chrome://gpu. I run a quick benchmark MotionMark 1.0 and the result from libvm vs. gpu is about 3-78x. 
 
 
+## macOS and Ubuntu keyboard remaps
+This especially helpful if I use rustdesk with Ubuntu, and control machine is macOS. How to achieve this is by map super key (Win-key/Command Key) to just control key, I found this works best for my workflow. Here's the [link](https://blog.herlein.com/post/ubuntu-remaps/) I refer that creates the .Xmodmap config at $HOME:
+```
+remove mod4 = Super_L
+keysym Super_L = Control_L
+add Control = Control_L
+```
+and 
+```sh
+xmodmap ~/.Xmodmap
+```
+
+
 ## Could not acquire name on session bus (Mate desktop with Chrome Remote Desktop)
 refer: https://ubuntu-mate.community/t/could-not-acquire-name-on-session-bus/23060
 By the way, the solution for me with the Chrome Remote Desktop issue was to add a config file in the home directory named .chrome-remote-desktop-session and containing the lines
