@@ -1138,7 +1138,7 @@ One may notice that scroll in the rustdesk client is too fast and even cause blu
 
 
 ## macOS and Ubuntu keyboard remaps
-This especially helpful if I use rustdesk with Ubuntu, and control machine is macOS. How to achieve this is by map super key (Win-key/Command Key) to just control key, I found this works best for my workflow. Here's the [link](https://blog.herlein.com/post/ubuntu-remaps/) I refer that creates the .Xmodmap config at $HOME:
+- This especially helpful if I use rustdesk with Ubuntu, and control machine is macOS. How to achieve this is by map super key (Win-key/Command Key) to just control key, I found this works best for my workflow. Here's the [link](https://blog.herlein.com/post/ubuntu-remaps/) I refer  that creates the .Xmodmap config at $HOME:
 ```
 remove mod4 = Super_L
 keysym Super_L = Control_L
