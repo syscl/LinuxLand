@@ -1066,6 +1066,12 @@ bleopt highlight_variable=
 bleopt complete_auto_complete=
 ```
 
+## shortcut, handy command for .shell_common
+Just place this line in .bashrc and .zshrc:
+```
+[ -s "$HOME/git/LinuxLand/.shell_common" ] && source "$HOME/git/LinuxLand/.shell_common"
+```
+
 ## zsh and configuration
 
 - Switch default shell `chsh -s $(which zsh)`
