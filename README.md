@@ -1137,6 +1137,12 @@ One may notice that scroll in the rustdesk client is too fast and even cause blu
 ### Verify chrome gpu acceleration: chrome://gpu. I run a quick benchmark MotionMark 1.0 and the result from libvm vs. gpu is about 3-78x. 
 
 
+## Make rustdesk less blur with disabling gnome animation
+Even thought UI animation makes things nature, however in a headless remote desktop environment, disabling the Gnome animation makes the rustdesk rendering less likely to happens and more consistent and smooth. Here's how to achieve it (as Gnome Tweak remove the option for this):
+```
+gsettings set org.gnome.desktop.interface enable-animations false
+```
+
 ## macOS and Ubuntu keyboard remaps
 - This especially helpful if I use rustdesk with Ubuntu, and control machine is macOS. How to achieve this is by map super key (Win-key/Command Key) to just control key, I found this works best for my workflow. Here's the [link](https://blog.herlein.com/post/ubuntu-remaps/) I refer  that creates the .Xmodmap config at $HOME:
 ```
