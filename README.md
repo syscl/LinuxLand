@@ -969,6 +969,103 @@ chmod +x deploy
 ./deploy
 ```
 
+### starship for bash and zsh
+https://starship.rs/
+This is my starship config at ~/.config/starship.toml:
+```
+add_newline = false
+
+format = """
+$python\
+$directory\
+$git_branch\
+$git_state\
+$git_metrics\
+$git_status\
+$character
+"""
+
+right_format = """
+$cmd_duration\
+$docker_context\
+$kubernetes\
+$terraform\
+$helm
+"""
+
+[directory]
+style = "blue"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch]($style) "
+style = "green"
+
+[git_metrics]
+format = "([+$added](green) [-$deleted](red) )"
+added_style = "bold green"
+deleted_style = "bold red"
+disabled = false
+
+[git_status]
+style = "cyan"
+format = "([$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed]($style))"
+ahead = "↑${count} "
+behind = "↓${count} "
+diverged = "↕ a:${ahead_count} b:${behind_count} "
+stashed = "≡ "
+staged = "!${count} "
+modified = "!${count} "
+untracked = "?${count} "
+renamed = "✎${count} "
+deleted = "✖${count} "
+conflicted = "‼${count} "
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "cyan"
+
+[kubernetes]
+disabled = false
+format = "[$cluster]($style) "
+style = "cyan"
+```
+
+### ble.sh with bash for right handside prompt
+This is the config for ~/.blerc
+```
+# Change multiline execute to enter
+ble-bind -m emacs -f RET accept-line
+ble-bind -m emacs -f C-m accept-line
+
+# Disable various of ble marks
+# Removes [ble:exit]
+bleopt exec_exit_mark=
+bleopt exec_errexit_mark=
+# Removes [ble: EOF]
+bleopt prompt_eol_mark=
+
+# Disable typing color rendering
+bleopt highlight_syntax=
+bleopt highlight_filename=
+bleopt highlight_variable=
+
+# disable typing ahead suggestions
+bleopt complete_auto_complete=
+```
+
 ## zsh and configuration
 
 - Switch default shell `chsh -s $(which zsh)`
