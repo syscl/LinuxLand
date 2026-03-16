@@ -1,4 +1,7 @@
 # Share common shell configurations
+export SHELL_COMMON_PATH="${BASH_SOURCE[0]:-${(%):-%x}}"
+alias reload-shell-common='source "$SHELL_COMMON_PATH"'
+
 export PATH="$HOME/.local/bin:$PATH"
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
@@ -115,6 +118,16 @@ export GIT_EDITOR="nvim"
 if [ -n "$BASH_VERSION" ]; then
   [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
   source -- ~/.local/share/blesh/ble.sh
+fi
+
+# add atuin if exists
+if command -v atuin &>/dev/null; then
+  . "$HOME/.atuin/bin/env"
+  if [ -n "$BASH_VERSION" ]; then
+    eval "$(atuin init bash)"
+  elif [ -n "$ZSH_VERSION" ]; then
+    eval "$(atuin init zsh)"
+  fi
 fi
 
 if command -v zoxide &>/dev/null; then
