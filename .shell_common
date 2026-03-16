@@ -2,7 +2,7 @@
 export SHELL_COMMON_PATH="${BASH_SOURCE[0]:-${(%):-%x}}"
 alias reload-shell-common='source "$SHELL_COMMON_PATH"'
 function update-shell-common() {
-    git -C "$(dirname "$SHELL_COMMON_PATH")" pull && source "$SHELL_COMMON_PATH"
+    git -C "$(dirname "$SHELL_COMMON_PATH")" pull"
 }
 
 
