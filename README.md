@@ -982,16 +982,20 @@ $git_branch\
 $git_state\
 $git_metrics\
 $git_status\
+$docker_context\
+${custom.k8s}\
+$terraform\
+$helm\
 $character
 """
 
-right_format = """
-$cmd_duration\
-$docker_context\
-$kubernetes\
-$terraform\
-$helm
-"""
+# right_format = """
+# $cmd_duration\
+# $docker_context\
+# $kubernetes\
+# $terraform\
+# $helm
+# """
 
 [directory]
 style = "blue"
@@ -1037,10 +1041,21 @@ style = "yellow"
 format = "[$virtualenv]($style) "
 style = "cyan"
 
-[kubernetes]
-disabled = false
-format = "[$cluster]($style) "
+[custom.k8s]
+# Use customize kubernetes to replace the [kubernetes] section
+description = "Kubernetes context, only in deductive workspace with a fresh kubeconfig"
+command = """
+ctx=$(kubectl config current-context 2>/dev/null) || exit 1
+echo "$ctx" | sed 's|.*:cluster/||; s|^|eks:|'
+"""
+when = """
+[[ "$PWD" == *deductive* ]] \
+  && [[ -n "$KUBECONFIG" ]] \
+  && [[ -s "$KUBECONFIG" ]] \
+  && (( $(date +%s) - $(date -r "$KUBECONFIG" +%s) < 3600 ))
+"""
 style = "cyan"
+format = "[$output]($style) "
 ```
 
 ### ble.sh with bash for right handside prompt
