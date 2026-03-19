@@ -139,7 +139,8 @@ The setup is as following:
 1. Install et on both server and client side
 2. On client side(macOS), iTerm > Settings > tmux > Attaching: `When attaching, restore windows as:` > `Tabs in the attaching window`, this will give you
 a persistent, and all tabs within one window.
-3. On client side, use this to achieve the connection `et -c 'tmux -CC new-session -A -s dev' devvm` (note to use port forward, you can asl `et -c 'tmux -CC new-session -A -s dev' devvm -t 8081:8081 ...`)
+3. On client side, use this to achieve the connection `dev='et -c '\''tmux -CC new-session -A -s dev'\'' devvm' -p<et-port-number>`
+<!-- `et -c 'tmux -CC new-session -A -s dev' devvm` (note to use port forward, you can asl `et -c 'tmux -CC new-session -A -s dev' devvm -t 8081:8081 ...`) -->
 4. If you want to have alias for connection, you can configure this in `~/.ssh/config`:
 ```
 Host devvm
