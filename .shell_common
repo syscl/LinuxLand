@@ -106,9 +106,15 @@ alias grs="git checkout origin/main --"
 # git push origin
 function gpo() {
     if [[ -d .git ]]; then
-        git push origin "$(git branch --show-current)"
+        if [ -z "$1" ]; then
+            git push origin "$(git branch --show-current)"
+        else
+            git push origin "$(git branch --show-current)" $1
+        fi
     fi
 }
+
+alias dev='et -c '\''tmux -CC new-session -A -s dev'\'' rog'
 
 if [ -f ~/.venv/bin/activate ]; then
     source ~/.venv/bin/activate
