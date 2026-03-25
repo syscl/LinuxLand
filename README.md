@@ -814,10 +814,48 @@ ssh-copy-id [username]@[ip]
 ```
 
 "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)"
-Please refer to [this](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc), the limit can be increased to its maximum by editing /etc/sysctl.conf
+Please refer to [this](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc), the limit can be increased by editing /etc/sysctl.conf
 ```
 fs.inotify.max_user_watches=524288
+fs.inotify.max_user_instances=512
 ```
+
+Check limits:
+```
+sysctl fs.inotify
+```
+
+Check current usage — instances per process:
+```
+cat /proc/*/fdinfo/* 2>/dev/null | grep -c inotify
+```
+
+Top consumers by watch count:
+```
+for pid in /proc/[0-9]*/fd; do
+  count=$(ls "$pid" 2>/dev/null | xargs -I{} readlink "$pid/{}" 2>/dev/null | grep -c inotify)
+  if [ "$count" -gt 0 ]; then
+    ppid=$(echo "$pid" | cut -d/ -f3)
+    echo "$count $(cat /proc/$ppid/comm 2>/dev/null) (pid=$ppid)"
+  fi
+done | sort -rn | head -20
+```
+
+Check open file descriptor limit:
+```
+ulimit -n                        # soft limit for current shell
+ulimit -Hn                       # hard limit
+cat /proc/sys/fs/file-max        # system-wide max
+cat /proc/sys/fs/file-nr         # allocated / free / max (shows actual usage)
+```
+
+See open fd count per process (top offenders):
+```
+ls /proc/*/fd 2>/dev/null | awk -F/ '{print $3}' | sort | uniq -c | sort -rn | head -20 | \
+  while read count pid; do echo "$count $pid $(cat /proc/$pid/comm 2>/dev/null)"; done
+```
+
+The quick mental model: `sysctl fs.inotify` shows your limits, `file-nr` shows open fd pressure system-wide, and the per-process loop pinpoints the culprit.
 
 Markdown preview extension: ```Markdown all in one```
 
