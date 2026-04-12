@@ -1,6 +1,64 @@
 # This aims for the usage of OpenWrt 25.12.0 on Netgear RBR/RBS/RBK50(v1) or Asus Chromebox 3 or tplink_archer-a7-v5 (TP-Link Archer A7 v5)
 
-# Create Guest WiFi for one specific Radio
+## Wireless Mesh setup
+This currently using 802.11s, note, I use RBR+RBS backhaul as an example (version 25.12.2). This just list the essential steps:
+- On all routers installed `wpad-mbedtls`: `apk update && apk del wpad-basic-mbedtls && apk add wpad-mbedtls && reboot`
+
+### On main router
+- Picked on radio as backhaul, in this case I used QCA9984 as backhaul raido:
+```
+uci set wireless.radio0.channel='157'
+uci set wireless.radio0.htmode='VHT80'
+uci set wireless.radio0.country='US'
+uci set wireless.mesh_backhaul=wifi-iface
+uci set wireless.mesh_backhaul.device='radio0'
+uci set wireless.mesh_backhaul.network='lan'
+uci set wireless.mesh_backhaul.mode='mesh'
+uci set wireless.mesh_backhaul.mesh_id='syscl-rb50-mesh'
+uci set wireless.mesh_backhaul.encryption='sae'
+uci set wireless.mesh_backhaul.key=${BACKHAUL_PASSWORD}
+```
+### On other routers:
+1. Disable DHCP and set the other router's lan IP different than main router, set gateway to main router:
+```
+uci set network.lan.proto='static'
+uci set network.lan.ipaddr='192.168.1.2'
+uci set network.lan.netmask='255.255.255.0'
+uci set network.lan.gateway='192.168.1.1'
+uci set network.lan.dns='192.168.1.1'
+uci commit network
+/etc/init.d/network restart
+uci set dhcp.lan.ignore='1'
+uci commit dhcp
+/etc/init.d/dnsmasq restart
+```
+2. Set the same backhaul config as above
+```
+uci set wireless.radio0.channel='157'
+uci set wireless.radio0.htmode='VHT80'
+uci set wireless.radio0.country='US'
+uci set wireless.mesh_backhaul=wifi-iface
+uci set wireless.mesh_backhaul.device='radio0'
+uci set wireless.mesh_backhaul.network='lan'
+uci set wireless.mesh_backhaul.mode='mesh'
+uci set wireless.mesh_backhaul.mesh_id='syscl-rb50-mesh'
+uci set wireless.mesh_backhaul.encryption='sae'
+uci set wireless.mesh_backhaul.key=${BACKHAUL_PASSWORD}
+```
+3. Set AP's SSID and password the same as the main router to enable seamless connection
+
+### To verify if the mesh works:
+1. Connect the the access point(AP), and access each router's lan ip
+2. Connect to a close router (or just disable other router's radio), then connect and check internet connection
+
+### Note: on RBR/RBS50, it is recommended to use non-ct firmware to imporve performance for mesh
+```
+apk del kmod-ath10k-ct ath10k-firmware-qca4019-ct ath10k-firmware-qca9984-ct
+apk add kmod-ath10k ath10k-firmware-qca4019 ath10k-firmware-qca9984
+reboot
+```
+
+## Create Guest WiFi for one specific Radio
 0. Export the SSID and password:
 ```
 GUEST_WIFI_SSID=<your_guestwifi_ssid>
