@@ -16,8 +16,8 @@ This is just the models that I tested/verify my changes, but not limited to any 
 - Raspberry Pi 3 (rev. B) & Raspberry Pi 4
 - Lenovo ThinkStation P520 (ProxmoxVE 9.x)
 - [Kindle Paperwhite 3-5, Scribe](https://github.com/syscl/LinuxLand/blob/master/Kindle.md)
-- openwrt: tp-link Archer C7
-- proxomox virtual environment (pve 9.0.x): thinkstation p520, asus chromebox cn65. https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install to remove non-subscription.
+- openwrt: tp-link Archer C7, netgear RBR50 & RBS50
+- proxomox virtual environment (pve 9.x): thinkstation p520, AMD x570rog + R9 3900x + asus chromebox cn65. https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install to remove non-subscription.
 
 # Software & Optimizations
 
