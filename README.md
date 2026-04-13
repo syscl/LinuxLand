@@ -1301,7 +1301,56 @@ gsettings set org.gnome.desktop.interface enable-animations false
 ```
 
 ## macOS and Ubuntu keyboard remaps
-- This especially helpful if I use rustdesk with Ubuntu, and control machine is macOS. How to achieve this is by map super key (Win-key/Command Key) to just control key, I found this works best for my workflow. Here's the [link](https://blog.herlein.com/post/ubuntu-remaps/) I refer  that creates the .Xmodmap config at $HOME:
+A more generic solution is to use Karabiner-Element, to remap the key from lower level for Complex Modifitaion
+```
+{
+    "description": "Rustdesk: Left Command to Left Control",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "^com\\.carriez\\.rustdesk$"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": {
+                "key_code": "left_command",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "left_control" }],
+            "type": "basic"
+        }
+    ]
+}
+```
+for Windows App/Remote Desktop:
+```
+{
+    "description": "Windows App: Left Command to Left Control",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc\\.macos$"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": {
+                "key_code": "left_command",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "left_control" }],
+            "type": "basic"
+        }
+    ]
+}
+```
+
+- This is not working on Wayland, and need to manually run the `xmodmap ~/.Xmodmap` to achieve, so not recommended. This especially helpful if I use rustdesk with Ubuntu, and control machine is macOS. How to achieve this is by map super key (Win-key/Command Key) to just control key, I found this works best for my workflow. Here's the [link](https://blog.herlein.com/post/ubuntu-remaps/) I refer  that creates the .Xmodmap config at $HOME:
 ```
 remove mod4 = Super_L
 keysym Super_L = Control_L
