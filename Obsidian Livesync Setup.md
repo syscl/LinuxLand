@@ -221,3 +221,73 @@ Go to `Sync Settings` > Presets > Live Sync > Apply.
 
 If databases or sync are not working, try fetch or rebuild database in the `Maintenance` tab
 
+
+## SSL auto renew problem
+This is a problem for couchdb with https, when use certbot, the ssl will expire every 3 months, so I have to manually regenerate the certificate and finish the TXT challenge. I then move to acme.sh that automatically renew the cert, here's the step:
+1. Have a script for copying the ssl to podman's staging folder as otherwise it will have problem with renew permission due to docker will change the ssl's perm
+```
+~ ❯ cat ~/.local/bin/deploy-livesync-cert.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+STAGING="$HOME/.local/share/livesync-certs-staging"
+LIVE="$HOME/.local/share/livesync-certs"
+
+podman unshare install -m 644 "$STAGING/fullchain.pem" "$LIVE/fullchain.pem.new"
+podman unshare install -m 600 "$STAGING/privkey.pem" "$LIVE/privkey.pem.new"
+podman unshare mv "$LIVE/fullchain.pem.new" "$LIVE/fullchain.pem"
+podman unshare mv "$LIVE/privkey.pem.new" "$LIVE/privkey.pem"
+
+systemctl --user restart livesync.service
+
+# Below is not needed if you don't host other livesync
+scp $STAGING/fullchain.pem $STAGING/privkey.pem <otheruser>@<ip>:/home/<username>
+```
+Then run the following
+
+```
+cd ~
+curl https://get.acme.sh | sh
+export DuckDNS_Token=<YOUR_DUCKDNS_TOKEN>
+
+mkdir -p "$HOME/.local/share/livesync-certs"
+chmod 700 "$HOME/.local/share/livesync-certs"
+
+~/.acme.sh/acme.sh --issue \
+  --dns dns_duckdns \
+  -d syscl-nas-controller.duckdns.org
+
+~/.acme.sh/acme.sh --install-cert \
+  -d syscl-nas-controller.duckdns.org \
+  --ecc \
+  --key-file "$HOME/.local/share/livesync-certs-staging/privkey.pem" \
+  --fullchain-file "$HOME/.local/share/livesync-certs-staging/fullchain.pem" \
+  --reloadcmd "$HOME/.local/bin/deploy-livesync-cert.sh"
+```
+with this the system will automatically renew the cert and restart the service.
+The podman config is as following:
+```
+~ ❯ cat /home/syscl/.config/containers/systemd/livesync.container
+[Unit]
+Description=Obsidian Livesync CouchDB (Quadlet)
+Wants=network-online.target
+After=network-online.target
+# If you defined .volume units, uncomment:
+# Requires=couchdb-data.volume couchdb-etc.volume
+# After=couchdb-data.volume couchdb-etc.volume
+
+[Container]
+Image=docker.io/library/couchdb:latest
+ContainerName=livesync
+PublishPort=5984:5984
+Volume=couchdb-data:/opt/couchdb/data
+Volume=couchdb-etc:/opt/couchdb/etc/local.d
+Volume=%h/.local/share/livesync-certs:/opt/couchdb/etc/local.d/ssl:Z
+EnvironmentFile=%h/.config/containers/systemd/livesync.env
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Restart=always
+```
