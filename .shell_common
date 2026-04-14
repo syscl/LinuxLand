@@ -130,7 +130,7 @@ export GIT_EDITOR="nvim"
 # For bash, ble.sh with starship right hand side prompt
 if [ -n "$BASH_VERSION" ]; then
   [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-  source -- ~/.local/share/blesh/ble.sh
+  [[ -f ~/.local/share/blesh/ble.sh ]] && source -- ~/.local/share/blesh/ble.sh
 fi
 
 # add atuin if exists
