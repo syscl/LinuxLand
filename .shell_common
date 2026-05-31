@@ -1,20 +1,27 @@
+function export_exist_path() {
+    if [ -d "$1" ]; then
+        export PATH="$PATH:$1"
+    fi
+}
+
 # Share common shell configurations
 export SHELL_COMMON_PATH="${BASH_SOURCE[0]:-${(%):-%x}}"
 export SHELL_COMMON_DIR="$(dirname "$SHELL_COMMON_PATH")"
 # export SHELL_COMMON_DIR/bin to PATH so that we can use the toolkit in bin directory
-export PATH="$PATH:$SHELL_COMMON_DIR/bin"
+export_exist_path "$SHELL_COMMON_~DIR/bin"
 alias reload-shell-common='source "$SHELL_COMMON_PATH"'
 function update-shell-common() {
     git -C "$(dirname "$SHELL_COMMON_PATH")" pull
 }
 
+# do not use path variable name, which is a built-in zsh variable (fuck you zsh)
+for dir in "$HOME/.local/bin" "$HOME/.pulumi/bin" "/usr/local/go/bin" "/opt/homebrew/bin"; do
+    export_exist_path "$dir"
+done
 
-export PATH="$HOME/.local/bin:$PATH"
-# add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
-# Go path follow official doc https://go.dev/doc/install
-export PATH=$PATH:/usr/local/go/bin
-
+if [ -x /usr/libexec/java_home ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -32,6 +39,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# eternal tmux connection: change rog to your ssh hostname
+alias dev="et -c 'tmux -CC new-session -A -s dev' rog"
 
 # check which shell it is bash or zsh
 # first decide if kubectl exist before auto completion
