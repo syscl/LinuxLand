@@ -145,6 +145,15 @@ if command -v atuin &>/dev/null; then
   fi
 fi
 
+# Warpify - conditionally only on Warp Terminal on *nix
+if [[ -n "$ZSH_VERSION" && "$TERM_PROGRAM" == "WarpTerminal" ]]; then
+    printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'
+fi
+
+if [[ -n "$BASH_VERSION" && "$TERM_PROGRAM" == "WarpTerminal" ]]; then
+    printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
+fi
+
 if command -v zoxide &>/dev/null; then
   if [ -n "$BASH_VERSION" ]; then
     eval "$(zoxide init bash)"
