@@ -8,7 +8,7 @@ function export_exist_path() {
 export SHELL_COMMON_PATH="${BASH_SOURCE[0]:-${(%):-%x}}"
 export SHELL_COMMON_DIR="$(dirname "$SHELL_COMMON_PATH")"
 # export SHELL_COMMON_DIR/bin to PATH so that we can use the toolkit in bin directory
-export_exist_path "$SHELL_COMMON_~DIR/bin"
+export_exist_path "$SHELL_COMMON_DIR/bin"
 alias reload-shell-common='source "$SHELL_COMMON_PATH"'
 function update-shell-common() {
     git -C "$(dirname "$SHELL_COMMON_PATH")" pull
