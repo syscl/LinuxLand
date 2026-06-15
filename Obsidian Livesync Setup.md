@@ -233,8 +233,9 @@ set -euo pipefail
 STAGING="$HOME/.local/share/livesync-certs-staging"
 LIVE="$HOME/.local/share/livesync-certs"
 
-podman unshare install -m 644 "$STAGING/fullchain.pem" "$LIVE/fullchain.pem.new"
-podman unshare install -m 600 "$STAGING/privkey.pem" "$LIVE/privkey.pem.new"
+podman unshare install -m 644 -o 5984 -g 5984 "$STAGING/fullchain.pem" "$LIVE/fullchain.pem.new"
+podman unshare install -m 600 -o 5984 -g 5984 "$STAGING/privkey.pem" "$LIVE/privkey.pem.new"
+
 podman unshare mv "$LIVE/fullchain.pem.new" "$LIVE/fullchain.pem"
 podman unshare mv "$LIVE/privkey.pem.new" "$LIVE/privkey.pem"
 
