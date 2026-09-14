@@ -40,8 +40,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# eternal tmux connection: change rog to your ssh hostname
-alias dev="et -c 'tmux -CC new-session -A -s dev' rog"
+# eternal tmux connection: defaults to rog, override with an argument (e.g. `dev ub`)
+function dev() {
+    local host="${1:-rog}"
+    et -c 'tmux -CC new-session -A -s dev' "$host"
+}
 
 # check which shell it is bash or zsh
 # first decide if kubectl exist before auto completion
@@ -123,8 +126,6 @@ function gpo() {
         fi
     fi
 }
-
-alias dev='et -c '\''tmux -CC new-session -A -s dev'\'' rog'
 
 if [ -f ~/.venv/bin/activate ]; then
     source ~/.venv/bin/activate
