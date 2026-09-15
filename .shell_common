@@ -145,10 +145,11 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # add atuin if exists
+if [ -f "$HOME/.atuin/bin/env" ]; then
+  . "$HOME/.atuin/bin/env"
+fi
+
 if command -v atuin &>/dev/null; then
-  if [ -f "$HOME/.atuin/bin/env" ]; then
-    . "$HOME/.atuin/bin/env"
-  fi
   if [ -n "$BASH_VERSION" ]; then
     eval "$(atuin init bash)"
   elif [ -n "$ZSH_VERSION" ]; then
