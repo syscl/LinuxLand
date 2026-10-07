@@ -15,7 +15,7 @@ function update-shell-common() {
 }
 
 # do not use path variable name, which is a built-in zsh variable (fuck you zsh)
-for dir in "$HOME/.local/bin" "$HOME/.pulumi/bin" "/usr/local/go/bin" "/opt/homebrew/bin"; do
+for dir in "$HOME/.local/bin" "$HOME/.pulumi/bin" "/usr/local/go/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin"; do
     export_exist_path "$dir"
 done
 
