@@ -9,7 +9,7 @@ sudo fc-cache -f -v
 # update applications list
 #
 sudo apt-get update
-sudo apt-get uprade
+sudo apt-get upgrade --fix-broken --with-new-pkgs
 #
 # update boot config
 #
@@ -18,4 +18,4 @@ sudo update-grub
 # remove useless depedencies
 #
 sudo apt-get clean
-sudo apt-get autoremove
+sudo apt-get autopurge
